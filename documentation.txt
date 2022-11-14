@@ -1,0 +1,14 @@
+1)návrhové vzory
+Budeme požívat patterny: Factory, Singleton
+
+-Factory: může byt použito pro vytváření "stuff", "Transport"
+-Singleton: bude to vhodný pro třídu "Home"(asi nemůžeme mít 2 domů)
+-Observer: pomocí toho patternu třída electric meter bude dělat Consume Report a měsiční naklady zařízení
+2)popis funkcionalit
+- uzivatel bude mít vlastní účet přes který bude mít možnost interakci s zařízením. Pokud v domu se vznikne
+	  nové zařízení, tak uživatel může to přidat.
+	- Entity se kterými budeme pracovat je, například: dům, okno (+ venkovní žaluzie), senzor, 
+auto, kolo, lednice, konvice, plus libovolné další entity
+	- Bude možnost měnit jejich stav, navzájem působit nějak s tím(např. měnit teplotu ledničky/klimatizace)
+	- Spotřebiče mají svojí spotřebu v aktivním stavu, idle stavu, vypnutém stavu a z toho bude se spočítat komunálka
+	- Jednotlivá zařízení mají jako API na sběr dat o tomto zařízení. O zařízeních sbíráme data jako spotřeba elektřiny, plynu, vody a funkčnost (klesá lineárně s časem)
