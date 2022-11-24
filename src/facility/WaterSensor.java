@@ -1,8 +1,12 @@
 package facility;
 
-public class WaterSensor {
-    public void wind_blew()
-    {
+import events.Event;
+import events.IEvent;
+import events.WaterLeak;
 
+public class WaterSensor implements ISensor {
+
+    public void triggered() {
+        System.out.println("Water leakage is prevented");
     }
 }

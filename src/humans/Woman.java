@@ -1,4 +1,4 @@
 package humans;
 
-public class Woman {
+public class Woman extends Human {
 }

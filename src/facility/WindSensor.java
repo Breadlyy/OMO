@@ -1,8 +1,7 @@
 package facility;
 
-public class WindSensor {
-    public void water_flew()
-    {
-
+public class WindSensor implements ISensor{
+    public void triggered() {
+        System.out.println("Closing shutters");
     }
 }

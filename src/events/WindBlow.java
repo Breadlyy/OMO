@@ -1,7 +1,7 @@
 package events;
 
-public class GasLeak extends Event{
-    public GasLeak()
+public class WindBlow extends Event {
+    public WindBlow()
     {
         occur();
     }
@@ -13,6 +13,6 @@ public class GasLeak extends Event{
     @Override
     public void occur() {
         setHappening(true);
-        System.out.println("Gas leak");
+        System.out.println("Wind blow");
     }
 }

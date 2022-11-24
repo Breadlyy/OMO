@@ -1,8 +1,7 @@
 package facility;
 
-public class Fuse {
-    public void electricity_collapse()
-    {
-
+public class Fuse implements ISensor {
+    public void triggered() {
+        System.out.println("Fuse is melted");
     }
 }

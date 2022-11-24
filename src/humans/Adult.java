@@ -7,10 +7,12 @@ import facility.Tap;
 import transport.Transport;
 
 public interface Adult {
-    void eat(Fridge fridge);
-    void feed_pet();
-    void open_window(Window window);
-    void ride(Transport transport);
-    void turn_heating_on(GasHeater heater);
-    void turn_water_on(Tap tap);
+    public void eat(Fridge fridge);
+    public void feed_pet();
+    public void open_window(Window window);
+    public void ride(Transport transport);
+    public void turn_heating_on(GasHeater heater);
+    public void turn_heating_off(GasHeater heater);
+    public void turn_water_on(Tap tap);
+    public void turn_water_off(Tap tap);
 }
