@@ -4,7 +4,7 @@ import food.Food;
 
 import java.util.Set;
 
-public class Fridge {
+public class Fridge extends Stuff{
     private Set<Food> food;
     public void eat(Food meal)
     {

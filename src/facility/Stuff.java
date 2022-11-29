@@ -1,6 +1,6 @@
 package facility;
 
-public abstract class Stuff {
+public abstract class Stuff  {
     protected float energyConsumption;
     protected StuffState state;
     public float generateReport()
@@ -25,4 +25,5 @@ public abstract class Stuff {
     {
         this.state = StuffState.disabled;
     }
+
 }

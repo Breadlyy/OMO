@@ -1,4 +1,4 @@
 package facility;
 
-public class Microwave {
+public class Microwave extends Stuff {
 }

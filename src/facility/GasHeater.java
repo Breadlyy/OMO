@@ -1,6 +1,6 @@
 package facility;
 
-public class GasHeater {
+public class GasHeater extends Stuff{
     public void start_heating()
     {
 
