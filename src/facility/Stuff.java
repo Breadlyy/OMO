@@ -7,23 +7,23 @@ public abstract class Stuff  {
     {
         return energyConsumption;
     }
-    public void turnOff()
-    {
-        if(this.state != StuffState.disabled)
-        {
-            this.state = StuffState.idle;
-        }
-    }
-    public void turnOn()
-    {
-        if(this.state != StuffState.disabled)
-        {
-            this.state = StuffState.active;
-        }
-    }
-    public void collapsed()
-    {
-        this.state = StuffState.disabled;
-    }
+//    public void turnOff()
+//    {
+//        if(this.state != StuffState.disabled)
+//        {
+//            this.state = StuffState.idle;
+//        }
+//    }
+//    public void turnOn()
+//    {
+//        if(this.state != StuffState.disabled)
+//        {
+//            this.state = StuffState.active;
+//        }
+//    }
+//    public void collapsed()
+//    {
+//        this.state = StuffState.disabled;
+//    }
 
 }

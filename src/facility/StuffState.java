@@ -1,7 +1,25 @@
 package facility;
 
-public enum StuffState {
-    active,
-    idle,
-    disabled
-};
+public class StuffState {
+    public void breakThing()
+    {
+
+    }
+    public void repair()
+    {
+
+    }
+    public void turnOff()
+    {
+
+    }
+    public void turnOn()
+    {
+
+    }
+    public void work()
+    {
+
+    }
+
+}

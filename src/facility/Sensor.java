@@ -11,6 +11,7 @@ public class Sensor {
        this.fuse = new Fuse();
        this.windSensor = new WindSensor();
        this.gasSensor = new GasSensor();
+       this.smoke_dec = new SmokeDetector();
         eventOccur();
     }
         private IEvent event;
@@ -20,16 +21,18 @@ public class Sensor {
         private ISensor windSensor;
         private ISensor gasSensor;
         private ISensor fuse;
+        private ISensor smoke_dec;
         public void setEvent(IEvent event) {
                 this.event = event;
         }
         public void eventOccur()
         {
-            num = this.random.nextInt(3);
+            num = this.random.nextInt(4);
             if(num == 0) setEvent(new WaterLeak());
             if(num == 1) setEvent(new GasLeak());
             if(num == 2) setEvent(new ShortCircuit());
             if(num == 3) setEvent(new WindBlow());
+            if(num == 4) setEvent(new Fire());
             triggerSomeSensor();
         }
         public void triggerSomeSensor() {
@@ -37,5 +40,6 @@ public class Sensor {
             else if(event instanceof GasLeak) gasSensor.triggered();
             else if(event instanceof WindBlow) windSensor.triggered();
             else if(event instanceof ShortCircuit) fuse.triggered();
+            else if(event instanceof SmokeDetector) smoke_dec.triggered();
         }
 }
