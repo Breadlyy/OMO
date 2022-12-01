@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 public abstract class Human implements Adult{
 
     private LocalDateTime bday;
+
     private String name;
     private String surname;
     //passNo = id

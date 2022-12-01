@@ -27,11 +27,11 @@ public class Sensor {
         }
         public void eventOccur()
         {
-            num = this.random.nextInt(4);
-            if(num == 0) setEvent(new WaterLeak());
-            if(num == 1) setEvent(new GasLeak());
+            num = this.random.nextInt(1);
+            if(num == 2) setEvent(new WaterLeak());
+            if(num == 3) setEvent(new GasLeak());
             if(num == 2) setEvent(new ShortCircuit());
-            if(num == 3) setEvent(new WindBlow());
+            if(num == 0) setEvent(new WindBlow());
             if(num == 4) setEvent(new Fire());
             triggerSomeSensor();
         }

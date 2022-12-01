@@ -1,7 +1,5 @@
-import facility.Oven;
-import facility.Sensor;
-import facility.Stuff;
-import facility.StuffFactory;
+import constructions.Shutter;
+import facility.*;
 
 public class Main {
     public static void main(String[] args) {
