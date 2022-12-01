@@ -1,4 +1,4 @@
-package Animals;
+package animals;
 
 public abstract class Pet implements IPet {
     private String name;
