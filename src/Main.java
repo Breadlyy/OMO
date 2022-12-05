@@ -1,5 +1,4 @@
-import constructions.Shutter;
-import facility.*;
+import home.sensor.Sensor;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package constructions;
+package home;
 
 public class Window {
     private int height;

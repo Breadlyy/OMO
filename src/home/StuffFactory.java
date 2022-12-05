@@ -1,4 +1,6 @@
-package facility;
+package home;
+
+import home.stuff.*;
 
 public class StuffFactory {
     public Oven createOven()

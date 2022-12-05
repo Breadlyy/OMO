@@ -1,4 +1,4 @@
-package facility;
+package home.stuff;
 
 public class GasHeater extends Stuff{
     public void start_heating()

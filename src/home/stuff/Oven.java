@@ -1,4 +1,4 @@
-package facility;
+package home.stuff;
 
 import food.Food;
 

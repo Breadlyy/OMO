@@ -1,19 +1,10 @@
 package events;
 
-public class ShortCircuit extends Event {
-    private boolean happening = false;
-    public ShortCircuit()
-    {
-        occur();
-    }
+import home.sensor.Fuse;
+import home.sensor.SmokeDetector;
 
-    public void setHappening(boolean happening)
-    {
-        this.happening = happening;
-    }
-    @Override
-    public void occur() {
-        setHappening(true);
-        System.out.println("Short circuit");
+public class ShortCircuit extends Event {
+    public void attachSensor(Fuse sensor) {
+        sensors.add(sensor);
     }
 }
