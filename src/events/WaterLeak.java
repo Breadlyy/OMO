@@ -1,25 +1,12 @@
 package events;
 
+import home.sensor.SmokeDetector;
+import home.sensor.WaterSensor;
+
 import java.util.Random;
 
-public class WaterLeak implements IEvent {
-    public WaterLeak()
-    {
-        occur();
-    }
-    private boolean happening = false;
-    Random random;
-    public void setHappening(boolean happening)
-    {
-        this.happening = happening;
-    }
-    public boolean getHappening()
-    {
-        return this.happening;
-    }
-    @Override
-    public void occur() {
-            setHappening(true);
-             System.out.println("Water leak");
+public class WaterLeak extends Event {
+    public void attachSensor(WaterSensor sensor) {
+        sensors.add(sensor);
     }
 }

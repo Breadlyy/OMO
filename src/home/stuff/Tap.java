@@ -1,4 +1,6 @@
-package facility;
+package home.stuff;
+
+import home.stuff.Stuff;
 
 public class Tap extends Stuff {
     private int water_consumption;

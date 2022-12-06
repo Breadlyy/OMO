@@ -1,9 +1,9 @@
 package humans;
 
-import constructions.Window;
-import facility.Fridge;
-import facility.GasHeater;
-import facility.Tap;
+import home.Window;
+import home.stuff.Fridge;
+import home.stuff.GasHeater;
+import home.stuff.Tap;
 import transport.Transport;
 
 import java.time.LocalDateTime;

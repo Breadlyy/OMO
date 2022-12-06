@@ -1,11 +1,25 @@
-package facility;
+package home.sensor;
 
 import events.*;
+import home.stuff.Stuff;
 
+import java.util.List;
 import java.util.Random;
 
 public class Sensor {
-    public Sensor()
+    protected List<Stuff> stuff;
+
+    public void notifySensor()
+    {
+        for(Stuff s: stuff)
+        {
+            s.notifyStuff();
+        }
+    }
+
+
+
+    /*public Sensor()
     {
        this.waterSensor = new WaterSensor();
        this.fuse = new Fuse();
@@ -41,5 +55,5 @@ public class Sensor {
             else if(event instanceof WindBlow) windSensor.triggered();
             else if(event instanceof ShortCircuit) fuse.triggered();
             else if(event instanceof SmokeDetector) smoke_dec.triggered();
-        }
+        }*/
 }

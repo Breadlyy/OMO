@@ -1,6 +1,6 @@
 package observer;
 
-import constructions.Shutter;
+import home.stuff.Shutter;
 
 import java.util.List;
 

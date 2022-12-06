@@ -1,4 +1,6 @@
-package facility;
+package home.stuff;
+
+import home.stuff.state.StuffState;
 
 import java.time.LocalDateTime;
 

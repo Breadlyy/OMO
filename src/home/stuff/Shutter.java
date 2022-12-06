@@ -1,4 +1,4 @@
-package constructions;
+package home.stuff;
 
 public class Shutter {
     private boolean opened;
