@@ -11,7 +11,7 @@ public class Home {
     private List<Human> human;
     private List<Pet> pets;
     private List<Floor> floors;
-   // public String values;
+    public String values;
     private Home(String values) {
         this.values = values;
     }

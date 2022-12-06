@@ -2,6 +2,8 @@ package home;
 
 import home.stuff.Stuff;
 
+
+import java.util.Iterator;
 import java.util.List;
 
 public class Room {
@@ -48,8 +50,42 @@ public class Room {
         this.stuff.add(stuff);
     }
 
-    public void removeSturr(Stuff stuff)
+    public void removeStuff(Stuff stuff)
     {
         this.stuff.remove(stuff);
     }
+
+
+    public Iterator getIterator() {
+        return new StuffIterator();
+    }
+
+    private class StuffIterator implements Iterator
+    {
+        int index;
+        @Override
+        public boolean hasNext() {
+            if(index < stuff.size())
+            {
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public Object next() {
+            Stuff stuff1 = stuff.get(index);
+            index++;
+            return stuff1;
+        }
+    }
+    public interface Iterator {
+        public boolean hasNext();
+        public Object next();
+    }
+    public interface Collection {
+        Iterator getIterator();
+    }
+
 }
+
