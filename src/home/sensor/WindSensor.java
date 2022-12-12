@@ -8,21 +8,11 @@ import observer.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WindSensor implements ISensor {
+public class WindSensor extends Sensor {
     List<Shutter> shutters;
-
-
     public void add(Shutter shutter)
     {
         shutters.add(shutter);
     }
 
-
-    @Override
-    public void notifySensor() {
-        for(Shutter s: shutters)
-        {
-            s.close();
-        }
-    }
 }

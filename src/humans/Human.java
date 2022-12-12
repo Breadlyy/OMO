@@ -1,39 +1,58 @@
 package humans;
 
+import events.*;
+import home.Home;
+import home.Room;
 import home.Window;
+import home.sensor.*;
 import home.stuff.Fridge;
 import home.stuff.GasHeater;
 import home.stuff.Tap;
 import transport.Transport;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Random;
 
 public abstract class Human implements Adult{
-
+    int rand;
+    private Random random;
     private LocalDateTime bday;
 
     private String name;
     private String surname;
+
     //passNo = id
-    private int passNo;
-    @Override
+    protected int passNo;
+    private Room room;
+    private Home home;
+
+
+    public Human(String name, String surname, int passNo, Home home) {
+        this.name = name;
+        this.surname = surname;
+        this.passNo = passNo;
+        this.home = home;
+    }
+
     public void eat(Fridge fridge)
     {
 
     }
 
-    @Override
-    public void feed_pet() {
 
-    }
-
-    @Override
-    public void open_window(Window window)
+    public void feed_pet()
     {
 
     }
-
-    @Override
+    public void open_window(Window window)
+    {
+        window.open();
+    }
+    public void close_window(Window window)
+    {
+        window.close();
+    }
     public void ride(Transport transport)
     {
 
@@ -90,5 +109,26 @@ public abstract class Human implements Adult{
 
     public void setBday(LocalDateTime bday) {
         this.bday = bday;
+    }
+
+    public void screw_up()
+    {
+        rand = (int) (Math.random() * 5);
+        switch (rand)
+        {
+            case 1: home.getFire().occur();
+            case 2: home.getGasLeak().occur();
+            case 3: home.getShortCircuit().occur();
+            case 4: home.getShortCircuit().occur();
+            case 5: home.getWindBlow().occur();
+        }
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

@@ -4,7 +4,7 @@ import home.stuff.state.StuffState;
 
 public abstract class Stuff  {
     protected float energyConsumption;
-    protected StuffState state;
+    protected StuffState state = new StuffState();
     public float generateReport()
     {
         return energyConsumption;
