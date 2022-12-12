@@ -3,11 +3,13 @@ package home.sensor;
 import events.*;
 import home.stuff.Stuff;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Sensor {
-    protected List<Stuff> stuff;
+public class Sensor implements ISensor {
+    protected List<Stuff> stuff = new ArrayList<>();
+
 
     public void notifySensor()
     {
@@ -15,6 +17,40 @@ public class Sensor {
         {
             s.notifyStuff();
         }
+    }
+    public Sensor findSensor(String name, List<Sensor> sensors)
+    {
+        switch (name)
+        {
+            case "SmokeDetector":
+                for (int i = 0; i < sensors.size(); i++)
+                {
+                    if(sensors.get(i) instanceof SmokeDetector) return sensors.get(i);
+                }
+                break;
+            case "WaterSensor":
+
+                break;
+            case "WindSensor":
+                for (int i = 0; i < sensors.size(); i++)
+                {
+                    if(sensors.get(i) instanceof WindSensor) return sensors.get(i);
+                }
+                break;
+            case "GasSensor":
+                for (int i = 0; i < sensors.size(); i++)
+                {
+                    if(sensors.get(i) instanceof GasSensor) return sensors.get(i);
+                }
+                break;
+            case "Fuse":
+                for (int i = 0; i < sensors.size(); i++)
+                {
+                    if(sensors.get(i) instanceof Fuse) return sensors.get(i);
+                }
+                break;
+        }
+        return null;
     }
 
 
