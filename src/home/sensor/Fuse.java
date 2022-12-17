@@ -6,6 +6,7 @@ import home.stuff.Microwave;
 public class Fuse extends Sensor
 {
 
+
     public void add(Microwave microwave)
     {
         stuff.add(microwave);

@@ -5,7 +5,7 @@ import home.Home;
 
 public class Men extends Human {
 
-        public Men(String name, String surname, int passNo, Home home) {
-                super(name, surname, passNo, home);
+        public Men(String name, String surname, long passNo) {
+                super(name, surname, passNo);
         }
 }

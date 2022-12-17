@@ -4,8 +4,9 @@ import java.util.Random;
 
 public class Food {
     Random random;
-    Food()
+    public Food()
     {
+        random = new Random();
         setCooked(100);
     }
     private int cooked;

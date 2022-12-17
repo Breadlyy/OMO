@@ -1,0 +1,39 @@
+
+{
+  "humans":
+          [
+    {
+      "name": "Sky",
+      "surname": "Bugs",
+      "pass_no": 3147868559
+    },
+    {
+      "name": "Lyon",
+      "surname": "Ephson",
+      "pass_no": 7614941055
+    },
+    {
+      "name": "Rivi",
+      "surname": "Baalham",
+      "pass_no": 8897308422
+    }
+            ],
+      "cars":
+    [
+
+      {
+      "speed": 154,
+      "brand": "Lyrica"
+    }, {
+      "speed": 204,
+      "brand": "Hydrocortisone Acetate"
+    }, {
+      "speed": 251,
+      "brand": "Savella"
+    }, {
+      "speed": 112,
+      "brand": "CLARINS Ever Matte Broad Spectrum SPF 15 Tint 109"
+    }
+    ]
+
+}
