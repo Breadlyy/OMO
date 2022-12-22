@@ -1,17 +1,14 @@
 package humans;
 
-import events.*;
 import home.Home;
 import home.Room;
-import home.Window;
-import home.sensor.*;
+import home.stuff.Window;
 import home.stuff.Fridge;
 import home.stuff.GasHeater;
 import home.stuff.Tap;
 import transport.Transport;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Random;
 
 public abstract class Human implements Adult{

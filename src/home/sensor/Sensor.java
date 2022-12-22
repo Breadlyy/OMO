@@ -9,7 +9,8 @@ import java.util.Random;
 
 public class Sensor implements ISensor {
     protected List<Stuff> stuff = new ArrayList<>();
-
+    private long id;
+    private long observe;
 
     public void notifySensor()
     {
@@ -51,6 +52,22 @@ public class Sensor implements ISensor {
                 break;
         }
         return null;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getObserve() {
+        return observe;
+    }
+
+    public void setObserve(long observe) {
+        this.observe = observe;
     }
 
 

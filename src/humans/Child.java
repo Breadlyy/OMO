@@ -3,7 +3,7 @@ package humans;
 import home.Home;
 
 public class Child extends Human {
-    public Child(String name, String surname, int passNo) {
+    public Child(String name, String surname, long passNo) {
         super(name, surname, passNo);
     }
 

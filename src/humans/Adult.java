@@ -1,14 +1,10 @@
 package humans;
 
-import home.Window;
-import home.sensor.Sensor;
+import home.stuff.Window;
 import home.stuff.Fridge;
 import home.stuff.GasHeater;
 import home.stuff.Tap;
 import transport.Transport;
-
-import javax.swing.plaf.PanelUI;
-import java.util.List;
 
 public interface Adult {
     public void eat(Fridge fridge);

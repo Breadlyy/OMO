@@ -5,7 +5,7 @@ import food.Food;
 import java.util.Set;
 
 public class Fridge extends Stuff{
-    private int capacity;
+    private static long capacity = 5000;
     private Set<Food> food;
     public void eat(Food meal)
     {

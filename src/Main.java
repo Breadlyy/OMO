@@ -1,42 +1,22 @@
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.google.common.collect.ImmutableList;
-import events.Fire;
-import food.Food;
-import home.Floor;
-import home.Home;
-import home.Room;
 import home.sensor.Sensor;
-import home.sensor.SmokeDetector;
-import home.stuff.*;
+import home.stuff.Stuff;
 import humans.Human;
 import humans.Men;
-import net.minidev.json.writer.JsonReader;
 import org.json.JSONException;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
-import parser.HumanParser;
-import transport.Car;
-import org.json.simple.JSONArray;
+import parser.Parser;
+
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
-import java.io.FileReader;
-import java.util.Scanner;
-
-import org.json.simple.parser.JSONParser;
 
 public class Main {
     public static void main(String[] args) throws IOException, ParseException, JSONException {
-        HumanParser humanParser = new HumanParser();
-        ArrayList<Men> mens = humanParser.getMens();
-        System.out.println(mens.get(0).getName());
-        System.out.println(mens.get(0).getSurname());
-        System.out.println(mens.get(0).getPassNo());
-        ArrayList<Car> cars = humanParser.getCars();
-        System.out.println(cars.get(0).getSpeed());
-        System.out.println(cars.get(0).getBrand());
+        Parser parser = new Parser();
+        ArrayList<Stuff> stuffs = parser.getStuff();
+        ArrayList<Sensor> sensors = parser.getSensors();
+        System.out.println();
+
+
 //         ObjectMapper objectMapper = new ObjectMapper();
 //         final JsonReader jsonReader = new JsonReader();
 //         JSONParser jsonParser = new JSONParser();
