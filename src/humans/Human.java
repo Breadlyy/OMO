@@ -1,17 +1,14 @@
 package humans;
 
-import events.*;
 import home.Home;
 import home.Room;
-import home.Window;
-import home.sensor.*;
+import home.stuff.Window;
 import home.stuff.Fridge;
 import home.stuff.GasHeater;
 import home.stuff.Tap;
 import transport.Transport;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Random;
 
 public abstract class Human implements Adult{
@@ -23,16 +20,15 @@ public abstract class Human implements Adult{
     private String surname;
 
     //passNo = id
-    protected int passNo;
+    private long passNo;
     private Room room;
     private Home home;
 
 
-    public Human(String name, String surname, int passNo, Home home) {
+    public Human(String name, String surname, long pass) {
         this.name = name;
         this.surname = surname;
-        this.passNo = passNo;
-        this.home = home;
+        this.passNo = pass;
     }
 
     public void eat(Fridge fridge)
@@ -79,7 +75,7 @@ public abstract class Human implements Adult{
         tap.close_water();
     }
 
-    public int getPassNo() {
+    public long getPassNo() {
         return passNo;
     }
 
@@ -130,5 +126,14 @@ public abstract class Human implements Adult{
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", passNo=" + passNo +
+                '}';
     }
 }

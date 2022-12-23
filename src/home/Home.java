@@ -42,23 +42,20 @@ public class Home {
     protected ShortCircuit shortCircuit;
     protected WaterLeak waterLeak;
     protected WindBlow windBlow;
-    private Home(String values) {
-        this.values = values;
+    private Home() {
         this.fire = new Fire();
         this.gasLeak = new GasLeak();
         this.shortCircuit = new ShortCircuit();
         this.waterLeak = new WaterLeak();
         this.windBlow = new WindBlow();
-
     }
     public static Home getExample(String values) {
 
-        if (home == null) {
-
-            home = new Home(values);
-
+        if(home == null)
+        {
+            return new Home();
         }
-        return home;
+        return null;
     }
 
     public List<Sensor> getSensors() {

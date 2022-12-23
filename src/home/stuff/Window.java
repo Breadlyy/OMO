@@ -1,14 +1,13 @@
 package home.stuff;
 
-public class Shutter extends Stuff {
+public class Window extends Stuff{
+    private int height;
+    private int width;
     private boolean opened;
+    private  Shutter shutter;
 
     public boolean isOpened() {
         return opened;
-    }
-
-    public void setOpened(boolean opened) {
-        this.opened = opened;
     }
     public void open()
     {
@@ -19,5 +18,13 @@ public class Shutter extends Stuff {
     {
         this.opened = false;
         System.out.println("Shutter closed");
+    }
+
+    public Shutter getShutter() {
+        return shutter;
+    }
+
+    public void setShutter(Shutter shutter) {
+        this.shutter = shutter;
     }
 }

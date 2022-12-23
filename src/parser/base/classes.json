@@ -1,0 +1,311 @@
+
+{
+  "home":
+          [
+            {
+              "values": "smart_ass_home"
+            }
+          ],
+  "Men":
+          [
+    {
+      "name": "Jason ",
+      "surname": "Statham",
+      "pass_no": 3147868559
+    }
+            ],
+  "woman":
+   [ {
+      "name": " Angela ",
+      "surname": "Merkel",
+      "pass_no": 7614941055
+    }],
+  "Child": [
+    {
+      "name": "Warren",
+      "surname": "Buffet",
+      "pass_no": 8897308422
+    }
+     ],
+      "cars":
+    [
+      {
+      "speed": 154,
+      "brand": "Lyrica"
+    }, {
+      "speed": 204,
+      "brand": "Hydrocortisone Acetate"
+    }, {
+      "speed": 251,
+      "brand": "Savella"
+    }, {
+      "speed": 112,
+      "brand": "CLARINS Ever Matte Broad Spectrum SPF 15 Tint 109"
+    }
+    ],
+  "stuff":
+  [
+       {
+      "id": 1,
+      "capacity": 5000,
+      "_comment": "холодос",
+      "num" : 1
+       },
+    {
+    "id": 2,
+    "_comment": "обогреавтель",
+    "num" : 2
+  }, {
+    "id": 3,
+    "_comment": "обогреавтель",
+    "num" : 2
+  }, {
+    "id": 4,
+    "_comment": "обогреавтель",
+    "num" : 2
+  }, {
+    "id": 5,
+    "_comment": "обогреавтель",
+    "num" : 2
+  },{
+    "id": 6,
+    "_comment": "микроволновка",
+    "num" : 3
+  },{
+    "id": 7,
+    "_comment": "шторы",
+    "num" : 4
+  },{
+    "id": 8,
+    "_comment": "шторы",
+    "num" : 4
+  },{
+    "id": 9,
+    "_comment": "штора",
+    "num" : 4
+  },{
+    "id": 10,
+    "_comment": "штора",
+    "num" : 4
+  },{
+    "id": 11,
+    "_comment": "штора",
+    "num" : 4
+  },{
+    "id": 12,
+    "_comment": "штора",
+    "num" : 4
+  },{
+    "id": 13,
+    "_comment": "штора",
+    "num" : 4
+  },{
+    "id": 14,
+    "_comment": "штора",
+    "num" : 4
+  },{
+    "id": 15,
+    "_comment": "штора",
+    "num" : 4
+  },{
+    "id": 16,
+    "_comment": "окно",
+    "num" : 5,
+    "shutter_id": 7
+  },{
+    "id": 17,
+    "_comment": "окно",
+    "num" : 5,
+    "shutter_id": 8
+  },{
+    "id": 18,
+    "_comment": "окно",
+    "num" : 5,
+    "shutter_id": 9
+  },{
+    "id": 19,
+    "_comment": "окно",
+    "num" : 5,
+    "shutter_id": 10
+  },{
+    "id": 20,
+    "_comment": "окно",
+    "num" : 5,
+    "shutter_id": 11
+  },{
+    "id": 21,
+    "_comment": "окно",
+    "num" : 5,
+    "shutter_id": 12
+  },{
+    "id": 22,
+    "_comment": "окно",
+    "num" : 5,
+    "shutter_id": 13
+  },{
+    "id": 23,
+    "_comment": "окно",
+    "num" : 5,
+    "shutter_id": 14
+  },{
+    "id": 24,
+    "_comment": "окно",
+    "num" : 5,
+    "shutter_id": 15
+  },{
+    "id": 25,
+    "_comment": "кран",
+    "num" : 6
+  },{
+    "id": 26,
+    "_comment": "кран",
+    "num" : 6
+  },{
+    "id": 27,
+    "_comment": "печка,",
+    "num": 7
+  }
+     ],
+  "sensor":
+          [
+            {
+              "id": 1,
+              "comment": "детектор газа",
+              "num": 1,
+              "observe": 2
+            },
+            {
+              "id": 2,
+              "comment": "детектор газа",
+              "num": 1,
+              "observe": 3
+            },
+            {
+              "id": 3,
+              "comment": "детектор газа",
+              "num": 1,
+              "observe": 4
+            },
+            {
+              "id": 4,
+              "comment": "детектор газа",
+              "num": 1,
+              "observe": 5
+            },
+            {
+              "id": 5,
+              "comment": "предохранитель",
+              "num": 2,
+              "observe": 1
+            },
+            {
+              "id": 6,
+              "comment": "предохранитель",
+              "num": 2,
+              "observe": 28
+            },
+            {
+              "id": 7,
+              "comment": "детектор дыма",
+              "num": 3,
+              "observe": 2
+            },
+            {
+              "id": 8,
+              "comment": "детектор дыма",
+              "num": 3,
+              "observe": 3
+            },
+            {
+              "id": 9,
+              "comment": "детектор дыма",
+              "num": 3,
+              "observe": 4
+            },
+            {
+              "id": 10,
+              "comment": "детектор дыма",
+              "num": 3,
+              "observe": 5
+            },
+            {
+              "id": 11,
+              "comment": "детектор дыма",
+              "num": 3,
+              "observe": 6
+            }, {
+            "id": 12,
+            "comment": "детектор дыма",
+            "num": 3,
+            "observe": 27
+          },
+            {
+            "id": 13,
+            "comment": "водный сенсор",
+            "num": 4,
+              "observe": 24
+          },
+            {
+              "id": 14,
+              "comment": "водный сенсор",
+              "num": 4,
+              "observe": 25
+            }, {
+            "id": 15,
+            "comment": "водный сенсор",
+            "num": 4,
+            "observe": 26
+          },
+            {
+            "id": 16,
+            "comment": "ветряной сенсор",
+            "num": 5,
+            "observe": 16
+          },{
+            "id": 17,
+            "comment": "ветряной сенсор",
+            "num": 5,
+            "observe": 17
+          },{
+            "id": 18,
+            "comment": "ветряной сенсор",
+            "num": 5,
+            "observe": 18
+          },{
+            "id": 19,
+            "comment": "ветряной сенсор",
+            "num": 5,
+            "observe": 19
+          },{
+            "id": 20,
+            "comment": "ветряной сенсор",
+            "num": 5,
+            "observe": 20
+          }
+          ,{
+            "id": 21,
+            "comment": "ветряной сенсор",
+            "num": 5,
+            "observe": 21
+          }
+          ,{
+            "id": 22,
+            "comment": "ветряной сенсор",
+            "num": 5,
+            "observe": 22
+          }
+          ,{
+            "id": 23,
+            "comment": "ветряной сенсор",
+            "num": 5,
+            "observe": 23
+          }
+          ,{
+            "id": 24,
+            "comment": "ветряной сенсор",
+            "num": 5,
+            "observe": 24
+          }
+          ]
+
+}

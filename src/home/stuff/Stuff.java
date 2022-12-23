@@ -5,6 +5,7 @@ import home.stuff.state.StuffState;
 public abstract class Stuff  {
     protected float energyConsumption;
     protected StuffState state = new StuffState();
+    private long id;
     public float generateReport()
     {
         return energyConsumption;
@@ -41,6 +42,14 @@ public abstract class Stuff  {
     public void notifyStuff()
     {
         powerOff();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
 
