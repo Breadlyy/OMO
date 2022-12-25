@@ -34,14 +34,28 @@ public class Parser {
     JSONParser jsonParser = new JSONParser();
     JSONObject jsonObject;
     JSONArray jsonArray;
+    JSONObject wholeFile;
     Map<Long, Human> human = new HashMap<>();
     Map<Long, Stuff> allstuff = new HashMap<>();
     Map<Integer, Floor> floors = new HashMap<>();
     Map<Integer, Room> rooms = new HashMap<>();
-    public Home getHome() throws IOException, ParseException {
+    public Home getHome(){
+        try
+        {
+            FileReader reader = new FileReader("src/parser/base/classes.json");
+            wholeFile = (JSONObject) jsonParser.parse(reader);
+        }
+        catch (IOException e)
+        {
+            System.out.println("Sorry, your file is broken. Can not open it");
+        }
+        catch (ParseException e)
+        {
+            System.out.println("Sorry, can not parse your file.");
+        }
         HouseBuilder builder = new HouseBuilder();
         getHumans(builder);
-        getCars(builder);
+        getCars();
         getFloors(builder);
         getRooms();
         getStuff();
@@ -50,29 +64,25 @@ public class Parser {
     }
 
 
-    public void getHumans(HouseBuilder builder) throws IOException, ParseException {
-        String name, surname;
-        int pass_no;
-        ArrayList<Human> humans = new ArrayList<>();
-        FileReader reader = new FileReader("src/parser/base/classes.json");
-        Object object = jsonParser.parse(reader);
-         jsonObject = (org.json.simple.JSONObject)object;
-        jsonArray = (org.json.simple.JSONArray)jsonObject.get("Men");
+    public void getHumans(HouseBuilder builder){
+
+
+
+        jsonArray = (org.json.simple.JSONArray)wholeFile.get("Men");
         jsonObject = (JSONObject) jsonArray.get(0);
         Human men = new Men(jsonObject.get("name").toString(),
                 jsonObject.get("surname").toString(),
                 (long)jsonObject.get("pass_no"));
         builder.setFather((Men)men);
-        jsonObject = (org.json.simple.JSONObject)object;
-        jsonArray = (org.json.simple.JSONArray)jsonObject.get("woman");
+
+        jsonArray = (org.json.simple.JSONArray)wholeFile.get("woman");
         jsonObject = (JSONObject) jsonArray.get(0);
         Human woman = new Woman(jsonObject.get("name").toString(),
                 jsonObject.get("surname").toString(),
                 (long)jsonObject.get("pass_no"));
         builder.setMother((Woman)woman);
 
-        jsonObject = (org.json.simple.JSONObject)object;
-        jsonArray = (org.json.simple.JSONArray)jsonObject.get("Child");
+        jsonArray = (org.json.simple.JSONArray)wholeFile.get("Child");
         for(int i = 0; i < jsonArray.size(); i++) {
             jsonObject = (JSONObject) jsonArray.get(i);
             Child child = new Child(jsonObject.get("name").toString(),
@@ -86,14 +96,8 @@ public class Parser {
 
     }
 
-    public void getCars(HouseBuilder builder) throws IOException, ParseException {
-        String name, surname;
-        int pass_no;
-        ArrayList<Car> cars = new ArrayList<>();
-        FileReader reader = new FileReader("src/parser/base/classes.json");
-        Object object = jsonParser.parse(reader);
-        jsonObject = (org.json.simple.JSONObject)object;
-        jsonArray = (org.json.simple.JSONArray)jsonObject.get("cars");
+    public void getCars(){
+        jsonArray = (JSONArray) wholeFile.get("cars");
         for(int i = 0; i < jsonArray.size(); i++)
         {
           jsonObject = (JSONObject) jsonArray.get(i);
@@ -113,15 +117,17 @@ public class Parser {
     /**
      * Create a floor
      * attach to the house
+     *
+     * Json structure:
+     * num: Integer //floor number
+     *
      * @param builder
      * @throws IOException
      * @throws ParseException
      */
-    public void getFloors(HouseBuilder builder) throws IOException, ParseException {
-        FileReader reader = new FileReader("src/parser/base/classes.json");
-        Object object = jsonParser.parse(reader);
-        jsonObject = (org.json.simple.JSONObject)object;
-        jsonArray = (org.json.simple.JSONArray)jsonObject.get("floors");
+    public void getFloors(HouseBuilder builder) {
+
+        jsonArray = (org.json.simple.JSONArray)wholeFile.get("floors");
         for(Object o: jsonArray)
         {
             Floor f = new Floor(builder.build(),  (int)((JSONObject)o).get("num")); //Is it correct to use build here?
@@ -132,16 +138,21 @@ public class Parser {
 
     /**
      * Create a room.
+     *
+     * Json structure
+     * floor: Integer
+     * height: Integer
+     * length: Integer
+     * height: Integer
+     * id: Integer
+     *
      * Then assign room to floor
      * Add to rooms list with room id
      * @throws IOException
      * @throws ParseException
      */
-    public void getRooms() throws IOException, ParseException {
-        FileReader reader = new FileReader("src/parser/base/classes.json");
-        Object object = jsonParser.parse(reader);
-        jsonObject = (org.json.simple.JSONObject)object;
-        jsonArray = (org.json.simple.JSONArray)jsonObject.get("rooms");
+    public void getRooms() {
+        jsonArray = (org.json.simple.JSONArray)wholeFile.get("rooms");
         for(Object o:  jsonArray)
         {
             o = (JSONObject)o;
@@ -159,19 +170,25 @@ public class Parser {
      * Based on typeNum create specific type of stuff
      * assign stuff to room via roomId
      * Add to allstuff list with stuffId
+     *
+     * Json structure
+     * num: Integer //type number
+     * waterconsumption: Integer // optional, used only for Tap type
+     * energyconsumption: Integer // has to be in any stuff, including Tap
+     * id: Integer
+     * room: Integer // Where it is located
+     *
      * @throws IOException
      * @throws ParseException
      */
-    public void getStuff() throws IOException, ParseException {
-        FileReader reader = new FileReader("src/parser/base/classes.json");
-        Object object = jsonParser.parse(reader);
-        jsonObject = (org.json.simple.JSONObject)object;
-        jsonArray = (org.json.simple.JSONArray)jsonObject.get("stuff");
+    public void getStuff() {
+
+        jsonArray = (org.json.simple.JSONArray)wholeFile.get("stuff");
         for (int i = 0; i < jsonArray.size(); i++)
         {
             jsonObject = (JSONObject) jsonArray.get(i);
             Stuff s;
-            int typeNum =(int)jsonObject.get("num");
+            int typeNum =(int)jsonObject.get("type");
             switch (typeNum) {
                 case NFRIDGE: {
                     s = new Fridge();
@@ -194,7 +211,7 @@ public class Parser {
                     break;
                 }
                 case NTAP: {
-                    s = new Tap((int) jsonObject.get("consumption"));
+                    s = new Tap((int) jsonObject.get("waterconsumption"));
                     break;
                 }
                 case NOVEN: {
@@ -217,19 +234,23 @@ public class Parser {
      * Based on typeNum create specific type of sensor
      * Attach sensor to observed stuff
      * End
+     *
+     * Json structure
+     * type: Integer
+     * observes: List[Integer] // stuff id
+     * id: Integer
+     *
      * @throws IOException
      * @throws ParseException
      */
-    public void getSensors() throws IOException, ParseException {
+    public void getSensors() {
 
-        FileReader reader = new FileReader("src/parser/base/classes.json");
-        Object object = jsonParser.parse(reader);
-        jsonObject = (org.json.simple.JSONObject)object;
-        jsonArray = (org.json.simple.JSONArray)jsonObject.get("sensor");
+
+        jsonArray = (org.json.simple.JSONArray)wholeFile.get("sensor");
         for (int i = 0; i < jsonArray.size(); i++)
         {
             jsonObject = (JSONObject) jsonArray.get(i);
-            int typeNum = (int)jsonObject.get("observer");
+            int typeNum = (int)jsonObject.get("type");
             JSONArray arr = (JSONArray) jsonObject.get("observes");
             Sensor s;
             switch (typeNum) {
