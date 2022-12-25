@@ -11,9 +11,9 @@ public class StuffFactory {
     {
         return new GasHeater();
     }
-    public Tap createTap()
+    public Tap createTap(int water)
     {
-        return new Tap();
+        return new Tap(water);
     }
     public Fridge createFridge()
     {

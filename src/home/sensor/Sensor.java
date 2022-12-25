@@ -11,6 +11,10 @@ public class Sensor implements ISensor {
     protected List<Stuff> stuff = new ArrayList<>();
 
 
+    public Sensor() {
+        this.stuff = new ArrayList<>();
+    }
+
     public void notifySensor()
     {
         for(Stuff s: stuff)

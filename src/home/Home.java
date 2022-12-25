@@ -9,11 +9,13 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class Home {
     private static Home home;
-    private List<Human> human;
-    private List<Pet> pets;
-    private List<Floor> floors;
+    private List<Human> human = new ArrayList<>();
+    private List<Pet> pets = new ArrayList<>();
+    private List<Floor> floors = new ArrayList<>();
     private List<Sensor> sensors = new ArrayList<>();
     public String values;
     protected Fire fire;
@@ -43,7 +45,7 @@ public class Home {
     protected WaterLeak waterLeak;
     protected WindBlow windBlow;
     private Home(String values) {
-        this.values = values;
+       // this.values = values;
         this.fire = new Fire();
         this.gasLeak = new GasLeak();
         this.shortCircuit = new ShortCircuit();
@@ -51,18 +53,40 @@ public class Home {
         this.windBlow = new WindBlow();
 
     }
+
     public static Home getExample(String values) {
 
         if (home == null) {
-
             home = new Home(values);
-
         }
         return home;
     }
 
+    public void addFloor(Floor floor)
+    {
+        floors.add(floor);
+    }
+
+    public void addHuman(Human person)
+    {
+        this.human.add(person);
+    }
+
+    public void addPet(Pet pet)
+    {
+        this.pets.add(pet);
+    }
+
+    public void clear()
+    {
+        pets.clear();
+        human.clear();
+        floors.clear();
+        sensors.clear();
+    }
+
+
     public List<Sensor> getSensors() {
         return sensors;
     }
-
 }
