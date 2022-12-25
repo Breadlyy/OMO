@@ -3,10 +3,7 @@ package home;
 import home.stuff.Stuff;
 
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Room {
     private final int height;
@@ -22,6 +19,7 @@ public class Room {
         this.length = length;
         this.floor = floor;
         this.sensors = new HashMap();
+        stuff = new ArrayList<>();
     }
 
     public int getHeight() {

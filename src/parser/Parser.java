@@ -19,31 +19,41 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import transport.Car;
 
-import java.io.FileNotFoundException;
+
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+
 import java.util.HashMap;
-import java.util.List;
+
 import java.util.Map;
 
 public class Parser {
     private final static int NFRIDGE = 1, NGAS = 2, NMICROWAVE = 3,NSHUTTER = 4, NWINDOW = 5, NTAP = 6, NOVEN = 7;
     private final static int NGASSENSOR = 1, NELECTRICITYSENSOR = 2, NSMOKESENSOR = 3, NWATERSENSOR = 4, NWINDSENSOR = 5;
 
-    JSONParser jsonParser = new JSONParser();
+
     JSONObject jsonObject;
     JSONArray jsonArray;
-    JSONObject wholeFile;
+
     Map<Long, Human> human = new HashMap<>();
     Map<Long, Stuff> allstuff = new HashMap<>();
     Map<Integer, Floor> floors = new HashMap<>();
     Map<Integer, Room> rooms = new HashMap<>();
     public Home getHome(){
+        JSONParser jsonParser = new JSONParser();
+        JSONObject wholeFile;
         try
         {
             FileReader reader = new FileReader("src/parser/base/classes.json");
             wholeFile = (JSONObject) jsonParser.parse(reader);
+            HouseBuilder builder = new HouseBuilder();
+            getHumans(wholeFile, builder);
+            getCars(wholeFile);
+            getFloors(wholeFile, builder);
+            getRooms(wholeFile);
+            getStuff(wholeFile);
+            getSensors(wholeFile);
+            return builder.build();
         }
         catch (IOException e)
         {
@@ -53,20 +63,11 @@ public class Parser {
         {
             System.out.println("Sorry, can not parse your file.");
         }
-        HouseBuilder builder = new HouseBuilder();
-        getHumans(builder);
-        getCars();
-        getFloors(builder);
-        getRooms();
-        getStuff();
-        getSensors();
-        return builder.build();
+    return null;
     }
 
 
-    public void getHumans(HouseBuilder builder){
-
-
+    public void getHumans(JSONObject wholeFile, HouseBuilder builder){
 
         jsonArray = (org.json.simple.JSONArray)wholeFile.get("Men");
         jsonObject = (JSONObject) jsonArray.get(0);
@@ -96,7 +97,7 @@ public class Parser {
 
     }
 
-    public void getCars(){
+    public void getCars(JSONObject wholeFile){
         jsonArray = (JSONArray) wholeFile.get("cars");
         for(int i = 0; i < jsonArray.size(); i++)
         {
@@ -125,7 +126,7 @@ public class Parser {
      * @throws IOException
      * @throws ParseException
      */
-    public void getFloors(HouseBuilder builder) {
+    public void getFloors(JSONObject wholeFile,HouseBuilder builder) {
 
         jsonArray = (org.json.simple.JSONArray)wholeFile.get("floors");
         for(Object o: jsonArray)
@@ -151,7 +152,7 @@ public class Parser {
      * @throws IOException
      * @throws ParseException
      */
-    public void getRooms() {
+    public void getRooms(JSONObject wholeFile) {
         jsonArray = (org.json.simple.JSONArray)wholeFile.get("rooms");
         for(Object o:  jsonArray)
         {
@@ -181,7 +182,7 @@ public class Parser {
      * @throws IOException
      * @throws ParseException
      */
-    public void getStuff() {
+    public void getStuff(JSONObject wholeFile) {
 
         jsonArray = (org.json.simple.JSONArray)wholeFile.get("stuff");
         for (int i = 0; i < jsonArray.size(); i++)
@@ -222,7 +223,7 @@ public class Parser {
                     continue;
             }
             s.setId((long) jsonObject.get("id"));
-            s.setEnergyConsumption((int)jsonObject.get("energyconsumption"));
+            s.setEnergyConsumption((float)jsonObject.get("energyconsumption"));
             allstuff.put(s.getId(), s);
             rooms.get((int) jsonObject.get("room")).addStuff(s);
         }
@@ -243,7 +244,7 @@ public class Parser {
      * @throws IOException
      * @throws ParseException
      */
-    public void getSensors() {
+    public void getSensors(JSONObject wholeFile) {
 
 
         jsonArray = (org.json.simple.JSONArray)wholeFile.get("sensor");
@@ -300,5 +301,22 @@ public class Parser {
             s.setId((long)jsonObject.get("id"));
         }
 
+    }
+
+
+    public Map<Long, Human> getHuman() {
+        return human;
+    }
+
+    public Map<Long, Stuff> getAllstuff() {
+        return allstuff;
+    }
+
+    public Map<Integer, Floor> getFloors() {
+        return floors;
+    }
+
+    public Map<Integer, Room> getRooms() {
+        return rooms;
     }
 }
