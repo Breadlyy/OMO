@@ -12,6 +12,10 @@ public class Sensor implements ISensor {
     private long id;
     private long observe;
 
+    public Sensor() {
+        this.stuff = new ArrayList<>();
+    }
+
     public void notifySensor()
     {
         for(Stuff s: stuff)

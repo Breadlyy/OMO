@@ -10,6 +10,12 @@ public abstract class Stuff  {
     {
         return energyConsumption;
     }
+
+    public Stuff()
+    {
+        state = new StuffState();
+        state.powerOn();
+    }
     public void turnOn()
     {
         state.turnOn();
@@ -41,6 +47,7 @@ public abstract class Stuff  {
 
     public void notifyStuff()
     {
+        System.out.println("Stuff is off");
         powerOff();
     }
 

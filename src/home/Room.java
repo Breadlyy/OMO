@@ -58,7 +58,6 @@ public class Room {
         this.stuff.remove(stuff);
     }
 
-
     public Iterator getIterator() {
         return new StuffIterator();
     }
