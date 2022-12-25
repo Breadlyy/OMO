@@ -1,6 +1,6 @@
 package home.stuff;
 
-public class Shutter extends Stuff {
+public class Shutter extends ElectricStuff {
     private boolean opened;
 
     public boolean isOpened() {

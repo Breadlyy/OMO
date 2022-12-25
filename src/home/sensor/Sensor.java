@@ -23,6 +23,7 @@ public class Sensor implements ISensor {
             s.notifyStuff();
         }
     }
+
     public Sensor findSensor(String name, List<Sensor> sensors)
     {
         switch (name)

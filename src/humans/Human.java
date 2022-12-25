@@ -9,6 +9,8 @@ import home.stuff.Tap;
 import transport.Transport;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public abstract class Human implements Adult{
@@ -18,11 +20,19 @@ public abstract class Human implements Adult{
 
     private String name;
     private String surname;
+    private List<Transport> transports = new ArrayList<>();
 
     //passNo = id
     private long passNo;
     private Room room;
     private Home home;
+
+
+    public  void  addTransport(Transport t)
+    {
+        transports.add(t);
+        t.addOwner(this);
+    }
 
 
     public Human(String name, String surname, long pass) {
@@ -126,6 +136,11 @@ public abstract class Human implements Adult{
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public void setHome(Home home)
+    {
+        this.home = home;
     }
 
     @Override

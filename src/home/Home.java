@@ -3,7 +3,10 @@ package home;
 import animals.Pet;
 import events.*;
 import home.sensor.*;
+import humans.Child;
 import humans.Human;
+import humans.Men;
+import humans.Woman;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -11,11 +14,12 @@ import java.util.List;
 
 public class Home {
     private static Home home;
-    private List<Human> human = new ArrayList<>();
+    private Men father;
+    private Woman mother;
+    private List<Child> children = new ArrayList<>();
     private List<Pet> pets = new ArrayList<>();
     private List<Floor> floors = new ArrayList<>();
     private List<Sensor> sensors = new ArrayList<>();
-    public String values;
     protected Fire fire;
     protected GasLeak gasLeak;
 
@@ -51,7 +55,7 @@ public class Home {
 
     }
 
-    public static Home getExample(String values) {
+    public static Home getExample() {
         if (home == null) {
             home = new Home();
         }
@@ -63,9 +67,9 @@ public class Home {
         floors.add(floor);
     }
 
-    public void addHuman(Human person)
+    public void addChild(Child person)
     {
-        this.human.add(person);
+        this.children.add(person);
     }
 
     public void addPet(Pet pet)
@@ -75,12 +79,21 @@ public class Home {
 
     public void clear()
     {
+        father=null ;
+        mother=null;
         pets.clear();
-        human.clear();
+        children.clear();
         floors.clear();
         sensors.clear();
     }
 
+    public void setFather(Men father) {
+        this.father = father;
+    }
+
+    public void setMother(Woman mother) {
+        this.mother = mother;
+    }
 
     public List<Sensor> getSensors() {
         return sensors;

@@ -3,12 +3,20 @@ package home.stuff;
 import home.stuff.state.StuffState;
 
 public abstract class Stuff  {
-    protected float energyConsumption;
+    protected float energyConsumption;//water or energy
     protected StuffState state = new StuffState();
     private long id;
     public float generateReport()
     {
         return energyConsumption;
+    }
+
+    public float getEnergyConsumption() {
+        return energyConsumption;
+    }
+
+    public void setEnergyConsumption(float energyConsumption) {
+        this.energyConsumption = energyConsumption;
     }
 
     public Stuff()

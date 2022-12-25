@@ -16,7 +16,7 @@ public class Room {
     private List<Stuff> stuff;
     private Map sensors;
 
-    public Room(int height, int width, int length, Floor floor, Map sensors) {
+    public Room(int height, int width, int length, Floor floor) {
         this.height = height;
         this.width = width;
         this.length = length;

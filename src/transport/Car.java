@@ -1,6 +1,6 @@
 package transport;
 
-public class Car {
+public class Car extends Transport{
     private long speed;
     private String brand;
 
