@@ -39,6 +39,7 @@ public class Parser {
     Map<Long, Stuff> allstuff = new HashMap<>();
     Map<Integer, Floor> floors = new HashMap<>();
     Map<Integer, Room> rooms = new HashMap<>();
+    Map<Long, Sensor> sensors = new HashMap<>();
     public Home getHome(){
         JSONParser jsonParser = new JSONParser();
         JSONObject wholeFile;
@@ -50,7 +51,7 @@ public class Parser {
             getHumans(wholeFile, builder);
             getCars(wholeFile);
             getFloors(wholeFile, builder);
-            getRooms(wholeFile);
+            getRooms(wholeFile, builder);
             getStuff(wholeFile);
             getSensors(wholeFile);
             return builder.build();
@@ -98,6 +99,7 @@ public class Parser {
     }
 
     public void getCars(JSONObject wholeFile){
+        long pass_no;
         jsonArray = (JSONArray) wholeFile.get("cars");
         for(int i = 0; i < jsonArray.size(); i++)
         {
@@ -106,9 +108,11 @@ public class Parser {
                   jsonObject.get("brand").toString());
           //owner is presented by passnum
           JSONArray arr = (JSONArray)jsonObject.get("owners");
-          for(Object o: arr)
+          for(int q = 0; q < arr.size(); q++)
           {
-              human.get((Long)o).addTransport(car);
+              jsonObject = (JSONObject) arr.get(q);
+              pass_no = (Long)jsonObject.get("pass_no");
+              human.get(pass_no).addTransport(car);
               //human.stream().filter(person -> person.getPassNo() == (long)o).forEach(person -> person.addTransport(car));
           }
         }
@@ -129,11 +133,13 @@ public class Parser {
     public void getFloors(JSONObject wholeFile,HouseBuilder builder) {
 
         jsonArray = (org.json.simple.JSONArray)wholeFile.get("floors");
-        for(Object o: jsonArray)
+        for(int i = 0; i < jsonArray.size(); i++)
         {
-            Floor f = new Floor(builder.build(),  (int)((JSONObject)o).get("num")); //Is it correct to use build here?
-            builder.addFloor((Floor)o);
-            floors.put(f.getNumber(), f);
+            jsonObject = (JSONObject) jsonArray.get(i);
+            Floor f = new Floor(builder.build(),  (Long)jsonObject.get("num")); //Is it correct to use build here?
+            builder.addFloor(f);
+            int q = (int)f.getNumber();
+            floors.put(q, f);
         }
     }
 
@@ -152,16 +158,20 @@ public class Parser {
      * @throws IOException
      * @throws ParseException
      */
-    public void getRooms(JSONObject wholeFile) {
+    public void getRooms(JSONObject wholeFile, HouseBuilder builder) {
         jsonArray = (org.json.simple.JSONArray)wholeFile.get("rooms");
-        for(Object o:  jsonArray)
+        for(int i = 0; i < jsonArray.size(); i++)
         {
-            o = (JSONObject)o;
-            int width = (int)((JSONObject) o).get("width");
-            int lenght = (int)((JSONObject) o).get("length");
-            int height = (int)((JSONObject) o).get("height");
-            Floor f = floors.get((int)((JSONObject) o).get("floor"));
-            Room r = new Room(height, width, lenght, f);
+            jsonObject = (JSONObject) jsonArray.get(i);
+           long width = (Long)((JSONObject) jsonObject).get("width");
+           long lenght = (Long)((JSONObject) jsonObject).get("length");
+           long height = (Long)((JSONObject) jsonObject).get("height");
+           long q = (Long) jsonObject.get("floor");
+           int x = (int)q;
+            Floor f = floors.get(x);
+            Room room = new Room(height, width, lenght, f);
+            rooms.put(i, room);
+            builder.addRoom(room, f);
         }
     }
 
@@ -189,7 +199,8 @@ public class Parser {
         {
             jsonObject = (JSONObject) jsonArray.get(i);
             Stuff s;
-            int typeNum =(int)jsonObject.get("type");
+            long x =(Long) jsonObject.get("num");
+            int typeNum = (int)x;
             switch (typeNum) {
                 case NFRIDGE: {
                     s = new Fridge();
@@ -212,7 +223,9 @@ public class Parser {
                     break;
                 }
                 case NTAP: {
-                    s = new Tap((int) jsonObject.get("waterconsumption"));
+                    long watercons = (Long) jsonObject.get("waterconsumption");
+                    int waterconsumption = (int)watercons;
+                    s = new Tap(waterconsumption);
                     break;
                 }
                 case NOVEN: {
@@ -223,9 +236,11 @@ public class Parser {
                     continue;
             }
             s.setId((long) jsonObject.get("id"));
-            s.setEnergyConsumption((float)jsonObject.get("energyconsumption"));
+            s.setEnergyConsumption((double)jsonObject.get("energyconsumption"));
             allstuff.put(s.getId(), s);
-            rooms.get((int) jsonObject.get("room")).addStuff(s);
+            long y = (Long)jsonObject.get("room");
+            int room = (int)y;
+            rooms.get(room).addStuff(s);
         }
     }
 
@@ -248,51 +263,51 @@ public class Parser {
 
 
         jsonArray = (org.json.simple.JSONArray)wholeFile.get("sensor");
+        JSONArray arr = (JSONArray) wholeFile.get("stuff");
+        JSONObject jsonObject1;
         for (int i = 0; i < jsonArray.size(); i++)
         {
             jsonObject = (JSONObject) jsonArray.get(i);
-            int typeNum = (int)jsonObject.get("type");
-            JSONArray arr = (JSONArray) jsonObject.get("observes");
+            long typeNum = (Long) jsonObject.get("type");
+            long y = (Long)jsonObject.get("observe");
+            int x = (int)y;
+            x--;
+            jsonObject1 = (JSONObject)arr.get(x);
             Sensor s;
-            switch (typeNum) {
+            switch ((int) typeNum) {
                 case NGASSENSOR: {
                     s = new GasSensor();
-                    for(Object o: arr)
-                    {
-                        ((GasSensor)s).add((GasHeater) allstuff.get((int)o));
-                    }
+                    long v = (Long)jsonObject1.get("id");
+                    sensors.put(v, s );
+                            ((GasSensor)s).add((GasHeater) allstuff.get(x));
                     break;
                 }
                 case NELECTRICITYSENSOR: {
                     s = new Fuse();
-                    for(Object o: arr)
-                    {
-                        ((Fuse)s).add((ElectricStuff) allstuff.get((int)o));
-                    }
+                    long v = (Long)jsonObject1.get("id");
+                    sensors.put(v, s );
+                        ((Fuse)s).add((ElectricStuff) allstuff.get(x));
                     break;
                 }
                 case NSMOKESENSOR: {
                     s = new SmokeDetector();
-                    for(Object o: arr)
-                    {
-                        ((SmokeDetector)s).add(allstuff.get((int)o));
-                    }
+                    long v = (Long)jsonObject1.get("id");
+                    sensors.put(v, s );
+                    ((SmokeDetector)s).add((ElectricStuff) allstuff.get(x));
                     break;
                 }
                 case NWATERSENSOR: {
                     s = new WaterSensor();
-                    for(Object o: arr)
-                    {
-                        ((WaterSensor)s).add((Tap) allstuff.get((int)o));
-                    }
+                    long v = (Long)jsonObject1.get("id");
+                    sensors.put(v, s );
+                    ((WaterSensor)s).add((Tap) allstuff.get(x));
                     break;
                 }
                 case NWINDSENSOR: {
                     s = new WindSensor();
-                    for(Object o: arr)
-                    {
-                        ((WindSensor)s).add((Shutter) allstuff.get((int)o));
-                    }
+                    long v = (Long)jsonObject1.get("id");
+                    sensors.put(v, s );
+                    ((WindSensor)s).add((Shutter) allstuff.get(x));
                     break;
                 }
                 default:

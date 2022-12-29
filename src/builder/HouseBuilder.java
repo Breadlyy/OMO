@@ -3,6 +3,7 @@ package builder;
 import animals.Pet;
 import home.Floor;
 import home.Home;
+import home.Room;
 import humans.Child;
 import humans.Human;
 import humans.Men;
@@ -22,7 +23,10 @@ public class HouseBuilder
         home.addFloor(floor);
         return this;
     }
-
+    public void addRoom(Room room, Floor floor)
+    {
+        floor.addRoom(room);
+    }
     public HouseBuilder setMother(Woman w)
     {
         home.setMother(w);

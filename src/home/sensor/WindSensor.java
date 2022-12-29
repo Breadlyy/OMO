@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WindSensor extends Sensor {
-    List<Shutter> shutters;
+    List<Shutter> shutters = new ArrayList<>();
     public void add(Shutter shutter)
     {
         shutters.add(shutter);

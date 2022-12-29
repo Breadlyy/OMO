@@ -6,14 +6,14 @@ import home.stuff.Stuff;
 import java.util.*;
 
 public class Room {
-    private final int height;
-    private final int width;
-    private final int length;
+    private final long height;
+    private final long width;
+    private final long length;
     private final Floor floor;
     private List<Stuff> stuff;
     private Map sensors;
 
-    public Room(int height, int width, int length, Floor floor) {
+    public Room(long height, long width, long length, Floor floor) {
         this.height = height;
         this.width = width;
         this.length = length;
@@ -22,15 +22,15 @@ public class Room {
         stuff = new ArrayList<>();
     }
 
-    public int getHeight() {
+    public long getHeight() {
         return height;
     }
 
-    public int getWidth() {
+    public long getWidth() {
         return width;
     }
 
-    public int getLength() {
+    public long getLength() {
         return length;
     }
 

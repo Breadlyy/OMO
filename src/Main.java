@@ -7,6 +7,7 @@ import home.sensor.SmokeDetector;
 import home.stuff.*;
 import humans.Human;
 import humans.Men;
+import parser.Parser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,9 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Sensor sensor = new Sensor();
-
+        Parser parser = new Parser();
+        parser.getHome();
+        System.out.println();
 
     }
 }
