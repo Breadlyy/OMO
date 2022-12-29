@@ -240,6 +240,7 @@ public class Parser {
             allstuff.put(s.getId(), s);
             long y = (Long)jsonObject.get("room");
             int room = (int)y;
+            room--;
             rooms.get(room).addStuff(s);
         }
     }
@@ -278,6 +279,7 @@ public class Parser {
                 case NGASSENSOR: {
                     s = new GasSensor();
                     long v = (Long)jsonObject1.get("id");
+
                     sensors.put(v, s );
                             ((GasSensor)s).add((GasHeater) allstuff.get(x));
                     break;

@@ -102,19 +102,19 @@
     "_comment": "обогреавтель",
     "num" : 2,
     "energyconsumption": 105.5,
-    "room": 1
+    "room": 2
   }, {
     "id": 4,
     "_comment": "обогреавтель",
     "num" : 2,
     "energyconsumption": 105.5,
-    "room": 1
+    "room": 3
   }, {
     "id": 5,
     "_comment": "обогреавтель",
     "num" : 2,
     "energyconsumption": 105.5,
-    "room": 1
+    "room": 4
   },{
     "id": 6,
     "_comment": "микроволновка",
@@ -138,43 +138,43 @@
     "_comment": "штора",
     "num" : 4,
     "energyconsumption": 40.8,
-    "room": 1
+    "room": 2
   },{
     "id": 10,
     "_comment": "штора",
     "num" : 4,
     "energyconsumption": 40.8,
-    "room": 1
+    "room": 2
   },{
     "id": 11,
     "_comment": "штора",
     "num" : 4,
     "energyconsumption": 40.8,
-    "room": 1
+    "room": 2
   },{
     "id": 12,
     "_comment": "штора",
     "num" : 4,
     "energyconsumption": 40.8,
-    "room": 1
+    "room": 3
   },{
     "id": 13,
     "_comment": "штора",
     "num" : 4,
     "energyconsumption": 40.8,
-    "room": 1
+    "room": 3
   },{
     "id": 14,
     "_comment": "штора",
     "num" : 4,
     "energyconsumption": 40.8,
-    "room": 1
+    "room": 4
   },{
     "id": 15,
     "_comment": "штора",
     "num" : 4,
     "energyconsumption": 40.8,
-    "room": 1
+    "room": 5
   },{
     "id": 16,
     "_comment": "окно",
@@ -209,7 +209,7 @@
     "num" : 5,
     "shutter_id": 11,
     "energyconsumption": 41.1,
-    "room": 3
+    "room": 2
   },{
     "id": 21,
     "_comment": "окно",
@@ -223,7 +223,7 @@
     "num" : 5,
     "shutter_id": 13,
     "energyconsumption": 41.1,
-    "room": 4
+    "room": 3
   },{
     "id": 23,
     "_comment": "окно",
@@ -237,7 +237,7 @@
     "num" : 5,
     "shutter_id": 15,
     "energyconsumption": 41.1,
-    "room": 2
+    "room": 5
   },{
     "id": 25,
     "_comment": "кран",
