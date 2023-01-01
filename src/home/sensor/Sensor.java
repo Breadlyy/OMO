@@ -12,6 +12,10 @@ public class Sensor implements ISensor {
     private long id;
     private long observe;
 
+    public Sensor() {
+        this.stuff = new ArrayList<>();
+    }
+
     public void notifySensor()
     {
         for(Stuff s: stuff)
@@ -19,6 +23,7 @@ public class Sensor implements ISensor {
             s.notifyStuff();
         }
     }
+
     public Sensor findSensor(String name, List<Sensor> sensors)
     {
         switch (name)

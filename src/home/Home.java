@@ -3,7 +3,10 @@ package home;
 import animals.Pet;
 import events.*;
 import home.sensor.*;
+import humans.Child;
 import humans.Human;
+import humans.Men;
+import humans.Woman;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -11,13 +14,17 @@ import java.util.List;
 
 public class Home {
     private static Home home;
-    private List<Human> human;
-    private List<Pet> pets;
-    private List<Floor> floors;
+    private Men father;
+    private Woman mother;
+    private List<Child> children = new ArrayList<>();
+    private List<Pet> pets = new ArrayList<>();
+    private List<Floor> floors = new ArrayList<>();
     private List<Sensor> sensors = new ArrayList<>();
-    public String values;
     protected Fire fire;
     protected GasLeak gasLeak;
+    protected ShortCircuit shortCircuit;
+    protected WaterLeak waterLeak;
+    protected WindBlow windBlow;
 
     public Fire getFire() {
         return fire;
@@ -39,23 +46,54 @@ public class Home {
         return windBlow;
     }
 
-    protected ShortCircuit shortCircuit;
-    protected WaterLeak waterLeak;
-    protected WindBlow windBlow;
+
     private Home() {
         this.fire = new Fire();
         this.gasLeak = new GasLeak();
         this.shortCircuit = new ShortCircuit();
         this.waterLeak = new WaterLeak();
         this.windBlow = new WindBlow();
-    }
-    public static Home getExample(String values) {
 
-        if(home == null)
-        {
-            return new Home();
+    }
+
+    public static Home getExample() {
+        if (home == null) {
+            home = new Home();
         }
-        return null;
+        return home;
+    }
+
+    public void addFloor(Floor floor)
+    {
+        floors.add(floor);
+    }
+
+    public void addChild(Child person)
+    {
+        this.children.add(person);
+    }
+
+    public void addPet(Pet pet)
+    {
+        this.pets.add(pet);
+    }
+
+    public void clear()
+    {
+        father=null ;
+        mother=null;
+        pets.clear();
+        children.clear();
+        floors.clear();
+        sensors.clear();
+    }
+
+    public void setFather(Men father) {
+        this.father = father;
+    }
+
+    public void setMother(Woman mother) {
+        this.mother = mother;
     }
 
     public List<Sensor> getSensors() {

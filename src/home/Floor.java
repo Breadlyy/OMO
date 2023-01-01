@@ -2,20 +2,21 @@ package home;
 
 import home.stuff.Stuff;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Floor
 {
-    private final int number;
+    private final long number;
     private final Home home;
-    private List<Room> rooms;
+    private List<Room> rooms = new ArrayList<>();
 
-    public Floor(Home home, int number)
+    public Floor(Home home, long number)
     {
         this.home = home; this.number = number;
     }
 
-    public int getNumber() {
+    public long getNumber() {
         return number;
     }
 

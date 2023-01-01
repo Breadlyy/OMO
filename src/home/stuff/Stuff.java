@@ -3,12 +3,26 @@ package home.stuff;
 import home.stuff.state.StuffState;
 
 public abstract class Stuff  {
-    protected float energyConsumption;
+    protected double energyConsumption;//water or energy
     protected StuffState state = new StuffState();
     private long id;
-    public float generateReport()
+    public double generateReport()
     {
         return energyConsumption;
+    }
+
+    public double getEnergyConsumption() {
+        return energyConsumption;
+    }
+
+    public void setEnergyConsumption(double energyConsumption) {
+        this.energyConsumption = energyConsumption;
+    }
+
+    public Stuff()
+    {
+        state = new StuffState();
+        state.powerOn();
     }
     public void turnOn()
     {
@@ -41,6 +55,7 @@ public abstract class Stuff  {
 
     public void notifyStuff()
     {
+        System.out.println("Stuff is off");
         powerOff();
     }
 

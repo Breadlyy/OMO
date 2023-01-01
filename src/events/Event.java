@@ -11,6 +11,7 @@ public abstract class Event implements IEvent {
      protected List<Sensor> sensors = new ArrayList<>();
 
      public Event() {
+          sensors = new ArrayList<>();
      }
 
      public void occur()

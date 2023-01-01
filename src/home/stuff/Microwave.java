@@ -1,4 +1,4 @@
 package home.stuff;
 
-public class Microwave extends Stuff {
+public class Microwave extends ElectricStuff {
 }
