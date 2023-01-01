@@ -2,6 +2,7 @@ package home.sensor;
 
 import home.stuff.Fridge;
 import home.stuff.Shutter;
+import home.stuff.Window;
 import observer.Observed;
 import observer.Observer;
 
@@ -9,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WindSensor extends Sensor {
-    List<Shutter> shutters = new ArrayList<>();
-    public void add(Shutter shutter)
+    List<Window> windows = new ArrayList<>();
+    public void add(Window window)
     {
-        shutters.add(shutter);
+        windows.add(window);
     }
 
 }

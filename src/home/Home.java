@@ -22,6 +22,9 @@ public class Home {
     private List<Sensor> sensors = new ArrayList<>();
     protected Fire fire;
     protected GasLeak gasLeak;
+    protected ShortCircuit shortCircuit;
+    protected WaterLeak waterLeak;
+    protected WindBlow windBlow;
 
     public Fire getFire() {
         return fire;
@@ -43,9 +46,7 @@ public class Home {
         return windBlow;
     }
 
-    protected ShortCircuit shortCircuit;
-    protected WaterLeak waterLeak;
-    protected WindBlow windBlow;
+
     private Home() {
         this.fire = new Fire();
         this.gasLeak = new GasLeak();

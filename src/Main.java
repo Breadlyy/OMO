@@ -17,6 +17,7 @@ public class Main {
         Sensor sensor = new Sensor();
         Parser parser = new Parser();
         parser.getHome();
+        parser.getHome().getFire().occur();
         System.out.println();
 
     }

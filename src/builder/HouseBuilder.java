@@ -17,6 +17,10 @@ public class HouseBuilder
     {
         home = Home.getExample();
     }
+    public Home getHome()
+    {
+        return home;
+    }
 
     public HouseBuilder addFloor(Floor floor)
     {

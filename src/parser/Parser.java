@@ -53,7 +53,7 @@ public class Parser {
             getFloors(wholeFile, builder);
             getRooms(wholeFile, builder);
             getStuff(wholeFile);
-            getSensors(wholeFile);
+            getSensors(wholeFile, builder);
             return builder.build();
         }
         catch (IOException e)
@@ -230,6 +230,7 @@ public class Parser {
                 }
                 case NOVEN: {
                     s = new Oven();
+
                     break;
                 }
                 default:
@@ -242,6 +243,8 @@ public class Parser {
             int room = (int)y;
             room--;
             rooms.get(room).addStuff(s);
+           Fridge fridge = (Fridge) allstuff.get(1);
+            System.out.println();
         }
     }
 
@@ -260,56 +263,59 @@ public class Parser {
      * @throws IOException
      * @throws ParseException
      */
-    public void getSensors(JSONObject wholeFile) {
+    public void getSensors(JSONObject wholeFile, HouseBuilder builder) {
 
 
         jsonArray = (org.json.simple.JSONArray)wholeFile.get("sensor");
-        JSONArray arr = (JSONArray) wholeFile.get("stuff");
-        JSONObject jsonObject1;
+       // JSONArray arr = (JSONArray) wholeFile.get("stuff");
+        //JSONObject jsonObject1;
         for (int i = 0; i < jsonArray.size(); i++)
         {
             jsonObject = (JSONObject) jsonArray.get(i);
             long typeNum = (Long) jsonObject.get("type");
             long y = (Long)jsonObject.get("observe");
-            int x = (int)y;
-            x--;
-            jsonObject1 = (JSONObject)arr.get(x);
+            //jsonObject1 = (JSONObject)arr.get(x);
+
             Sensor s;
             switch ((int) typeNum) {
                 case NGASSENSOR: {
                     s = new GasSensor();
-                    long v = (Long)jsonObject1.get("id");
-
+                    long v = (Long)jsonObject.get("id");
+                    builder.getHome().getGasLeak().attachSensor((GasSensor) s);
                     sensors.put(v, s );
-                            ((GasSensor)s).add((GasHeater) allstuff.get(x));
+                    ((GasSensor)s).add((GasHeater) allstuff.get(y));
                     break;
                 }
                 case NELECTRICITYSENSOR: {
                     s = new Fuse();
-                    long v = (Long)jsonObject1.get("id");
+                    long v = (Long)jsonObject.get("id");
+                    builder.getHome().getShortCircuit().attachSensor((Fuse) s);
                     sensors.put(v, s );
-                        ((Fuse)s).add((ElectricStuff) allstuff.get(x));
+                        ((Fuse)s).add((ElectricStuff) allstuff.get(y));
                     break;
                 }
                 case NSMOKESENSOR: {
                     s = new SmokeDetector();
-                    long v = (Long)jsonObject1.get("id");
+                    builder.getHome().getFire().attachSensor((SmokeDetector) s);
+                    long v = (Long)jsonObject.get("id");
                     sensors.put(v, s );
-                    ((SmokeDetector)s).add((ElectricStuff) allstuff.get(x));
+                    ((SmokeDetector)s).add((Stuff) allstuff.get(y));
                     break;
                 }
                 case NWATERSENSOR: {
                     s = new WaterSensor();
-                    long v = (Long)jsonObject1.get("id");
+                    long v = (Long)jsonObject.get("id");
+                    builder.getHome().getWaterLeak().attachSensor((WaterSensor) s);
                     sensors.put(v, s );
-                    ((WaterSensor)s).add((Tap) allstuff.get(x));
+                    ((WaterSensor)s).add((Tap) allstuff.get(y));
                     break;
                 }
                 case NWINDSENSOR: {
                     s = new WindSensor();
-                    long v = (Long)jsonObject1.get("id");
+                    long v = (Long)jsonObject.get("id");
+                    builder.getHome().getWindBlow().attachSensor((WindSensor) s);
                     sensors.put(v, s );
-                    ((WindSensor)s).add((Shutter) allstuff.get(x));
+                    ((WindSensor)s).add((Window) allstuff.get(y));
                     break;
                 }
                 default:

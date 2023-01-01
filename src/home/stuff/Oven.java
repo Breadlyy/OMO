@@ -2,7 +2,7 @@ package home.stuff;
 
 import food.Food;
 
-public class Oven extends Stuff{
+public class Oven extends ElectricStuff{
     private int capacity;
     private Thread thread;
     public void heatFood(Food food) throws InterruptedException {
