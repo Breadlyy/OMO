@@ -1,5 +1,7 @@
 package humans;
 
+import com.google.common.collect.ForwardingQueue;
+import food.Food;
 import home.Home;
 import home.Room;
 import home.stuff.Window;
@@ -9,11 +11,50 @@ import home.stuff.Tap;
 import transport.Transport;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
+
 
 public abstract class Human implements Adult{
+
+    private class Task
+    {
+        private final int complexity;
+        private final Future task;
+        private final int priority;
+
+        public Task(int complexity, Future task, int priority) {
+            this.complexity = complexity;
+            this.task = task;
+            this.priority = priority;
+        }
+
+        public int getComplexity() {
+            return complexity;
+        }
+
+        public Future getTask() {
+            return task;
+        }
+
+        public int getPriority() {
+            return priority;
+        }
+    }
+    private int busyCount;
+    private Queue<Task> taskQueue = new PriorityQueue<>(0, new Comparator<Task>() {
+        @Override
+        public int compare(Task o1, Task o2) {
+            if (o1.priority>o2.priority)return 1;
+            if(o1.priority==o2.priority)return 0;
+            return -1;
+        }
+    });
+
+
     int rand;
     private Random random;
     private LocalDateTime bday;
@@ -41,11 +82,57 @@ public abstract class Human implements Adult{
         this.passNo = pass;
     }
 
-    public void eat(Fridge fridge)
+    public void enqueueTask(Future task, int complexity, int priority)
     {
-
+        taskQueue.add(new Task(complexity, task, priority));
     }
 
+    public void run()
+    {
+        if(busyCount!=0)
+        {
+            busyCount--;
+        }
+        else if (!taskQueue.isEmpty())
+        {
+            Task task = taskQueue.remove();
+            busyCount=task.getComplexity();
+            try {
+                task.getTask().wait();
+            }
+            catch (InterruptedException e)
+            {
+                System.out.println("Seems like an adult "+this.name+" is dead. Cancelling simulation");
+            }
+        }
+        else
+        {
+
+        }
+    }
+
+
+    public void eat(Fridge fridge)
+    {
+        if(fridge.empty())
+        {
+
+            Callable c = (Callable) () -> {
+                goForFood(fridge);
+                return 0;
+            };
+            Future f = new FutureTask(c);
+            taskQueue.add(new Task(4, f, 2));
+        }
+        else {
+            fridge.eat(fridge.getFood().get(0));
+        }
+    }
+
+public void goForFood(Fridge f)
+{
+    for(int i = 0; i < 5; i++) f.put(new Food());
+}
 
     public void feed_pet()
     {
