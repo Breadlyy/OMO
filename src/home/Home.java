@@ -3,6 +3,7 @@ package home;
 import animals.Pet;
 import events.*;
 import home.sensor.*;
+import home.stuff.Stuff;
 import humans.Child;
 import humans.Human;
 import humans.Men;
@@ -98,6 +99,56 @@ public class Home {
 
     public List<Sensor> getSensors() {
         return sensors;
+    }
+
+    private class StuffIterator
+    {
+        int floornum=0, roomnum=0, stuffnum=0;
+
+        public boolean hasNext() {
+            if(floors.get(floornum).getRooms().get(roomnum).getStuff().size()>stuffnum+1) return true;
+            for(int tfloornum=floornum; tfloornum < floors.size(); tfloornum++)
+            {
+                for(int troomnum=roomnum; troomnum < floors.get(tfloornum).getRooms().size(); troomnum++)
+                {
+                    if(floors.get(tfloornum).getRooms().get(troomnum).getStuff().size()>0) return true;
+                }
+            }
+            return false;
+        }
+
+        public Stuff begin()
+        {
+            for(int tfloornum=0; tfloornum < floors.size(); tfloornum++)
+                 {
+                     for(int troomnum=0; troomnum < floors.get(tfloornum).getRooms().size(); troomnum++)
+                     {
+                         if(floors.get(tfloornum).getRooms().get(troomnum).getStuff().size()>0) return  floors.get(tfloornum).getRooms().get(troomnum).getStuff().get(0);
+                     }
+                 }
+        }
+
+        public Stuff next() {
+            if(floors.get(floornum).getRooms().get(roomnum).getStuff().size()>stuffnum+1)
+            {
+                stuffnum++;
+                return floors.get(floornum).getRooms().get(roomnum).getStuff().get(stuffnum);
+            }
+            for(int tfloornum=floornum; tfloornum < floors.size(); tfloornum++)
+            {
+                for(int troomnum=roomnum; troomnum < floors.get(tfloornum).getRooms().size(); troomnum++)
+                {
+                    for(int tstuffnum=stuffnum; tstuffnum < floors.get(tfloornum).getRooms().get(troomnum).getStuff().size(); tstuffnum++)
+                    {
+                        floornum=tfloornum;
+                        roomnum=troomnum;
+                        stuffnum=tstuffnum;
+                        return floors.get(floornum).getRooms().get(roomnum).getStuff().get(stuffnum);
+                    }
+                }
+            }
+            return null;
+        }
     }
 
 }

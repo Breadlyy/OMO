@@ -14,20 +14,14 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
+        Parser p = new Parser();
+        Home h = p.getHome();
+        while (true)
+        {
+
+        }
         Stuff fridge = new Fridge();
-        fridge.run();
-        fridge.run();
-        fridge.run();
-        fridge.run();
-        fridge.run();
-        fridge.run();
-        fridge.run();
-        fridge.run();
-        fridge.run();
-        fridge.run();
-        fridge.run();
-        fridge.run();
-        fridge.run();
         fridge.run();
         System.out.println();
     }
