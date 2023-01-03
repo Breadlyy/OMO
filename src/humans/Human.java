@@ -45,14 +45,7 @@ public abstract class Human implements Adult{
         }
     }
     private int busyCount;
-    private Queue<Task> taskQueue = new PriorityQueue<>(0, new Comparator<Task>() {
-        @Override
-        public int compare(Task o1, Task o2) {
-            if (o1.priority>o2.priority)return 1;
-            if(o1.priority==o2.priority)return 0;
-            return -1;
-        }
-    });
+    private Queue<Task> taskQueue;
 
 
     int rand;
@@ -80,6 +73,14 @@ public abstract class Human implements Adult{
         this.name = name;
         this.surname = surname;
         this.passNo = pass;
+        taskQueue = new PriorityQueue<>(1, new Comparator<Task>() {
+            @Override
+            public int compare(Task o1, Task o2) {
+                if (o1.priority>o2.priority)return 1;
+                if(o1.priority==o2.priority)return 0;
+                return -1;
+            }
+        });
     }
 
     public void enqueueTask(Future task, int complexity, int priority)

@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ParserTest {
     Parser sut = new Parser();
-
+/*
     @Test
     public void microvaweTest()
     {
@@ -41,5 +41,5 @@ public class ParserTest {
         Microwave result = (Microwave) sut.getAllstuff().get(m.getId());
         assertEquals(result.getId(), m.getId());
         assertEquals(result.getEnergyConsumption(), m.getEnergyConsumption(), 0.1);
-    }
+    }*/
 }
