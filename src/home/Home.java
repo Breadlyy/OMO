@@ -4,6 +4,7 @@ import animals.Pet;
 import events.*;
 import home.sensor.*;
 import home.stuff.Stuff;
+import home.stuff.StuffIterator;
 import humans.Child;
 import humans.Human;
 import humans.Men;
@@ -26,6 +27,7 @@ public class Home {
     protected ShortCircuit shortCircuit;
     protected WaterLeak waterLeak;
     protected WindBlow windBlow;
+    public StuffIterator iterator;
 
     public Fire getFire() {
         return fire;
@@ -54,7 +56,7 @@ public class Home {
         this.shortCircuit = new ShortCircuit();
         this.waterLeak = new WaterLeak();
         this.windBlow = new WindBlow();
-
+        iterator = new StuffIterator(this);
     }
 
     public static Home getExample() {
@@ -101,54 +103,27 @@ public class Home {
         return sensors;
     }
 
-    private class StuffIterator
-    {
-        int floornum=0, roomnum=0, stuffnum=0;
-
-        public boolean hasNext() {
-            if(floors.get(floornum).getRooms().get(roomnum).getStuff().size()>stuffnum+1) return true;
-            for(int tfloornum=floornum; tfloornum < floors.size(); tfloornum++)
-            {
-                for(int troomnum=roomnum; troomnum < floors.get(tfloornum).getRooms().size(); troomnum++)
-                {
-                    if(floors.get(tfloornum).getRooms().get(troomnum).getStuff().size()>0) return true;
-                }
-            }
-            return false;
-        }
-
-        public Stuff begin()
-        {
-            for(int tfloornum=0; tfloornum < floors.size(); tfloornum++)
-                 {
-                     for(int troomnum=0; troomnum < floors.get(tfloornum).getRooms().size(); troomnum++)
-                     {
-                         if(floors.get(tfloornum).getRooms().get(troomnum).getStuff().size()>0) return  floors.get(tfloornum).getRooms().get(troomnum).getStuff().get(0);
-                     }
-                 }
-        }
-
-        public Stuff next() {
-            if(floors.get(floornum).getRooms().get(roomnum).getStuff().size()>stuffnum+1)
-            {
-                stuffnum++;
-                return floors.get(floornum).getRooms().get(roomnum).getStuff().get(stuffnum);
-            }
-            for(int tfloornum=floornum; tfloornum < floors.size(); tfloornum++)
-            {
-                for(int troomnum=roomnum; troomnum < floors.get(tfloornum).getRooms().size(); troomnum++)
-                {
-                    for(int tstuffnum=stuffnum; tstuffnum < floors.get(tfloornum).getRooms().get(troomnum).getStuff().size(); tstuffnum++)
-                    {
-                        floornum=tfloornum;
-                        roomnum=troomnum;
-                        stuffnum=tstuffnum;
-                        return floors.get(floornum).getRooms().get(roomnum).getStuff().get(stuffnum);
-                    }
-                }
-            }
-            return null;
-        }
+    public List<Floor> getFloors() {
+        return floors;
     }
 
+    public static Home getHome() {
+        return home;
+    }
+
+    public Men getFather() {
+        return father;
+    }
+
+    public Woman getMother() {
+        return mother;
+    }
+
+    public List<Child> getChildren() {
+        return children;
+    }
+
+    public List<Pet> getPets() {
+        return pets;
+    }
 }
