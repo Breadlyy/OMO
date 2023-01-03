@@ -2,7 +2,11 @@ package home.stuff;
 
 import home.stuff.state.StuffState;
 
+import java.util.Random;
+
 public abstract class Stuff  {
+    int i;
+    int durability = 100;
     protected double energyConsumption;//water or energy
     protected StuffState state = new StuffState();
     private long id;
@@ -66,7 +70,23 @@ public abstract class Stuff  {
     public void setId(long id) {
         this.id = id;
     }
-
+    public void run()
+    {
+        i = (int)(Math.random() * 2);
+        if(i > 0)
+        {
+            if(checkDurability())
+            {
+                durability-=20;
+                return;
+            }
+         breakThis();
+        }
+    }
+    private boolean checkDurability()
+    {
+        return this.durability > 0;
+    }
 
 //    public void turnOff()
 //    {

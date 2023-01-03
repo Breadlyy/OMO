@@ -2,9 +2,14 @@ package animals;
 
 public abstract class Pet implements IPet {
     private String name;
+    int i;
     public void say()
     {
         System.out.println("base");
+    }
+    public void wantFood()
+    {
+        System.out.println("Want to eat");
     }
 
     public String getName() {
@@ -13,5 +18,14 @@ public abstract class Pet implements IPet {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public void action()
+    {
+        i = (int)(Math.random() * 3);
+        if(i == 0)
+        {
+            wantFood();
+        }
+
     }
 }

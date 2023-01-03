@@ -14,11 +14,21 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Sensor sensor = new Sensor();
-        Parser parser = new Parser();
-        parser.getHome();
-        parser.getHome().getFire().occur();
+        Stuff fridge = new Fridge();
+        fridge.run();
+        fridge.run();
+        fridge.run();
+        fridge.run();
+        fridge.run();
+        fridge.run();
+        fridge.run();
+        fridge.run();
+        fridge.run();
+        fridge.run();
+        fridge.run();
+        fridge.run();
+        fridge.run();
+        fridge.run();
         System.out.println();
-
     }
 }
