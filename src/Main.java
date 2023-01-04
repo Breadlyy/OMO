@@ -19,13 +19,13 @@ public class Main {
 
         Parser parser = new Parser();
         Home h = parser.getHome();
-
+/*
         while (true)
         {
 
             /*
             * Do events fire, etc.
-             */
+
 
 
              for(Stuff s = h.iterator.begin(); h.iterator.hasNext(); s = h.iterator.next())
@@ -44,7 +44,7 @@ public class Main {
             h.getFather().run();
             h.getMother().run();
 
-        }
+        }*/
 
     }
 }

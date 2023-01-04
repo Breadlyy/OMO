@@ -24,18 +24,14 @@ public abstract class Adult extends Human{
     int rand;
     private Random random;
 
-    private List<Transport> transports = new ArrayList<>();
+
 
     //passNo = id
 
 
 
 
-    public  void  addTransport(Transport t)
-    {
-        transports.add(t);
-        t.addOwner(this);
-    }
+
 
 
     public Adult(String name, String surname, long pass) {

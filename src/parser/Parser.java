@@ -67,7 +67,7 @@ public class Parser {
 
     public void getHumans(JSONObject wholeFile, HouseBuilder builder){
 
-        jsonArray = (org.json.simple.JSONArray)wholeFile.get("Men");
+        jsonArray = (org.json.simple.JSONArray)wholeFile.get("men");
         jsonObject = (JSONObject) jsonArray.get(0);
         Human men = new Men(jsonObject.get("name").toString(),
                 jsonObject.get("surname").toString(),
@@ -81,7 +81,7 @@ public class Parser {
                 (long)jsonObject.get("pass_no"));
         builder.setMother((Woman)woman);
 
-        jsonArray = (org.json.simple.JSONArray)wholeFile.get("Child");
+        jsonArray = (org.json.simple.JSONArray)wholeFile.get("child");
         for(int i = 0; i < jsonArray.size(); i++) {
             jsonObject = (JSONObject) jsonArray.get(i);
             Child child = new Child(jsonObject.get("name").toString(),
@@ -109,7 +109,7 @@ public class Parser {
           {
               jsonObject = (JSONObject) arr.get(q);
               pass_no = (Long)jsonObject.get("pass_no");
-              ((Adult)human.get(pass_no)).addTransport(car);
+              (human.get(pass_no)).addTransport(car);
               //human.stream().filter(person -> person.getPassNo() == (long)o).forEach(person -> person.addTransport(car));
           }
         }

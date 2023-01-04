@@ -6,7 +6,7 @@
               "values": "smart_ass_home"
             }
           ],
-  "Men":
+  "men":
           [
     {
       "name": "Jason ",
@@ -20,7 +20,7 @@
       "surname": "Merkel",
       "pass_no": 7614941055
     }],
-  "Child": [
+  "child": [
     {
       "name": "Warren",
       "surname": "Buffet",

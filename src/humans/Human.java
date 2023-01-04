@@ -2,8 +2,11 @@ package humans;
 
 import home.Home;
 import home.Room;
+import transport.Transport;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Human {
     protected LocalDateTime bday;
@@ -13,12 +16,18 @@ public abstract class Human {
     protected Room room;
     protected Home home;
     protected long passNo;
-
+    protected List<Transport> transports = new ArrayList<>();
     public Human(String name, String surname, long pass) {
         this.name = name;
         this.surname = surname;
+        this.passNo = pass;
     }
 
+    public  void  addTransport(Transport t)
+    {
+        transports.add(t);
+        t.addOwner(this);
+    }
     public void moveTo(Room room)
     {
         this.room = room;
