@@ -37,4 +37,18 @@ public class Child extends Human {
         }
     }
 
+
+    /**
+     * There is always food for our baby
+     * Noone has hunger rate, so just does nothing
+     */
+    public void eat()
+    {
+
+    }
+
+    public void run()
+    {
+
+    }
 }

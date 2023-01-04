@@ -26,6 +26,8 @@ public class Main {
             /*
             * Do events fire, etc.
              */
+
+
              for(Stuff s = h.iterator.begin(); h.iterator.hasNext(); s = h.iterator.next())
             {
                 s.run();

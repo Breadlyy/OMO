@@ -1,5 +1,6 @@
 package home.stuff;
 
+import home.Room;
 import home.stuff.state.StuffState;
 
 import java.util.Random;
@@ -7,6 +8,10 @@ import java.util.Random;
 public abstract class Stuff  {
     int i;
     int durability = 100;
+
+
+
+    private Room room;
     protected double energyConsumption;//water or energy
     protected StuffState state = new StuffState();
     private static double consumedEnergy;
@@ -48,6 +53,7 @@ public abstract class Stuff  {
     public void breakThis()
     {
         state.breakThing();
+
     }
     public void repairThis()
     {
@@ -96,7 +102,14 @@ public abstract class Stuff  {
         return s;
     }
 
-//    public void turnOff()
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+    //    public void turnOff()
 //    {
 //        if(this.state != StuffState.disabled)
 //        {

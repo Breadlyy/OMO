@@ -49,6 +49,7 @@ public class Room {
     public void addStuff(Stuff stuff)
     {
         this.stuff.add(stuff);
+        stuff.setRoom(this);
     }
 
     public void removeStuff(Stuff stuff)
