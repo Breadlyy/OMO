@@ -243,7 +243,6 @@ public class Parser {
             int room = (int)y;
             room--;
             rooms.get(room).addStuff(s);
-           Fridge fridge = (Fridge) allstuff.get(1);
             System.out.println();
         }
     }

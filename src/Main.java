@@ -16,22 +16,20 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Parser parser = new Parser();
-        Home home = parser.getHome();
-    }
 
-        /*
         Parser parser = new Parser();
         Home h = parser.getHome();
+
         while (true)
         {
 
             /*
             * Do events fire, etc.
-
-            for(Stuff s = h.iterator.begin(); h.iterator.hasNext(); s = h.iterator.next())
+             */
+             for(Stuff s = h.iterator.begin(); h.iterator.hasNext(); s = h.iterator.next())
             {
                 s.run();
+                System.out.println(h.generateReport(s));
             }
             for(Pet pet:  h.getPets())
             {
@@ -46,7 +44,5 @@ public class Main {
 
         }
 
-        fridge.run();
-        System.out.println();
-    }*/
+    }
 }

@@ -9,10 +9,11 @@ public abstract class Stuff  {
     int durability = 100;
     protected double energyConsumption;//water or energy
     protected StuffState state = new StuffState();
+    private static double consumedEnergy;
     private long id;
     public double generateReport()
     {
-        return energyConsumption;
+        return consumedEnergy;
     }
 
     public double getEnergyConsumption() {
@@ -72,8 +73,9 @@ public abstract class Stuff  {
     }
     public void run()
     {
-        i = (int)(Math.random() * 2);
-        if(i > 0)
+        consumedEnergy+=energyConsumption;
+        i = (int)(Math.random() * 5);
+        if(i > 4)
         {
             if(checkDurability())
             {
