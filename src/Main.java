@@ -18,6 +18,15 @@ public class Main {
     public static void main(String[] args) {
         Parser parser = new Parser();
         Home home = parser.getHome();
+        Stuff s = home.iterator.begin();
+        System.out.println(s);
+        while(home.iterator.hasNext())
+        {
+            s=home.iterator.next();
+            System.out.println(s.toString());
+
+        }
+
     }
 
         /*

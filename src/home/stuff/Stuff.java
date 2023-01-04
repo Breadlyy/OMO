@@ -88,6 +88,12 @@ public abstract class Stuff  {
         return this.durability > 0;
     }
 
+    public String toString()
+    {
+        String s = this.getClass().getSimpleName() + "\nWith id " + id;
+        return s;
+    }
+
 //    public void turnOff()
 //    {
 //        if(this.state != StuffState.disabled)
