@@ -65,6 +65,10 @@ public class Home {
         }
         return home;
     }
+    public double generateReport(Stuff stuff)
+    {
+        return stuff.generateReport();
+    }
 
     public void addFloor(Floor floor)
     {
