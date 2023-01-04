@@ -9,10 +9,7 @@ import home.Home;
 import home.Room;
 import home.sensor.*;
 import home.stuff.*;
-import humans.Child;
-import humans.Human;
-import humans.Men;
-import humans.Woman;
+import humans.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -112,7 +109,7 @@ public class Parser {
           {
               jsonObject = (JSONObject) arr.get(q);
               pass_no = (Long)jsonObject.get("pass_no");
-              human.get(pass_no).addTransport(car);
+              ((Adult)human.get(pass_no)).addTransport(car);
               //human.stream().filter(person -> person.getPassNo() == (long)o).forEach(person -> person.addTransport(car));
           }
         }
@@ -243,7 +240,6 @@ public class Parser {
             int room = (int)y;
             room--;
             rooms.get(room).addStuff(s);
-           Fridge fridge = (Fridge) allstuff.get(1);
             System.out.println();
         }
     }

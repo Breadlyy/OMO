@@ -19,7 +19,7 @@ public abstract class Pet implements IPet {
     public void setName(String name) {
         this.name = name;
     }
-    public void action()
+    public void run()
     {
         i = (int)(Math.random() * 3);
         if(i == 0)

@@ -49,6 +49,7 @@ public class Room {
     public void addStuff(Stuff stuff)
     {
         this.stuff.add(stuff);
+        stuff.setRoom(this);
     }
 
     public void removeStuff(Stuff stuff)
@@ -56,36 +57,8 @@ public class Room {
         this.stuff.remove(stuff);
     }
 
-    public Iterator getIterator() {
-        return new StuffIterator();
-    }
 
-    private class StuffIterator implements Iterator
-    {
-        int index;
-        @Override
-        public boolean hasNext() {
-            if(index < stuff.size())
-            {
-                return true;
-            }
-            return false;
-        }
 
-        @Override
-        public Object next() {
-            Stuff stuff1 = stuff.get(index);
-            index++;
-            return stuff1;
-        }
-    }
-    public interface Iterator {
-        public boolean hasNext();
-        public Object next();
-    }
-    public interface Collection {
-        Iterator getIterator();
-    }
 
 }
 

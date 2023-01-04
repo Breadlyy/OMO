@@ -3,6 +3,8 @@ package home;
 import animals.Pet;
 import events.*;
 import home.sensor.*;
+import home.stuff.Stuff;
+import home.stuff.StuffIterator;
 import humans.Child;
 import humans.Human;
 import humans.Men;
@@ -25,6 +27,7 @@ public class Home {
     protected ShortCircuit shortCircuit;
     protected WaterLeak waterLeak;
     protected WindBlow windBlow;
+    public StuffIterator iterator;
 
     public Fire getFire() {
         return fire;
@@ -53,7 +56,7 @@ public class Home {
         this.shortCircuit = new ShortCircuit();
         this.waterLeak = new WaterLeak();
         this.windBlow = new WindBlow();
-
+        iterator = new StuffIterator(this);
     }
 
     public static Home getExample() {
@@ -61,6 +64,10 @@ public class Home {
             home = new Home();
         }
         return home;
+    }
+    public double generateReport(Stuff stuff)
+    {
+        return stuff.generateReport();
     }
 
     public void addFloor(Floor floor)
@@ -100,4 +107,27 @@ public class Home {
         return sensors;
     }
 
+    public List<Floor> getFloors() {
+        return floors;
+    }
+
+    public static Home getHome() {
+        return home;
+    }
+
+    public Men getFather() {
+        return father;
+    }
+
+    public Woman getMother() {
+        return mother;
+    }
+
+    public List<Child> getChildren() {
+        return children;
+    }
+
+    public List<Pet> getPets() {
+        return pets;
+    }
 }
