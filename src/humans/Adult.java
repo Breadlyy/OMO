@@ -18,7 +18,6 @@ public abstract class Adult extends Human{
 
     private int busyCount;
     private Queue<Task> taskQueue;
-    Task open ;
     Task close;
 
     int rand;
@@ -71,19 +70,19 @@ public abstract class Adult extends Human{
         {
             case 1:
                 GasHeater gasHeater = getRandomHeater();
-                open  = new OpenHeaterTask(this, 1, 3, gasHeater);
-                close = new OpenHeaterTask(this, 1, 2, gasHeater);
-                taskQueue.add(open); taskQueue.add(close);
+                gasHeater.start_heating();
+                close = new CloseHeaterTask(this, 1, 3, gasHeater);
+                taskQueue.add(close);
             case 2:
                 Tap tap = getRandomTap();
-                open  = new OpenTapTask(this, 1, 3, tap);
+                tap.open_water();
                 close = new CloseTapTask(this, 1, 5, tap);
-                taskQueue.add(open); taskQueue.add(close);
+                taskQueue.add(close);
             case 3:
                 Window window = getRandomWindow();
-                open  = new OpenWindowTask(this, 1, 1, window);
-                close = new OpenWindowTask(this, 1, 2, window);
-                taskQueue.add(open); taskQueue.add(close);
+                window.open();
+                close = new CloseWindowTask(this, 1, 2, window);
+                taskQueue.add(close);
         }
     }
 
