@@ -5,8 +5,7 @@ import food.Food;
 import home.Home;
 import home.Room;
 import home.stuff.*;
-import tasks.GoForFoodTask;
-import tasks.Task;
+import tasks.*;
 import transport.Transport;
 
 import java.time.LocalDateTime;
@@ -19,10 +18,10 @@ public abstract class Adult extends Human{
 
     private int busyCount;
     private Queue<Task> taskQueue;
-
+    Task open ;
+    Task close;
 
     int rand;
-    private Random random;
 
 
 
@@ -51,7 +50,7 @@ public abstract class Adult extends Human{
         taskQueue.add(t);
     }
 
-    public void run()
+    public void run(Home home)
     {
         if(busyCount!=0)
         {
@@ -66,6 +65,25 @@ public abstract class Adult extends Human{
         else
         {
 
+        }
+        rand = (int)Math.random() * 3;
+        switch (rand)
+        {
+            case 1:
+                GasHeater gasHeater = getRandomHeater();
+                open  = new OpenHeaterTask(this, 1, 3, gasHeater);
+                close = new OpenHeaterTask(this, 1, 2, gasHeater);
+                taskQueue.add(open); taskQueue.add(close);
+            case 2:
+                Tap tap = getRandomTap();
+                open  = new OpenTapTask(this, 1, 3, tap);
+                close = new CloseTapTask(this, 1, 5, tap);
+                taskQueue.add(open); taskQueue.add(close);
+            case 3:
+                Window window = getRandomWindow();
+                open  = new OpenWindowTask(this, 1, 1, window);
+                close = new OpenWindowTask(this, 1, 2, window);
+                taskQueue.add(open); taskQueue.add(close);
         }
     }
 
@@ -231,5 +249,45 @@ public void goForFood(Fridge f)
         {
             eat(f);
         }
+
+    }
+    private Tap getRandomTap()
+    {
+        Stuff tap = home.iterator.begin();
+        while (tap != null)
+        {
+            if(tap instanceof Tap)
+            {
+                return (Tap) tap;
+            }
+            tap=home.iterator.next();
+        }
+        return null;
+    }
+    private GasHeater getRandomHeater()
+    {
+        Stuff heater = home.iterator.begin();
+        while (heater != null)
+        {
+            if(heater instanceof GasHeater)
+            {
+                return (GasHeater) heater;
+            }
+            heater=home.iterator.next();
+        }
+        return null;
+    }
+    private Window getRandomWindow()
+    {
+        Stuff window = home.iterator.begin();
+        while (window != null)
+        {
+            if(window instanceof Window)
+            {
+                return (Window) window;
+            }
+            window=home.iterator.next();
+        }
+        return null;
     }
 }
