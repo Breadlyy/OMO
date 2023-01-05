@@ -18,6 +18,6 @@ public class FeedPetTask extends Task
     @Override
     public void run()
     {
-        Fridge f = human.findNonEmptyFridge();
+        human.feedPet(p);
     }
 }

@@ -11,6 +11,7 @@ import java.util.List;
 public abstract class Human {
     protected LocalDateTime bday;
 
+    protected int hungerRate;
     protected String name;
     protected String surname;
     protected Room room;

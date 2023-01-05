@@ -1,4 +1,5 @@
 import animals.Pet;
+import events.Event;
 import events.Fire;
 import home.Floor;
 import home.Home;
@@ -11,14 +12,28 @@ import humans.Human;
 import humans.Men;
 import parser.Parser;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        Parser parser = new Parser();
-        Home h = parser.getHome();
+        JFrame window = new JFrame();
+        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        window.setResizable(false);
+        window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        EventInstructionFrame instructionPanel = new EventInstructionFrame();
+        window.add(instructionPanel);
+
+        window.pack();
+
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
+
+        instructionPanel.start();
+
 /*
         while (true)
         {

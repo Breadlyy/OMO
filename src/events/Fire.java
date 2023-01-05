@@ -6,4 +6,8 @@ public class Fire extends Event{
     public void attachSensor(SmokeDetector sensor) {
         this.sensors.add(sensor);
     }
+
+    public Fire() {
+        text = "Fire started!";
+    }
 }

@@ -8,7 +8,7 @@ import java.util.Random;
 public class WaterLeak extends Event {
 
     public WaterLeak() {
-        super();
+        text = "Water leaked!";
     }
 
     public void attachSensor(WaterSensor sensor) {
