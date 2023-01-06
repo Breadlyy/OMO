@@ -13,8 +13,7 @@ public class FixStuffTask extends Task
 
     public void run()
     {
-        System.out.println("Dad repaired "+ s.getName() + " with id "+ s.getId());
-        s.repairThis();
+        human.repair(s);
     }
 
 }

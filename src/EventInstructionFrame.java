@@ -10,6 +10,7 @@ import java.awt.*;
 public class EventInstructionFrame extends JPanel implements Runnable {
     KeyHandler keyh = new KeyHandler();
     Home home;
+    int reportcount = 0;
 
     public EventInstructionFrame() {
         this.setPreferredSize(new Dimension(200, 200));
@@ -30,8 +31,10 @@ public class EventInstructionFrame extends JPanel implements Runnable {
 
     @Override
     public void run() {
+
         int cooldown = 0;
         while (true) {
+            reportcount++;
             if (cooldown == 0) {
                 if (keyh.fire) {
                     home.getFire().occur();
@@ -49,12 +52,8 @@ public class EventInstructionFrame extends JPanel implements Runnable {
             }
             cooldown--;
 
+            for(Stuff it = home.iterator.begin();it!=null ; it = home.iterator.next()) it.run();
 
-            /*for(Stuff s = home.iterator.begin(); home.iterator.hasNext(); s = home.iterator.next())
-            {
-                s.run();
-                System.out.println(home.generateReport(s));
-            }*/
             for(Pet pet:  home.getPets())
             {
                 pet.run();
@@ -72,6 +71,12 @@ public class EventInstructionFrame extends JPanel implements Runnable {
                 e.printStackTrace();
             }
             System.out.println("--------------------");
+            if(reportcount==5) {
+                System.out.println("REPORT");
+                System.out.println(home.generateReport());
+                System.out.println("--------------------");
+                reportcount=0;
+            }
         }
     }
 }

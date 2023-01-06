@@ -64,9 +64,12 @@ public class Home {
         }
         return home;
     }
-    public double generateReport(Stuff stuff)
+    public String generateReport()
     {
-        return stuff.generateReport();
+        String rep = "";
+        for(Stuff it = iterator.begin();it!=null ; it = iterator.next())
+            rep+=(it.generateReport()+'\n');
+        return rep;
     }
 
     public void addFloor(Floor floor)

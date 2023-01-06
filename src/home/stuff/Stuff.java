@@ -20,8 +20,8 @@ public abstract class Stuff {
     private long id;
     private String name;
 
-    public double generateReport() {
-        return consumedEnergy;
+    public String generateReport() {
+        return  getClass().getSimpleName()+" "+ id + " consumed " + consumedEnergy;
     }
 
     public double getEnergyConsumption() {

@@ -52,21 +52,21 @@ public abstract class Adult extends Human {
             busyCount = task.getComplexity();
             task.run();
         } else {
-            rand = (int)(Math.random() * 3);
+            rand = (int) (Math.random() * 3);
             switch (rand) {
                 case 0:
                     GasHeater gasHeater = getRandomHeater();
-                    if(gasHeater==null) return;
+                    if (gasHeater == null) return;
                     moveTo(gasHeater.getRoom());
                     turnHeatingOn(gasHeater);
-                   // System.out.println(this.name + " has turned on the gasheater " + gasHeater.getId());
+                    // System.out.println(this.name + " has turned on the gasheater " + gasHeater.getId());
                     close = new CloseHeaterTask(this, 1, 2, gasHeater);
                     System.out.println(this.name + " is gonna to turn the heater off");
                     taskQueue.add(close);
                     break;
                 case 1:
                     Tap tap = getRandomTap();
-                    if(tap==null) return;
+                    if (tap == null) return;
                     moveTo(tap.getRoom());
                     turnWaterOn(tap);
                     //System.out.println(this.name + " has opened the tap " + tap.getId());
@@ -76,7 +76,7 @@ public abstract class Adult extends Human {
                     break;
                 case 2:
                     Window window = getRandomWindow();
-                    if(window==null) return;
+                    if (window == null) return;
                     moveTo(window.getRoom());
                     openWindow(window);
                     //System.out.println(this.name + " has opened the window " + window.getId());
@@ -86,7 +86,7 @@ public abstract class Adult extends Human {
                     taskQueue.add(close);
                     break;
                 default:
-                    System.out.println(this.name +  " is chilling'");
+                    System.out.println(this.name + " is chilling'");
             }
         }
     }
@@ -99,7 +99,7 @@ public abstract class Adult extends Human {
      * @return
      */
     private boolean checkFridge(Fridge fridge) {
-        System.out.println(name + " checked fridge "+ fridge.getId());
+        System.out.println(name + " checked fridge " + fridge.getId());
         if (fridge.empty()) {
             System.out.println("Fridge is empty");
             Task t = new GoForFoodTask(this, 4, 2, fridge);
@@ -112,8 +112,8 @@ public abstract class Adult extends Human {
     }
 
     public void eat(Fridge fridge) {
-        System.out.println(name + "ate " + fridge.getFood().get(0) + " from fridge "+ fridge.getId());
-            fridge.eat(fridge.getFood().get(0));
+        System.out.println(name + "ate " + fridge.getFood().get(0) + " from fridge " + fridge.getId());
+        fridge.eat(fridge.getFood().get(0));
     }
 
     public void goForFood(Fridge f) {
@@ -130,7 +130,7 @@ public abstract class Adult extends Human {
                 Task t = new GoForFoodTask(this, 4, 2, f);
             }
         } else {
-            System.out.println(name + " feed pet "+ p.getName() );
+            System.out.println(name + " feed pet " + p.getName());
             moveTo(f.getRoom());
             f.eat(f.getFood().get(0));
         }
@@ -154,13 +154,13 @@ public abstract class Adult extends Human {
 
 
     public void turnHeatingOn(GasHeater heater) {
-        System.out.println(name + " turned on gasHeater "+ heater.getId());
+        System.out.println(name + " turned on gasHeater " + heater.getId());
         heater.start_heating();
     }
 
 
     public void turnHeatingOff(GasHeater heater) {
-        System.out.println(name + " turned off gasHeater "+ heater.getId());
+        System.out.println(name + " turned off gasHeater " + heater.getId());
         heater.stop_heating();
     }
 
@@ -208,7 +208,7 @@ public abstract class Adult extends Human {
     }
 
     public void feedChild(Child c) {
-        System.out.println(name + " feed child "+ c.name);
+        System.out.println(name + " feed child " + c.name);
         c.eat();
     }
 
@@ -262,8 +262,12 @@ public abstract class Adult extends Human {
         return null;
     }
 
-    public void playWith(Child c)
-    {
-        System.out.println(name + " played with "+ c.name);
+    public void playWith(Child c) {
+        System.out.println(name + " played with " + c.name);
+    }
+
+    public void repair(Stuff s) {
+        System.out.println("Dad repaired " + s.getName() + " with id " + s.getId());
+        s.repairThis();
     }
 }

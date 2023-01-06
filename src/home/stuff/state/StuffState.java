@@ -11,6 +11,10 @@ public class StuffState {
         BROKE
     }
 
+    public StuffState() {
+       state = State.IDLE;
+    }
+
     private State state;
 
     public void handle(Stuff stuff)
