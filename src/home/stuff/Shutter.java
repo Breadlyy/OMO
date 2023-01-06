@@ -13,11 +13,11 @@ public class Shutter extends ElectricStuff {
     public void open()
     {
         this.opened = true;
-        System.out.println("Shutter opened");
+        System.out.println("Shutter " + getId() + " opened");
     }
     public void close()
     {
         this.opened = false;
-        System.out.println("Shutter closed");
+        System.out.println("Shutter " + getId() + " closed");
     }
 }

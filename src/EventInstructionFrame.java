@@ -49,7 +49,7 @@ public class EventInstructionFrame extends JPanel implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
+        home.getRandomPerson().run();
         }
     }
 }

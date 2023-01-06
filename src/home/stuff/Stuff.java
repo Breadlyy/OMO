@@ -16,6 +16,7 @@ public abstract class Stuff  {
     protected StuffState state = new StuffState();
     private static double consumedEnergy;
     private long id;
+    private String name;
     public double generateReport()
     {
         return consumedEnergy;
@@ -66,7 +67,7 @@ public abstract class Stuff  {
 
     public void notifyStuff()
     {
-        System.out.println("Stuff is off");
+        System.out.println("Stuff " + getName() + " is off");
         powerOff();
     }
 
@@ -108,6 +109,14 @@ public abstract class Stuff  {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     //    public void turnOff()
 //    {

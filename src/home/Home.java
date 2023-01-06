@@ -5,14 +5,12 @@ import events.*;
 import home.sensor.*;
 import home.stuff.Stuff;
 import home.stuff.StuffIterator;
-import humans.Child;
-import humans.Human;
-import humans.Men;
-import humans.Woman;
+import humans.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Home {
     private static Home home;
@@ -28,6 +26,7 @@ public class Home {
     protected WaterLeak waterLeak;
     protected WindBlow windBlow;
     public StuffIterator iterator;
+    private int rand;
 
     public Fire getFire() {
         return fire;
@@ -129,5 +128,11 @@ public class Home {
 
     public List<Pet> getPets() {
         return pets;
+    }
+    public Adult getRandomPerson()
+    {
+        rand = (int)(Math.random() * 2);
+        if(rand == 0) return getFather();
+        return getMother();
     }
 }

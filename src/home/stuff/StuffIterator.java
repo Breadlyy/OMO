@@ -1,11 +1,15 @@
 package home.stuff;
 
 import home.Home;
+import parser.Parser;
+
+import java.util.logging.Logger;
 
 public class StuffIterator
 {
     private int floornum=0, roomnum=0, stuffnum=0;
     private final Home home;
+    private static final Logger log = Logger.getLogger(Parser.class.getName());
 
     public StuffIterator(Home home) {
         this.home = home;
@@ -39,13 +43,13 @@ public class StuffIterator
                 }
             }
         }
+        log.info("Iterator wasn't started");
         return null;
     }
 
     public Stuff next() {
         if(home.getFloors().get(floornum).getRooms().get(roomnum).getStuff().size()>stuffnum+1)
         {
-            System.out.println("a");
             stuffnum++;
             return home.getFloors().get(floornum).getRooms().get(roomnum).getStuff().get(stuffnum);
         }
@@ -64,6 +68,7 @@ public class StuffIterator
                 }
             }
         }
+        log.info("Iterator have no more stuff");
         return null;
     }
 }

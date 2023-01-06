@@ -50,34 +50,41 @@ public abstract class Adult extends Human {
             busyCount = task.getComplexity();
             task.run();
         } else {
-            rand = (int) Math.random() * 6;
+            rand = (int)(Math.random() * 3);
             switch (rand) {
-                case 1:
+                case 0:
                     GasHeater gasHeater = getRandomHeater();
                     //open  = new OpenHeaterTask(this, 1, 3, gasHeater);
                     moveTo(gasHeater.getRoom());
                     turnHeatingOn(gasHeater);
+                    System.out.println(this.name + " has turned up the tap");
                     close = new CloseHeaterTask(this, 1, 2, gasHeater);
+                    System.out.println(this.name + " is gonna to turn the heater off");
                     //taskQueue.add(open);
                     taskQueue.add(close);
-                case 2:
+                case 1:
                     Tap tap = getRandomTap();
                     //open  = new OpenTapTask(this, 1, 3, tap);
                     moveTo(tap.getRoom());
                     turnWaterOn(tap);
+                    System.out.println(this.name + " has opened the tap");
                     close = new CloseTapTask(this, 1, 5, tap);
+                    System.out.println(this.name + " is gonna to close the tap");
                     //taskQueue.add(open);
                     taskQueue.add(close);
-                case 3:
+                case 2:
                     Window window = getRandomWindow();
                     //open  = new OpenWindowTask(this, 1, 1, window);
                     moveTo(window.getRoom());
                     openWindow(window);
+                    System.out.println(this.name + " has opened the window");
                     close = new OpenWindowTask(this, 1, 2, window);
+                    System.out.println(this.name + " is gonna open the window");
                     //taskQueue.add(open);
+
                     taskQueue.add(close);
                 default:
-                    System.out.println("Adult " + passNo + "is chillin'");
+                    System.out.println(this.name +  " is chilling'");
             }
         }
     }
@@ -215,7 +222,7 @@ public abstract class Adult extends Human {
             if (f != null) {
                 enqueueTask(new GoForFoodTask(this, 4, 3, f));
             } else {
-                System.out.println("Why don;t we have fridges?");
+                System.out.println("Why don't we have fridges?");
             }
         } else {
             eat(f);

@@ -1,11 +1,11 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Test
 {
     public static void main(String[] args) {
-        Test t = new Test();
-        t.run();
-
+//        Test t = new Test();
+//        t.run();
     }
     int b = 0;
     private class Klistener extends Thread

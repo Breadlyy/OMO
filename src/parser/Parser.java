@@ -23,10 +23,12 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import java.util.Map;
+import java.util.logging.Logger;
 
 public class Parser {
     private final static int NFRIDGE = 1, NGAS = 2, NMICROWAVE = 3,NSHUTTER = 4, NWINDOW = 5, NTAP = 6, NOVEN = 7;
     private final static int NGASSENSOR = 1, NELECTRICITYSENSOR = 2, NSMOKESENSOR = 3, NWATERSENSOR = 4, NWINDSENSOR = 5;
+    private static final Logger log = Logger.getLogger(Parser.class.getName());
 
 
     JSONObject jsonObject;
@@ -92,7 +94,7 @@ public class Parser {
         }
         human.put(men.getPassNo(), men);
         human.put(woman.getPassNo(), woman);
-
+        log.info("Family was created");
     }
 
     public void getCars(JSONObject wholeFile){
@@ -113,7 +115,7 @@ public class Parser {
               //human.stream().filter(person -> person.getPassNo() == (long)o).forEach(person -> person.addTransport(car));
           }
         }
-
+        log.info("Cars were created and attached to the people");
     }
 
     /**
@@ -138,6 +140,7 @@ public class Parser {
             int q = (int)f.getNumber();
             floors.put(q, f);
         }
+        log.info("Floors appeared inda house");
     }
 
     /**
@@ -170,6 +173,7 @@ public class Parser {
             rooms.put(i, room);
             builder.addRoom(room, f);
         }
+        log.info("rooms are added to the floors");
     }
 
 
@@ -235,6 +239,7 @@ public class Parser {
             }
             s.setId((long) jsonObject.get("id"));
             s.setEnergyConsumption((double)jsonObject.get("energyconsumption"));
+            s.setName((String) jsonObject.get("_comment"));
             allstuff.put(s.getId(), s);
             long y = (Long)jsonObject.get("room");
             int room = (int)y;
@@ -242,6 +247,7 @@ public class Parser {
             rooms.get(room).addStuff(s);
             System.out.println();
         }
+        log.info("Stuff was created");
     }
 
 
@@ -319,7 +325,7 @@ public class Parser {
             }
             s.setId((long)jsonObject.get("id"));
         }
-
+        log.info("Sensors were created and attached to the stuff");
     }
 
 
