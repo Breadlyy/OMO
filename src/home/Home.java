@@ -3,9 +3,9 @@ package home;
 import animals.Pet;
 import events.*;
 import home.sensor.*;
-import home.stuff.Stuff;
-import home.stuff.StuffIterator;
+import home.stuff.*;
 import humans.*;
+import sport.SportStuff;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -27,6 +27,7 @@ public class Home {
     protected WindBlow windBlow;
     public StuffIterator iterator;
     private int rand;
+    private List<SportStuff> sportStuffs;
 
     public Fire getFire() {
         return fire;
@@ -138,4 +139,70 @@ public class Home {
         if(rand == 0) return getFather();
         return getMother();
     }
+
+    public Tap getRandomTap() {
+        List<Tap> w = new ArrayList<>();
+        Stuff tap = iterator.begin();
+        while (tap != null) {
+            if (tap instanceof Tap && !tap.active()) {
+                w.add ((Tap) tap);
+            }
+            tap = iterator.next();
+        }
+        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
+        return null;
+    }
+
+    public SportStuff getRandomSportStuff()
+    {
+        for(SportStuff s: sportStuffs)
+        {
+            if(!s.isBusy())
+            {
+                return s;
+            }
+        }
+        return null;
+    }
+
+   public GasHeater getRandomHeater() {
+        List<GasHeater> w = new ArrayList<>();
+        Stuff gasHeater = iterator.begin();
+        while (gasHeater != null) {
+            if (gasHeater instanceof GasHeater && !gasHeater.active()) {
+                w.add ((GasHeater) gasHeater);
+            }
+            gasHeater = iterator.next();
+        }
+        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
+        return null;
+    }
+
+    public Window getRandomWindow() {
+
+        List<Window> w = new ArrayList<>();
+        Stuff window = iterator.begin();
+        while (window != null) {
+            if (window instanceof Window && !window.active()) {
+                w.add ((Window) window);
+            }
+            window = iterator.next();
+        }
+        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
+        return null;
+    }
+
+    public Oven getRandomOven() {
+        List<Oven> w = new ArrayList<>();
+        Stuff oven = iterator.begin();
+        while (oven != null) {
+            if (oven instanceof Oven) {
+                w.add ((Oven) oven);
+            }
+            oven = iterator.next();
+        }
+        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
+        return null;
+    }
+
 }

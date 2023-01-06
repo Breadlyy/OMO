@@ -5,6 +5,7 @@ import food.Food;
 import home.Home;
 import home.Room;
 import home.stuff.*;
+import sport.SportStuff;
 import tasks.*;
 import transport.Transport;
 
@@ -55,7 +56,7 @@ public abstract class Adult extends Human {
             rand = (int) (Math.random() * 8);
             switch (rand) {
                 case 0:
-                    GasHeater gasHeater = getRandomHeater();
+                    GasHeater gasHeater = home.getRandomHeater();
                     if (gasHeater == null) return;
                     moveTo(gasHeater.getRoom());
                     turnHeatingOn(gasHeater);
@@ -65,7 +66,7 @@ public abstract class Adult extends Human {
                     taskQueue.add(close);
                     break;
                 case 1:
-                    Tap tap = getRandomTap();
+                    Tap tap = home.getRandomTap();
                     if (tap == null) return;
                     moveTo(tap.getRoom());
                     turnWaterOn(tap);
@@ -75,7 +76,7 @@ public abstract class Adult extends Human {
                     taskQueue.add(close);
                     break;
                 case 2:
-                    Window window = getRandomWindow();
+                    Window window = home.getRandomWindow();
                     if (window == null) return;
                     moveTo(window.getRoom());
                     openWindow(window);
@@ -86,7 +87,7 @@ public abstract class Adult extends Human {
                     taskQueue.add(close);
                     break;
                 case 3:
-                    Oven oven = getRandomOven();
+                    Oven oven = home.getRandomOven();
                     if (oven == null) return;
                     moveTo(oven.getRoom());
                     oven.turnOn();
@@ -96,6 +97,20 @@ public abstract class Adult extends Human {
 
                     taskQueue.add(close);
                     break;
+                case 4:
+                {
+                    SportStuff sportStuff = home.getRandomSportStuff();
+                    if(sportStuff==null)
+                    {
+                        System.out.println(name + " wanted to sport but there is no sport equipment ");
+                        break;
+                    }
+                    busyCount=4;
+                    System.out.println(name + " goes sport ");
+                    sportStuff.run();
+                    break;
+
+                }
                 default:
                     System.out.println(this.name + " is chilling'");
             }
@@ -223,62 +238,12 @@ public abstract class Adult extends Human {
 
     }
 
-    private Tap getRandomTap() {
-        List<Tap> w = new ArrayList<>();
-        Stuff tap = home.iterator.begin();
-        while (tap != null) {
-            if (tap instanceof Tap && !tap.active()) {
-                w.add ((Tap) tap);
-            }
-            tap = home.iterator.next();
-        }
-        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
-        return null;
-    }
-
-    private GasHeater getRandomHeater() {
-        List<GasHeater> w = new ArrayList<>();
-        Stuff gasHeater = home.iterator.begin();
-        while (gasHeater != null) {
-            if (gasHeater instanceof GasHeater && !gasHeater.active()) {
-                w.add ((GasHeater) gasHeater);
-            }
-            gasHeater = home.iterator.next();
-        }
-        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
-        return null;
-    }
-
-    private Window getRandomWindow() {
-
-        List<Window> w = new ArrayList<>();
-        Stuff window = home.iterator.begin();
-        while (window != null) {
-            if (window instanceof Window && !window.active()) {
-                w.add ((Window) window);
-            }
-            window = home.iterator.next();
-        }
-        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
-        return null;
-    }
-
-    private Oven getRandomOven() {
-        List<Oven> w = new ArrayList<>();
-        Stuff oven = home.iterator.begin();
-        while (oven != null) {
-            if (oven instanceof Oven) {
-                w.add ((Oven) oven);
-            }
-            oven = home.iterator.next();
-        }
-        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
-        return null;
-    }
-
+   
     public void playWith(Child c) {
         System.out.println(name + " played with " + c.name);
     }
+
+
 
     public void repair(Stuff s) {
         System.out.println("Dad repaired " + s.getName() + " with id " + s.getId());
