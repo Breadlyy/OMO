@@ -3,6 +3,8 @@ package main.java.sport;
 public abstract class SportStuff
 {
     int busyCount = 0;
+    private int id;
+
 
     /**
      * True if stuff is used
@@ -11,5 +13,13 @@ public abstract class SportStuff
     public boolean isBusy(){return busyCount!=0;}
     public void run()
     {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
