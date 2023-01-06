@@ -41,7 +41,7 @@ public class Child extends Human {
         }
         if(i == 1)
         {
-            System.out.println("Children "+ passNo + " wants to food" );
+            System.out.println("Children "+ name + " wants to food" );
             wantFood();
         }
         if(i == 2)
