@@ -47,7 +47,7 @@ public class Parser {
         JSONObject wholeFile;
         try
         {
-            FileReader reader = new FileReader("src/parser/base/classes.json");
+            FileReader reader = new FileReader("src/parser/base/simpleHouse.json");
             wholeFile = (JSONObject) jsonParser.parse(reader);
             HouseBuilder builder = new HouseBuilder();
             getHumans(wholeFile, builder);

@@ -1,0 +1,80 @@
+{
+  "home": [
+    {
+      "values": "smart_ass_home"
+    }
+  ],
+  "men": [
+    {
+      "name": "Jason ",
+      "surname": "Statham",
+      "pass_no": 3147868559
+    }
+  ],
+  "woman": [
+    {
+      "name": " Angela ",
+      "surname": "Merkel",
+      "pass_no": 7614941055
+    }
+  ],
+  "child": [
+    {
+      "name": "Warren",
+      "surname": "Buffet",
+      "pass_no": 8897308422
+    }
+  ],
+  "cars": [],
+  "stuff": [
+    {
+      "id": 1,
+      "capacity": 5000,
+      "_comment": "холодос",
+      "num": 1,
+      "energyconsumption": 200.43,
+      "room": 1
+    },
+    {
+      "id": 2,
+      "_comment": "обогреавтель",
+      "num": 2,
+      "energyconsumption": 105.5,
+      "room": 1
+    }
+  ],
+  "sensor": [
+    {
+      "id": 1,
+      "comment": "детектор газа",
+      "type": 1,
+      "observe": 2
+    },
+    {
+      "id": 2,
+      "comment": "детектор газа",
+      "type": 1,
+      "observe": 3
+    },
+    {
+      "id": 5,
+      "comment": "предохранитель",
+      "type": 2,
+      "observe": 1
+    }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "width": 8,
+      "length": 4,
+      "height": 3,
+      "floor": 1
+    }
+  ],
+  "floors": [
+    {
+      "num": 1
+    }
+  ]
+}

@@ -16,7 +16,7 @@ public abstract class Stuff {
     private Room room;
     protected double energyConsumption;//water or energy
     protected StuffState state = new StuffState();
-    private double consumedEnergy;
+    protected double consumedEnergy;
     private long id;
     private String name;
 

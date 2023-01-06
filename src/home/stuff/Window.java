@@ -12,12 +12,14 @@ public class Window extends Stuff{
     public void open()
     {
         this.opened = true;
-        System.out.println("Shutter opened");
+        consumedEnergy+=7;
+        System.out.println("Window "+getId()+ " opened");
     }
     public void close()
     {
+        consumedEnergy+=7;
         this.opened = false;
-        System.out.println("Shutter closed");
+        System.out.println("Window "+getId()+ " closed");
     }
 
     public Shutter getShutter() {

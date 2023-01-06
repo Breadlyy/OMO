@@ -12,11 +12,13 @@ public class Shutter extends ElectricStuff {
     }
     public void open()
     {
+        consumedEnergy+=5;
         this.opened = true;
         System.out.println("Shutter " + getId() + " opened");
     }
     public void close()
     {
+        consumedEnergy+=5;
         this.opened = false;
         System.out.println("Shutter " + getId() + " closed");
     }

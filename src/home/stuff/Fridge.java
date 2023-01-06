@@ -1,6 +1,7 @@
 package home.stuff;
 
 import food.Food;
+import home.stuff.state.StuffState;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -26,4 +27,8 @@ public class Fridge extends ElectricStuff{
     {
         return food.isEmpty();
     }
-}
+    public Fridge() {
+        state = new StuffState();
+        state.turnOn();
+    }
+    }
