@@ -2,6 +2,7 @@ package humans;
 
 import home.Home;
 import home.Room;
+import sport.SportStuff;
 import transport.Transport;
 
 import java.time.LocalDateTime;
@@ -17,6 +18,7 @@ public abstract class Human {
     protected Room room;
     protected Home home;
     protected long passNo;
+    protected SportStuff sportStuff;
     protected List<Transport> transports = new ArrayList<>();
     public Human(String name, String surname, long pass) {
         this.name = name;
@@ -85,4 +87,13 @@ public abstract class Human {
     {
         return;
     }
+    public void setSportStuff(SportStuff sportStuff)
+    {
+        this.sportStuff = sportStuff;
+    }
+    public SportStuff getSportStuff()
+    {
+        return this.sportStuff;
+    }
+
 }

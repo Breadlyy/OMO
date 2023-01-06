@@ -15,6 +15,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import sport.Cycle;
+import sport.Ski;
+import sport.SportStuff;
 import transport.Car;
 
 
@@ -37,6 +40,7 @@ public class Parser {
 
     Map<Long, Human> human = new HashMap<>();
     Map<Long, Stuff> allstuff = new HashMap<>();
+    Map<Long, Stuff> sportstuff = new HashMap<>();
     Map<Integer, Floor> floors = new HashMap<>();
     Map<Integer, Room> rooms = new HashMap<>();
     Map<Long, Sensor> sensors = new HashMap<>();
@@ -47,7 +51,7 @@ public class Parser {
         JSONObject wholeFile;
         try
         {
-            FileReader reader = new FileReader("src/parser/base/simpleHouse.json");
+            FileReader reader = new FileReader("src/parser/base/classes.json");
             wholeFile = (JSONObject) jsonParser.parse(reader);
             HouseBuilder builder = new HouseBuilder();
             getHumans(wholeFile, builder);
@@ -56,6 +60,7 @@ public class Parser {
             getRooms(wholeFile, builder);
             getStuff(wholeFile);
             getSensors(wholeFile, builder);
+            getSportStuff(wholeFile);
             return builder.build();
         }
         catch (IOException e)
@@ -331,7 +336,33 @@ public class Parser {
         }
         log.info("Sensors were created and attached to the stuff");
     }
+    public void getSportStuff(JSONObject wholeFile){
+        jsonArray = (JSONArray) wholeFile.get("sport");
+        long q;
+        JSONObject jsonObject1;
 
+        for(int i = 0; i < jsonArray.size(); i++)
+        {
+            jsonObject = (JSONObject) jsonArray.get(i);
+            q = (Long) jsonObject.get("own");
+            long typeNum = (Long) jsonObject.get("type");
+            SportStuff sportStuff;
+            if(typeNum == 1) {
+                sportStuff = new Ski();
+                sportStuff.setId(i+1);
+                getHuman().get(q).
+                        setSportStuff(sportStuff);
+            }
+            if(typeNum == 2)
+            {
+                sportStuff = new Cycle();
+                sportStuff.setId(i+1);
+                getHuman().get(q).
+                        setSportStuff(sportStuff);
+            }
+        }
+        log.info("Cars were created and attached to the people");
+    }
 
     public Map<Long, Human> getHuman() {
         return human;

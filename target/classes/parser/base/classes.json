@@ -25,8 +25,21 @@
       "name": "Warren",
       "surname": "Buffet",
       "pass_no": 8897308422
+    },
+    {
+      "name": "Olaf",
+      "surname": "Scholz",
+      "pass_no": 2465633874
+    }, {
+      "name": "Linus",
+      "surname": "Torvalds",
+      "pass_no": 9653941216
+    }, {
+      "name": "Elizabeth",
+      "surname": "Mary",
+      "pass_no": 4756585235
     }
-     ],
+  ],
       "cars":
     [
       {
@@ -441,6 +454,45 @@
                 {
                   "num": 2
                 }
-              ]
+              ],
+  "sport":
+          [
+            {
+              "id": 1,
+              "type": 1,
+              "_comment": "лыжи",
+              "own": 3147868559
+            },
+            {
+              "id": 2,
+              "type": 1,
+              "_comment": "лыжи",
+              "own": 7614941055
+            },
+            {
+              "id": 3,
+              "type": 1,
+              "_comment": "лыжи",
+              "own": 8897308422
+            },
+            {
+              "id": 4,
+              "type": 2,
+              "_comment": "велосиспед",
+              "own": 2465633874
+            },
+            {
+              "id": 5,
+              "type": 2,
+              "_comment": "велосиспед",
+              "own": 9653941216
+            },
+            {
+              "id": 6,
+              "type": 2,
+              "_comment": "велосиспед",
+              "own": 4756585235
+            }
+          ]
 
 }
