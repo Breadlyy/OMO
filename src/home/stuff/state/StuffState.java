@@ -15,7 +15,7 @@ public class StuffState {
 
     public void handle(Stuff stuff)
     {
-        if(state==State.WORK) stuff.doWork();
+        if(state==State.WORK) stuff.runEnabled();
     }
 
     public void turnOn()
@@ -43,7 +43,10 @@ public class StuffState {
         if(state==State.BROKE) state = State.OFF;
     }
 
-
+    public boolean active()
+    {
+        return state==State.WORK;
+    }
 
 
 }

@@ -16,7 +16,7 @@ public class StuffIterator
     }
 
     public boolean hasNext() {
-        System.out.println(home.getFloors().get(floornum).getRooms().get(roomnum).getStuff().size()+">"+(stuffnum+1));
+        //System.out.println(home.getFloors().get(floornum).getRooms().get(roomnum).getStuff().size()+">"+(stuffnum+1));
         if(home.getFloors().get(floornum).getRooms().get(roomnum).getStuff().size()>stuffnum+1) return true;
         for(int tfloornum=floornum; tfloornum < home.getFloors().size(); tfloornum++)
         {
@@ -28,18 +28,14 @@ public class StuffIterator
         return false;
     }
 
-    public Stuff begin()
-    {
-        for(int tfloornum=0; tfloornum < home.getFloors().size(); tfloornum++)
-        {
-            for(int troomnum=0; troomnum < home.getFloors().get(tfloornum).getRooms().size(); troomnum++)
-            {
-                if(home.getFloors().get(tfloornum).getRooms().get(troomnum).getStuff().size()>0)
-                {
-                    floornum=tfloornum;
-                    roomnum=troomnum;
-                    stuffnum=0;
-                    return  home.getFloors().get(tfloornum).getRooms().get(troomnum).getStuff().get(0);
+    public Stuff begin() {
+        for (int tfloornum = 0; tfloornum < home.getFloors().size(); tfloornum++) {
+            for (int troomnum = 0; troomnum < home.getFloors().get(tfloornum).getRooms().size(); troomnum++) {
+                if (home.getFloors().get(tfloornum).getRooms().get(troomnum).getStuff().size() > 0) {
+                    floornum = tfloornum;
+                    roomnum = troomnum;
+                    stuffnum = 0;
+                    return home.getFloors().get(tfloornum).getRooms().get(troomnum).getStuff().get(0);
                 }
             }
         }

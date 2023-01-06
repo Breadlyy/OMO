@@ -31,6 +31,7 @@ public abstract class Human {
     }
     public void moveTo(Room room)
     {
+        System.out.println(name + " moved to floor " + room.getFloor().getNumber());
         this.room = room;
     }
     public Room getRoom() {

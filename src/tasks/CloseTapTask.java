@@ -9,7 +9,7 @@ public class CloseTapTask extends Task{
         super(human, complexity, priority);
         this.tap = tap;
     }
-    public void run(Tap tap)
+    public void run()
     {
         human.turnWaterOff(tap);
     }

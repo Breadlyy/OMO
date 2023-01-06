@@ -1,4 +1,7 @@
+import animals.Pet;
 import home.Home;
+import home.stuff.Stuff;
+import humans.Child;
 import parser.Parser;
 
 import javax.swing.*;
@@ -17,8 +20,10 @@ public class EventInstructionFrame extends JPanel implements Runnable {
     }
 
     public void start() {
-        Parser p = new Parser();
-        home = p.getHome();
+        synchronized (this) {
+            Parser p = new Parser();
+            home = p.getHome();
+        }
         Thread runThread = new Thread(this);
         runThread.start();
     }
@@ -42,14 +47,31 @@ public class EventInstructionFrame extends JPanel implements Runnable {
                     cooldown = 10;
                 }
             }
-            if (cooldown == 0) System.out.println("running");
-            else cooldown--;
+            cooldown--;
+
+
+            /*for(Stuff s = home.iterator.begin(); home.iterator.hasNext(); s = home.iterator.next())
+            {
+                s.run();
+                System.out.println(home.generateReport(s));
+            }*/
+            for(Pet pet:  home.getPets())
+            {
+                pet.run();
+            }
+            for(Child child: home.getChildren())
+            {
+                child.run();
+            }
+            home.getFather().run();
+            home.getMother().run();
+
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        home.getRandomPerson().run();
+            System.out.println("--------------------");
         }
     }
 }

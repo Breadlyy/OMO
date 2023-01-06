@@ -9,7 +9,7 @@ public class CloseHeaterTask extends Task{
         super(human, complexity, priority);
         this.gasHeater = gasHeater;
     }
-    public void run(GasHeater gasHeater)
+    public void run()
     {
         human.turnHeatingOff(gasHeater);
     }

@@ -44,9 +44,11 @@ public abstract class Adult extends Human {
 
     public void run() {
         if (busyCount != 0) {
+            System.out.println(name + "is busy");
             busyCount--;
         } else if (!taskQueue.isEmpty()) {
             Task task = taskQueue.remove();
+            System.out.println(name + " got task " + task.getClass().getSimpleName());
             busyCount = task.getComplexity();
             task.run();
         } else {
@@ -54,35 +56,35 @@ public abstract class Adult extends Human {
             switch (rand) {
                 case 0:
                     GasHeater gasHeater = getRandomHeater();
-                    //open  = new OpenHeaterTask(this, 1, 3, gasHeater);
+                    if(gasHeater==null) return;
                     moveTo(gasHeater.getRoom());
                     turnHeatingOn(gasHeater);
-                    System.out.println(this.name + " has turned up the tap");
+                   // System.out.println(this.name + " has turned on the gasheater " + gasHeater.getId());
                     close = new CloseHeaterTask(this, 1, 2, gasHeater);
                     System.out.println(this.name + " is gonna to turn the heater off");
-                    //taskQueue.add(open);
                     taskQueue.add(close);
+                    break;
                 case 1:
                     Tap tap = getRandomTap();
-                    //open  = new OpenTapTask(this, 1, 3, tap);
+                    if(tap==null) return;
                     moveTo(tap.getRoom());
                     turnWaterOn(tap);
-                    System.out.println(this.name + " has opened the tap");
+                    //System.out.println(this.name + " has opened the tap " + tap.getId());
                     close = new CloseTapTask(this, 1, 5, tap);
                     System.out.println(this.name + " is gonna to close the tap");
-                    //taskQueue.add(open);
                     taskQueue.add(close);
+                    break;
                 case 2:
                     Window window = getRandomWindow();
-                    //open  = new OpenWindowTask(this, 1, 1, window);
+                    if(window==null) return;
                     moveTo(window.getRoom());
                     openWindow(window);
-                    System.out.println(this.name + " has opened the window");
-                    close = new OpenWindowTask(this, 1, 2, window);
-                    System.out.println(this.name + " is gonna open the window");
-                    //taskQueue.add(open);
+                    //System.out.println(this.name + " has opened the window " + window.getId());
+                    close = new CloseWindowTask(this, 1, 2, window);
+                    System.out.println(this.name + " is gonna close the window");
 
                     taskQueue.add(close);
+                    break;
                 default:
                     System.out.println(this.name +  " is chilling'");
             }
@@ -97,21 +99,21 @@ public abstract class Adult extends Human {
      * @return
      */
     private boolean checkFridge(Fridge fridge) {
+        System.out.println(name + " checked fridge "+ fridge.getId());
         if (fridge.empty()) {
+            System.out.println("Fridge is empty");
             Task t = new GoForFoodTask(this, 4, 2, fridge);
             taskQueue.add(t);
             return false;
         }
+        System.out.println("Fridge is not empty");
         return true;
 
     }
 
     public void eat(Fridge fridge) {
-        if (!checkFridge(fridge)) {
-            Task t = new GoForFoodTask(this, 2, 2, fridge);
-        } else {
+        System.out.println(name + "ate " + fridge.getFood().get(0) + " from fridge "+ fridge.getId());
             fridge.eat(fridge.getFood().get(0));
-        }
     }
 
     public void goForFood(Fridge f) {
@@ -128,15 +130,21 @@ public abstract class Adult extends Human {
                 Task t = new GoForFoodTask(this, 4, 2, f);
             }
         } else {
+            System.out.println(name + " feed pet "+ p.getName() );
+            moveTo(f.getRoom());
             f.eat(f.getFood().get(0));
         }
     }
 
     public void openWindow(Window window) {
+
+        System.out.println(name + "opened window " + window.getId());
         window.open();
     }
 
     public void closeWindow(Window window) {
+
+        System.out.println(name + "closed window " + window.getId());
         window.close();
     }
 
@@ -146,39 +154,27 @@ public abstract class Adult extends Human {
 
 
     public void turnHeatingOn(GasHeater heater) {
+        System.out.println(name + " turned on gasHeater "+ heater.getId());
         heater.start_heating();
     }
 
 
     public void turnHeatingOff(GasHeater heater) {
+        System.out.println(name + " turned off gasHeater "+ heater.getId());
         heater.stop_heating();
     }
 
 
     public void turnWaterOn(Tap tap) {
+        System.out.println(name + " opened tap " + tap.getId());
         tap.open_water();
+
     }
 
 
     public void turnWaterOff(Tap tap) {
+        System.out.println(name + " closed tap " + tap.getId());
         tap.close_water();
-    }
-
-
-    public void screwUp() {
-        rand = (int) (Math.random() * 5);
-        switch (rand) {
-            case 1:
-                home.getFire().occur();
-            case 2:
-                home.getGasLeak().occur();
-            case 3:
-                home.getShortCircuit().occur();
-            case 4:
-                home.getShortCircuit().occur();
-            case 5:
-                home.getWindBlow().occur();
-        }
     }
 
     public Fridge findNonEmptyFridge() {
@@ -212,6 +208,7 @@ public abstract class Adult extends Human {
     }
 
     public void feedChild(Child c) {
+        System.out.println(name + " feed child "+ c.name);
         c.eat();
     }
 
@@ -221,11 +218,13 @@ public abstract class Adult extends Human {
             f = findAnyFridge();
             if (f != null) {
                 enqueueTask(new GoForFoodTask(this, 4, 3, f));
+                enqueueTask(new EatTask(this, 2, 3));
             } else {
                 System.out.println("Why don't we have fridges?");
             }
         } else {
             eat(f);
+            System.out.println("Adult " + name + " ate");
         }
 
     }
@@ -233,7 +232,7 @@ public abstract class Adult extends Human {
     private Tap getRandomTap() {
         Stuff tap = home.iterator.begin();
         while (tap != null) {
-            if (tap instanceof Tap) {
+            if (tap instanceof Tap && !tap.active()) {
                 return (Tap) tap;
             }
             tap = home.iterator.next();
@@ -244,7 +243,7 @@ public abstract class Adult extends Human {
     private GasHeater getRandomHeater() {
         Stuff heater = home.iterator.begin();
         while (heater != null) {
-            if (heater instanceof GasHeater) {
+            if (heater instanceof GasHeater && !heater.active()) {
                 return (GasHeater) heater;
             }
             heater = home.iterator.next();
@@ -261,5 +260,10 @@ public abstract class Adult extends Human {
             window = home.iterator.next();
         }
         return null;
+    }
+
+    public void playWith(Child c)
+    {
+        System.out.println(name + " played with "+ c.name);
     }
 }

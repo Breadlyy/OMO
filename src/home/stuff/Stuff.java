@@ -2,13 +2,15 @@ package home.stuff;
 
 import home.Room;
 import home.stuff.state.StuffState;
+import humans.Adult;
+import tasks.FixStuffTask;
+import tasks.Task;
 
 import java.util.Random;
 
-public abstract class Stuff  {
+public abstract class Stuff {
     int i;
     int durability = 100;
-
 
 
     private Room room;
@@ -17,8 +19,8 @@ public abstract class Stuff  {
     private static double consumedEnergy;
     private long id;
     private String name;
-    public double generateReport()
-    {
+
+    public double generateReport() {
         return consumedEnergy;
     }
 
@@ -30,43 +32,38 @@ public abstract class Stuff  {
         this.energyConsumption = energyConsumption;
     }
 
-    public Stuff()
-    {
+    public Stuff() {
         state = new StuffState();
         state.powerOn();
     }
-    public void turnOn()
-    {
+
+    public void turnOn() {
         state.turnOn();
     }
-    public void turnOff()
-    {
+
+    public void turnOff() {
         state.turnOff();
     }
-    public void powerOn()
-    {
+
+    public void powerOn() {
         state.powerOn();
     }
-    public void powerOff()
-    {
+
+    public void powerOff() {
         state.powerOff();
     }
-    public void breakThis()
-    {
-        state.breakThing();
 
+    public void breakThis() {
+        state.breakThing();
+        Adult dad = room.getFloor().getHome().getFather();
+        dad.enqueueTask(new FixStuffTask(dad, 2, 1, this));
     }
-    public void repairThis()
-    {
+
+    public void repairThis() {
         state.repair();
     }
-    public void doWork()
-    {
 
-    }
-
-    public void notifyStuff()
-    {
+    public void notifyStuff() {
         System.out.println("Stuff " + getName() + " is off");
         powerOff();
     }
@@ -78,27 +75,31 @@ public abstract class Stuff  {
     public void setId(long id) {
         this.id = id;
     }
+
     public void run()
     {
-        consumedEnergy+=energyConsumption;
-        i = (int)(Math.random() * 5);
-        if(i > 4)
-        {
-            if(checkDurability())
-            {
-                durability-=20;
+        state.handle(this);
+    }
+
+
+    public void runEnabled() {
+
+        consumedEnergy += energyConsumption;
+        i = (int) (Math.random() * 5);
+        if (i > 4) {
+            if (checkDurability()) {
+                durability -= 20;
                 return;
             }
-         breakThis();
+            breakThis();
         }
     }
-    private boolean checkDurability()
-    {
+
+    private boolean checkDurability() {
         return this.durability > 0;
     }
 
-    public String toString()
-    {
+    public String toString() {
         String s = this.getClass().getSimpleName() + "\nWith id " + id;
         return s;
     }
@@ -117,6 +118,11 @@ public abstract class Stuff  {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean active()
+    {
+        return state.active();
     }
     //    public void turnOff()
 //    {

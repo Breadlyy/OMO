@@ -2,6 +2,7 @@ package humans;
 
 import home.Home;
 import tasks.FeedChildTask;
+import tasks.PlayTask;
 import tasks.Task;
 
 public class Child extends Human {
@@ -23,7 +24,7 @@ public class Child extends Human {
     {
         System.out.println("Want to play");
     }
-    public void desire()
+    public void run()
     {
         hungerRate--;
         i = (int)(Math.random() * 6);
@@ -34,10 +35,13 @@ public class Child extends Human {
         }
         if(i == 0)
         {
+            System.out.println("Children "+ passNo + " wants to play" );
             wantPlay();
+            home.getMother().enqueueTask(new PlayTask(home.getMother(), 2, 2, this));
         }
         if(i == 1)
         {
+            System.out.println("Children "+ passNo + " wants to food" );
             wantFood();
         }
         if(i == 2)
@@ -56,8 +60,4 @@ public class Child extends Human {
         hungerRate+=20;
     }
 
-    public void run()
-    {
-
-    }
 }
