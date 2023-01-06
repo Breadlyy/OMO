@@ -20,6 +20,7 @@ public class Home {
     private List<Pet> pets = new ArrayList<>();
     private List<Floor> floors = new ArrayList<>();
     private List<Sensor> sensors = new ArrayList<>();
+    private List<SportStuff>sportStuff = new ArrayList<>();
     protected Fire fire;
     protected GasLeak gasLeak;
     protected ShortCircuit shortCircuit;
@@ -27,7 +28,7 @@ public class Home {
     protected WindBlow windBlow;
     public StuffIterator iterator;
     private int rand;
-    private List<SportStuff> sportStuffs;
+
 
     public Fire getFire() {
         return fire;
@@ -155,7 +156,7 @@ public class Home {
 
     public SportStuff getRandomSportStuff()
     {
-        for(SportStuff s: sportStuffs)
+        for(SportStuff s: sportStuff)
         {
             if(!s.isBusy())
             {
@@ -205,4 +206,11 @@ public class Home {
         return null;
     }
 
+    public List<SportStuff> getSportStuff() {
+        return sportStuff;
+    }
+
+    public void setSportStuff(List<SportStuff> sportStuff) {
+        this.sportStuff = sportStuff;
+    }
 }

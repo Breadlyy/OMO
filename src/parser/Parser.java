@@ -40,7 +40,7 @@ public class Parser {
 
     Map<Long, Human> human = new HashMap<>();
     Map<Long, Stuff> allstuff = new HashMap<>();
-    Map<Long, Stuff> sportstuff = new HashMap<>();
+    Map<Long, SportStuff> sportstuff = new HashMap<>();
     Map<Integer, Floor> floors = new HashMap<>();
     Map<Integer, Room> rooms = new HashMap<>();
     Map<Long, Sensor> sensors = new HashMap<>();
@@ -60,7 +60,7 @@ public class Parser {
             getRooms(wholeFile, builder);
             getStuff(wholeFile);
             getSensors(wholeFile, builder);
-            getSportStuff(wholeFile);
+            getSportStuff(wholeFile, builder);
             return builder.build();
         }
         catch (IOException e)
@@ -336,9 +336,10 @@ public class Parser {
         }
         log.info("Sensors were created and attached to the stuff");
     }
-    public void getSportStuff(JSONObject wholeFile){
+    public void getSportStuff(JSONObject wholeFile, HouseBuilder builder){
         jsonArray = (JSONArray) wholeFile.get("sport");
         long q;
+        long v;
         JSONObject jsonObject1;
 
         for(int i = 0; i < jsonArray.size(); i++)
@@ -346,22 +347,30 @@ public class Parser {
             jsonObject = (JSONObject) jsonArray.get(i);
             q = (Long) jsonObject.get("own");
             long typeNum = (Long) jsonObject.get("type");
-            SportStuff sportStuff;
+            SportStuff stuff;
             if(typeNum == 1) {
-                sportStuff = new Ski();
-                sportStuff.setId(i+1);
+                stuff = new Ski();
+                stuff.setId(i+1);
                 getHuman().get(q).
-                        setSportStuff(sportStuff);
+                        setSportStuff(stuff);
+                v = (Long)stuff.getId();
+                sportstuff.put((Long) stuff.getId(), stuff);
+                builder.getHome().getSportStuff().add(stuff);
             }
             if(typeNum == 2)
             {
-                sportStuff = new Cycle();
-                sportStuff.setId(i+1);
+                stuff = new Cycle();
+                stuff.setId(i+1);
                 getHuman().get(q).
-                        setSportStuff(sportStuff);
+                        setSportStuff(stuff);
+                v = (Long)stuff.getId();
+                sportstuff.put((Long) stuff.getId(), stuff);
+                builder.getHome().getSportStuff().add(stuff);
             }
+
         }
         log.info("Cars were created and attached to the people");
+
     }
 
     public Map<Long, Human> getHuman() {

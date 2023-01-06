@@ -3,7 +3,7 @@ package sport;
 public abstract class SportStuff
 {
     int busyCount = 0;
-    private int id;
+    private long id;
 
 
     /**
@@ -15,7 +15,7 @@ public abstract class SportStuff
     {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

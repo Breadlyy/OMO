@@ -8,6 +8,10 @@ import humans.Child;
 import humans.Human;
 import humans.Men;
 import humans.Woman;
+import sport.SportStuff;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HouseBuilder
 {
@@ -61,5 +65,9 @@ public class HouseBuilder
     public Home build()
     {
         return home;
+    }
+    public List<SportStuff> getSportStuff()
+    {
+        return home.getSportStuff();
     }
 }
