@@ -23,4 +23,7 @@ public class StuffFactory {
     {
         return new Microwave();
     }
+    public Window createWindow() {return new Window();}
+    public Shutter createShutter(){return new Shutter();
+    }
 }

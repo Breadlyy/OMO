@@ -44,32 +44,6 @@ public class Main {
 
         instructionPanel.start();
 
-/*
-        while (true)
-        {
-
-            /*
-            * Do events fire, etc.
-
-
-
-             for(Stuff s = h.iterator.begin(); h.iterator.hasNext(); s = h.iterator.next())
-            {
-                s.run();
-                System.out.println(h.generateReport(s));
-            }
-            for(Pet pet:  h.getPets())
-            {
-                pet.run();
-            }
-            for(Child child: h.getChildren())
-            {
-                child.run();
-            }
-            h.getFather().run();
-            h.getMother().run();
-
-        }*/
 
     }
 }

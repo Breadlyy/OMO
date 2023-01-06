@@ -7,6 +7,7 @@ import events.Fire;
 import home.Floor;
 import home.Home;
 import home.Room;
+import home.StuffFactory;
 import home.sensor.*;
 import home.stuff.*;
 import humans.*;
@@ -39,6 +40,8 @@ public class Parser {
     Map<Integer, Floor> floors = new HashMap<>();
     Map<Integer, Room> rooms = new HashMap<>();
     Map<Long, Sensor> sensors = new HashMap<>();
+    StuffFactory factory = new StuffFactory();
+
     public Home getHome(){
         JSONParser jsonParser = new JSONParser();
         JSONObject wholeFile;
@@ -204,29 +207,30 @@ public class Parser {
             int typeNum = (int)x;
             switch (typeNum) {
                 case NFRIDGE: {
-                    s = new Fridge();
+                    s = factory.createFridge();
                     break;
                 }
                 case NGAS: {
-                    s = new GasHeater();
+                    s = factory.createGasHeater();
                     break;
                 }
                 case NMICROWAVE: {
-                    s = new Microwave();
+                    s = factory.createMicrowave();
                     break;
                 }
                 case NSHUTTER: {
-                    s = new Shutter();
+                    s = factory.createShutter();
                     break;
                 }
                 case NWINDOW: {
-                    s = new Window();
+                    s = factory.createWindow();
                     break;
                 }
                 case NTAP: {
                     long watercons = (Long) jsonObject.get("waterconsumption");
                     int waterconsumption = (int)watercons;
-                    s = new Tap(waterconsumption);
+
+                    s = factory.createTap(waterconsumption);
                     break;
                 }
                 case NOVEN: {

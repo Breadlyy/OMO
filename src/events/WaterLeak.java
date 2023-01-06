@@ -11,7 +11,4 @@ public class WaterLeak extends Event {
         text = "Water leaked!";
     }
 
-    public void attachSensor(WaterSensor sensor) {
-        sensors.add(sensor);
-    }
 }

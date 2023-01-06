@@ -50,7 +50,7 @@ public class EventInstructionFrame extends JPanel implements Runnable {
                     cooldown = 10;
                 }
             }
-            cooldown--;
+            else {cooldown--;}
 
             for(Stuff it = home.iterator.begin();it!=null ; it = home.iterator.next()) it.run();
 

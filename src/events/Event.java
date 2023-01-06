@@ -20,4 +20,9 @@ public abstract class Event{
           for(Sensor s: sensors) s.notifySensor();
      }
 
+     public void attachSensor(Sensor sensor)
+     {
+          sensors.add(sensor);
+     }
+
 }

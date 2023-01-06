@@ -9,7 +9,4 @@ public class WindBlow extends Event {
         text = "Wind blew!";
     }
 
-    public void attachSensor(WindSensor sensor) {
-        sensors.add(sensor);
-    }
 }

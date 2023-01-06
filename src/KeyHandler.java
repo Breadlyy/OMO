@@ -21,6 +21,7 @@ public class KeyHandler implements KeyListener {
                 break;
             }
             case ('2'): {
+
                 fire = true;
                 break;
             }
