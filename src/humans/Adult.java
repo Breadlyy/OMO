@@ -92,24 +92,7 @@ public abstract class Adult extends Human {
     }
 
 
-    /**
-     * Check if fridge is  empty
-     *
-     * @param fridge
-     * @return
-     */
-    private boolean checkFridge(Fridge fridge) {
-        System.out.println(name + " checked fridge " + fridge.getId());
-        if (fridge.empty()) {
-            System.out.println("Fridge is empty");
-            Task t = new GoForFoodTask(this, 4, 2, fridge);
-            taskQueue.add(t);
-            return false;
-        }
-        System.out.println("Fridge is not empty");
-        return true;
 
-    }
 
     public void eat(Fridge fridge) {
         System.out.println(name + "ate " + fridge.getFood().get(0) + " from fridge " + fridge.getId());
@@ -149,32 +132,32 @@ public abstract class Adult extends Human {
     }
 
     public void ride(Transport transport) {
-
+        System.out.println(name + " rides " + transport.getClass().getSimpleName());
     }
 
 
     public void turnHeatingOn(GasHeater heater) {
         System.out.println(name + " turned on gasHeater " + heater.getId());
-        heater.start_heating();
+        heater.turnOn();
     }
 
 
     public void turnHeatingOff(GasHeater heater) {
         System.out.println(name + " turned off gasHeater " + heater.getId());
-        heater.stop_heating();
+        heater.turnOff();
     }
 
 
     public void turnWaterOn(Tap tap) {
         System.out.println(name + " opened tap " + tap.getId());
-        tap.open_water();
+        tap.turnOn();
 
     }
 
 
     public void turnWaterOff(Tap tap) {
         System.out.println(name + " closed tap " + tap.getId());
-        tap.close_water();
+        tap.turnOff();
     }
 
     public Fridge findNonEmptyFridge() {
