@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/user/Desktop/GETTIN BORN IN THE STATE OF MISSISIPI/CVUT/sem3/OMO/semestralka/omo-semestralka/src</OriginalElement>
+  <nodes>
+    <node x="1917.10234375" y="170.0">main.java.sport.SportStuff</node>
+    <node x="1680.2575520833334" y="1311.0">main.java.KeyHandler</node>
+    <node x="1898.10234375" y="2377.0">main.java.home.stuff.Shutter</node>
+    <node x="1493.35234375" y="170.0">main.java.transport.Car</node>
+    <node x="433.0" y="2971.0">test.java.home.stuff.EventsTest</node>
+    <node x="1023.85234375" y="1356.5">main.java.animals.Dog</node>
+    <node x="170.0000000000001" y="637.5">main.java.tasks.EatTask</node>
+    <node x="1495.10234375" y="2389.5">main.java.home.stuff.Oven</node>
+    <node x="791.5453125000001" y="104.0">main.java.humans.Human</node>
+    <node x="2630.625" y="1020.5">main.java.events.WindBlow</node>
+    <node x="1173.35234375" y="1020.5">main.java.humans.Woman</node>
+    <node x="939.35234375" y="986.0">main.java.animals.Pet</node>
+    <node x="302.04531250000014" y="159.0">main.java.tasks.Task</node>
+    <node x="504.6929687500002" y="1823.0">main.java.home.stuff.StuffState</node>
+    <node x="967.2953125000001" y="0.0">main.java.transport.Transport</node>
+    <node x="1295.35234375" y="394.0">main.java.parser.Parser</node>
+    <node x="1236.60234375" y="2539.0">main.java.tasks.GoForFoodTask</node>
+    <node x="849.0453125000001" y="603.0">main.java.humans.Adult</node>
+    <node x="2459.6703125000004" y="159.0">main.java.home.sensor.Sensor</node>
+    <node x="3196.1250000000005" y="637.5">main.java.home.sensor.GasSensor</node>
+    <node x="1647.7575520833334" y="1616.0">main.java.EventInstructionFrame</node>
+    <node x="479.0000000000001" y="2539.0">main.java.tasks.CloseOvenTask</node>
+    <node x="1758.10234375" y="2377.0">main.java.home.stuff.Microwave</node>
+    <node x="0.0" y="2971.0">test.java.home.stuff.StuffTest</node>
+    <node x="2401.625" y="1020.5">main.java.events.Fire</node>
+    <node x="426.5000000000001" y="1008.0">main.java.humans.Child</node>
+    <node x="1459.35234375" y="1616.0">main.java.home.Floor</node>
+    <node x="1590.97734375" y="2270.5">main.java.home.stuff.ElectricStuff</node>
+    <node x="2478.1703125000004" y="12.5">main.java.home.sensor.ISensor</node>
+    <node x="488.6929687500002" y="1344.0">main.java.tasks.FeedPetTask</node>
+    <node x="681.35234375" y="964.0">test.java.home.stuff.AdultTest</node>
+    <node x="3027.125" y="637.5">main.java.home.sensor.SmokeDetector</node>
+    <node x="1075.35234375" y="1020.5">main.java.humans.Men</node>
+    <node x="2135.625" y="1020.5">main.java.events.ShortCircuit</node>
+    <node x="1464.97734375" y="2258.0">main.java.food.Food</node>
+    <node x="283.0" y="2971.0">main.java.Main</node>
+    <node x="1346.35234375" y="193.5">main.java.home.StuffFactory</node>
+    <node x="1860.7575520833334" y="1638.0">main.java.home.HouseBuilder</node>
+    <node x="992.22734375" y="2270.5">main.java.home.stuff.GasHeater</node>
+    <node x="2494.625" y="1020.5">main.java.events.WaterLeak</node>
+    <node x="65.5" y="1344.0">main.java.tasks.FeedChildTask</node>
+    <node x="2777.125" y="637.5">main.java.home.sensor.WaterSensor</node>
+    <node x="2262.35234375" y="614.0">main.java.events.Event</node>
+    <node x="1626.125" y="964.0">main.java.home.stuff.StuffIterator</node>
+    <node x="1599.10234375" y="2366.0">main.java.home.stuff.Fridge</node>
+    <node x="289.0000000000001" y="1344.0">main.java.tasks.PlayTask</node>
+    <node x="2036.625" y="637.5">main.java.sport.Ski</node>
+    <node x="1322.125" y="1986.0">main.java.home.stuff.Stuff</node>
+    <node x="1127.22734375" y="2258.0">main.java.tasks.FixStuffTask</node>
+    <node x="1711.375" y="2795.0">main.java.tasks.CloseWindowTask</node>
+    <node x="932.85234375" y="1356.5">main.java.animals.Cat</node>
+    <node x="0.0" y="2795.0">main.java.tasks.CloseTapTask</node>
+    <node x="1932.35234375" y="2506.0">main.java.home.stuff.Window</node>
+    <node x="2928.125" y="637.5">main.java.home.sensor.Fuse</node>
+    <node x="1563.22734375" y="2528.0">main.java.home.stuff.Tap</node>
+    <node x="518.5000000000001" y="2718.0">test.java.home.stuff.TaskTest</node>
+    <node x="2609.162760416667" y="2795.0">main.java.home.sensor.WindSensor</node>
+    <node x="237.7500000000001" y="2377.0">main.java.tasks.CloseHeaterTask</node>
+    <node x="1933.625" y="637.5">main.java.sport.Cycle</node>
+    <node x="1381.35234375" y="1768.0">main.java.home.Room</node>
+    <node x="1830.5075520833334" y="1190.0">main.java.home.Home</node>
+    <node x="2279.625" y="1020.5">main.java.events.GasLeak</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="main.java.tasks.EatTask" target="main.java.tasks.Task" relationship="GENERALIZATION">
+      <point x="-1.1368683772161603E-13" y="-14.5" />
+      <point x="219.0" y="373.0" />
+      <point x="245.04531250000014" y="373.0" />
+      <point x="245.04531250000014" y="363.0" />
+      <point x="333.29531250000014" y="363.0" />
+      <point x="-31.25" y="49.0" />
+    </edge>
+    <edge source="main.java.tasks.CloseOvenTask" target="main.java.home.stuff.Oven" relationship="TO_ONE">
+      <point x="37.0" y="-27.0" />
+      <point x="590.0000000000001" y="2474.0" />
+      <point x="1537.10234375" y="2474.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.events.GasLeak" target="main.java.events.Event" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="2330.625" y="942.0" />
+      <point x="2342.35234375" y="942.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="main.java.parser.Parser" target="main.java.sport.SportStuff" relationship="TO_MANY">
+      <point x="0.0" y="-258.0" />
+      <point x="1409.85234375" y="353.0" />
+      <point x="1923.125" y="353.0" />
+      <point x="1923.125" y="343.0" />
+      <point x="1947.60234375" y="343.0" />
+      <point x="-30.5" y="38.0" />
+    </edge>
+    <edge source="main.java.parser.Parser" target="main.java.home.sensor.Sensor" relationship="TO_MANY">
+      <point x="0.0" y="-258.0" />
+      <point x="1409.85234375" y="363.0" />
+      <point x="2140.60234375" y="363.0" />
+      <point x="2140.60234375" y="353.0" />
+      <point x="2493.4203125000004" y="353.0" />
+      <point x="-33.75" y="49.0" />
+    </edge>
+    <edge source="main.java.parser.Parser" target="main.java.home.StuffFactory" relationship="TO_ONE">
+      <point x="0.0" y="-258.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.tasks.CloseOvenTask" target="main.java.tasks.Task" relationship="GENERALIZATION">
+      <point x="-37.0" y="-27.0" />
+      <point x="516.0000000000001" y="2484.0" />
+      <point x="55.0" y="2484.0" />
+      <point x="55.0" y="373.0" />
+      <point x="245.04531250000014" y="373.0" />
+      <point x="245.04531250000014" y="363.0" />
+      <point x="333.29531250000014" y="363.0" />
+      <point x="-31.25" y="49.0" />
+    </edge>
+    <edge source="test.java.home.stuff.TaskTest" target="main.java.home.stuff.Tap" relationship="TO_ONE">
+      <point x="0.0" y="-104.0" />
+      <point x="637.5000000000001" y="2697.0" />
+      <point x="618.9127604166667" y="2697.0" />
+      <point x="618.9127604166667" y="2677.0" />
+      <point x="1648.22734375" y="2677.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="main.java.tasks.PlayTask" target="main.java.tasks.Task" relationship="GENERALIZATION">
+      <point x="-26.5" y="-27.0" />
+      <point x="315.5000000000001" y="373.0" />
+      <point x="245.04531250000014" y="373.0" />
+      <point x="245.04531250000014" y="363.0" />
+      <point x="333.29531250000014" y="363.0" />
+      <point x="-31.25" y="49.0" />
+    </edge>
+    <edge source="main.java.tasks.CloseWindowTask" target="main.java.tasks.Task" relationship="GENERALIZATION">
+      <point x="-42.0" y="-27.0" />
+      <point x="1753.375" y="2657.0" />
+      <point x="44.5" y="2657.0" />
+      <point x="44.5" y="373.0" />
+      <point x="245.04531250000014" y="373.0" />
+      <point x="245.04531250000014" y="363.0" />
+      <point x="333.29531250000014" y="363.0" />
+      <point x="-31.25" y="49.0" />
+    </edge>
+    <edge source="main.java.home.stuff.StuffIterator" target="main.java.home.Home" relationship="TO_ONE">
+      <point x="0.0" y="71.0" />
+      <point x="1690.625" y="1128.0" />
+      <point x="1926.5075520833334" y="1128.0" />
+      <point x="0.0" y="-181.0" />
+    </edge>
+    <edge source="main.java.home.Home" target="main.java.home.stuff.StuffIterator" relationship="TO_ONE">
+      <point x="0.0" y="-181.0" />
+      <point x="1926.5075520833334" y="1128.0" />
+      <point x="1690.625" y="1128.0" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="main.java.animals.Cat" target="main.java.animals.Pet" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="968.35234375" y="1168.0" />
+      <point x="985.0453125000001" y="1168.0" />
+      <point x="985.0453125000001" y="1138.0" />
+      <point x="968.35234375" y="1138.0" />
+      <point x="-29.0" y="49.0" />
+    </edge>
+    <edge source="main.java.tasks.CloseWindowTask" target="main.java.home.stuff.Window" relationship="TO_ONE">
+      <point x="42.0" y="-27.0" />
+      <point x="1837.375" y="2697.0" />
+      <point x="2000.85234375" y="2697.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="main.java.home.sensor.WindSensor" target="main.java.home.stuff.Window" relationship="TO_MANY">
+      <point x="-44.25" y="-27.0" />
+      <point x="2653.412760416667" y="2697.0" />
+      <point x="2000.85234375" y="2697.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="main.java.tasks.GoForFoodTask" target="main.java.home.stuff.Fridge" relationship="TO_ONE">
+      <point x="38.25" y="-27.0" />
+      <point x="1351.35234375" y="2484.0" />
+      <point x="1668.60234375" y="2484.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="main.java.events.Fire" target="main.java.events.Event" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="2438.125" y="942.0" />
+      <point x="2342.35234375" y="942.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="main.java.tasks.FeedChildTask" target="main.java.humans.Child" relationship="TO_ONE">
+      <point x="35.75" y="-27.0" />
+      <point x="172.75" y="1168.0" />
+      <point x="468.5000000000001" y="1168.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="main.java.humans.Men" target="main.java.humans.Adult" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="1114.35234375" y="942.0" />
+      <point x="1161.7953125000001" y="942.0" />
+      <point x="1161.7953125000001" y="932.0" />
+      <point x="985.5453125000001" y="932.0" />
+      <point x="45.5" y="49.0" />
+    </edge>
+    <edge source="main.java.home.Home" target="main.java.events.Fire" relationship="TO_ONE">
+      <point x="0.0" y="-181.0" />
+      <point x="1926.5075520833334" y="1128.0" />
+      <point x="2438.125" y="1128.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.home.Home" target="main.java.events.GasLeak" relationship="TO_ONE">
+      <point x="0.0" y="-181.0" />
+      <point x="1926.5075520833334" y="1128.0" />
+      <point x="2330.625" y="1128.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.home.stuff.Microwave" target="main.java.home.stuff.ElectricStuff" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="1818.10234375" y="2344.0" />
+      <point x="1652.97734375" y="2344.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.home.stuff.Fridge" target="main.java.home.stuff.ElectricStuff" relationship="GENERALIZATION">
+      <point x="34.75" y="-38.0" />
+      <point x="1703.35234375" y="2344.0" />
+      <point x="1652.97734375" y="2344.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.parser.Parser" target="main.java.humans.Human" relationship="TO_MANY">
+      <point x="0.0" y="-258.0" />
+      <point x="1409.85234375" y="343.0" />
+      <point x="1284.85234375" y="343.0" />
+      <point x="1284.85234375" y="333.0" />
+      <point x="933.2953125000001" y="333.0" />
+      <point x="47.25" y="104.0" />
+    </edge>
+    <edge source="main.java.home.stuff.StuffIterator" target="main.java.parser.Parser" relationship="TO_ONE">
+      <point x="0.0" y="-71.0" />
+      <point x="1690.625" y="942.0" />
+      <point x="1409.85234375" y="942.0" />
+      <point x="0.0" y="258.0" />
+    </edge>
+    <edge source="main.java.tasks.FixStuffTask" target="main.java.home.stuff.Stuff" relationship="TO_ONE">
+      <point x="32.0" y="-27.0" />
+      <point x="1223.22734375" y="2226.0" />
+      <point x="1469.875" y="2226.0" />
+      <point x="49.25" y="104.0" />
+    </edge>
+    <edge source="main.java.tasks.CloseTapTask" target="main.java.home.stuff.Tap" relationship="TO_ONE">
+      <point x="34.5" y="-27.0" />
+      <point x="103.5" y="2667.0" />
+      <point x="1648.22734375" y="2667.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="main.java.tasks.CloseHeaterTask" target="main.java.home.stuff.GasHeater" relationship="TO_ONE">
+      <point x="40.75" y="-27.0" />
+      <point x="360.0000000000001" y="2344.0" />
+      <point x="1049.72734375" y="2344.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.home.stuff.Stuff" target="main.java.home.Room" relationship="TO_ONE">
+      <point x="0.0" y="-104.0" />
+      <point x="1420.625" y="1959.0" />
+      <point x="1448.85234375" y="1959.0" />
+      <point x="0.0" y="82.0" />
+    </edge>
+    <edge source="main.java.transport.Transport" target="main.java.humans.Human" relationship="TO_MANY">
+      <point x="-39.25" y="27.0" />
+      <point x="1006.5453125000001" y="79.0" />
+      <point x="886.0453125000001" y="79.0" />
+      <point x="0.0" y="-104.0" />
+    </edge>
+    <edge source="main.java.humans.Human" target="main.java.transport.Transport" relationship="TO_MANY">
+      <point x="0.0" y="-104.0" />
+      <point x="886.0453125000001" y="79.0" />
+      <point x="1006.5453125000001" y="79.0" />
+      <point x="-39.25" y="27.0" />
+    </edge>
+    <edge source="test.java.home.stuff.TaskTest" target="main.java.home.stuff.Window" relationship="TO_ONE">
+      <point x="0.0" y="-104.0" />
+      <point x="637.5000000000001" y="2697.0" />
+      <point x="618.9127604166667" y="2697.0" />
+      <point x="618.9127604166667" y="2687.0" />
+      <point x="2000.85234375" y="2687.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="main.java.home.stuff.Window" target="main.java.home.stuff.Stuff" relationship="GENERALIZATION">
+      <point x="34.25" y="-60.0" />
+      <point x="2035.10234375" y="2484.0" />
+      <point x="2045.60234375" y="2484.0" />
+      <point x="2045.60234375" y="2236.0" />
+      <point x="1415.375" y="2236.0" />
+      <point x="1415.375" y="2216.0" />
+      <point x="1371.375" y="2216.0" />
+      <point x="-49.25" y="104.0" />
+    </edge>
+    <edge source="main.java.humans.Woman" target="main.java.humans.Adult" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="1223.85234375" y="942.0" />
+      <point x="1161.7953125000001" y="942.0" />
+      <point x="1161.7953125000001" y="932.0" />
+      <point x="985.5453125000001" y="932.0" />
+      <point x="45.5" y="49.0" />
+    </edge>
+    <edge source="main.java.humans.Child" target="main.java.humans.Human" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="468.5000000000001" y="373.0" />
+      <point x="855.5453125000001" y="373.0" />
+      <point x="855.5453125000001" y="353.0" />
+      <point x="838.7953125000001" y="353.0" />
+      <point x="-47.25" y="104.0" />
+    </edge>
+    <edge source="main.java.humans.Adult" target="main.java.humans.Human" relationship="GENERALIZATION">
+      <point x="45.5" y="-49.0" />
+      <point x="985.5453125000001" y="373.0" />
+      <point x="855.5453125000001" y="373.0" />
+      <point x="855.5453125000001" y="353.0" />
+      <point x="838.7953125000001" y="353.0" />
+      <point x="-47.25" y="104.0" />
+    </edge>
+    <edge source="main.java.animals.Pet" target="main.java.home.Home" relationship="TO_ONE">
+      <point x="29.0" y="49.0" />
+      <point x="1026.35234375" y="1128.0" />
+      <point x="1072.85234375" y="1128.0" />
+      <point x="1072.85234375" y="1138.0" />
+      <point x="1926.5075520833334" y="1138.0" />
+      <point x="0.0" y="-181.0" />
+    </edge>
+    <edge source="main.java.parser.Parser" target="main.java.home.Room" relationship="TO_MANY">
+      <point x="0.0" y="258.0" />
+      <point x="1409.85234375" y="942.0" />
+      <point x="1448.85234375" y="942.0" />
+      <point x="0.0" y="-82.0" />
+    </edge>
+    <edge source="main.java.home.sensor.SmokeDetector" target="main.java.home.sensor.Sensor" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="3101.625" y="373.0" />
+      <point x="3009.6703125000004" y="373.0" />
+      <point x="3009.6703125000004" y="363.0" />
+      <point x="2560.9203125000004" y="363.0" />
+      <point x="33.75" y="49.0" />
+    </edge>
+    <edge source="main.java.home.stuff.Shutter" target="main.java.home.stuff.ElectricStuff" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="1966.60234375" y="2344.0" />
+      <point x="1652.97734375" y="2344.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.home.sensor.GasSensor" target="main.java.home.sensor.Sensor" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="3254.6250000000005" y="373.0" />
+      <point x="3009.6703125000004" y="373.0" />
+      <point x="3009.6703125000004" y="363.0" />
+      <point x="2560.9203125000004" y="363.0" />
+      <point x="33.75" y="49.0" />
+    </edge>
+    <edge source="test.java.home.stuff.AdultTest" target="main.java.humans.Adult" relationship="TO_ONE">
+      <point x="0.0" y="-71.0" />
+      <point x="800.35234375" y="942.0" />
+      <point x="728.2953125000001" y="942.0" />
+      <point x="728.2953125000001" y="932.0" />
+      <point x="894.5453125000001" y="932.0" />
+      <point x="-45.5" y="49.0" />
+    </edge>
+    <edge source="main.java.home.Room" target="main.java.home.stuff.Stuff" relationship="TO_MANY">
+      <point x="0.0" y="82.0" />
+      <point x="1448.85234375" y="1959.0" />
+      <point x="1420.625" y="1959.0" />
+      <point x="0.0" y="-104.0" />
+    </edge>
+    <edge source="main.java.home.Home" target="main.java.events.WindBlow" relationship="TO_ONE">
+      <point x="0.0" y="-181.0" />
+      <point x="1926.5075520833334" y="1128.0" />
+      <point x="2687.625" y="1128.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.events.WindBlow" target="main.java.events.Event" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="2687.625" y="942.0" />
+      <point x="2342.35234375" y="942.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="main.java.tasks.GoForFoodTask" target="main.java.tasks.EatTask" relationship="GENERALIZATION">
+      <point x="-38.25" y="-27.0" />
+      <point x="1274.85234375" y="2464.0" />
+      <point x="219.0000000000001" y="2464.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.tasks.FeedPetTask" target="main.java.animals.Pet" relationship="TO_ONE">
+      <point x="32.75" y="-27.0" />
+      <point x="586.9429687500002" y="1158.0" />
+      <point x="1072.85234375" y="1158.0" />
+      <point x="1072.85234375" y="1128.0" />
+      <point x="1026.35234375" y="1128.0" />
+      <point x="29.0" y="49.0" />
+    </edge>
+    <edge source="main.java.sport.Ski" target="main.java.sport.SportStuff" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="2071.125" y="373.0" />
+      <point x="1999.60234375" y="373.0" />
+      <point x="1999.60234375" y="353.0" />
+      <point x="2008.60234375" y="353.0" />
+      <point x="30.5" y="38.0" />
+    </edge>
+    <edge source="main.java.events.Event" target="main.java.home.sensor.Sensor" relationship="TO_MANY">
+      <point x="0.0" y="-38.0" />
+      <point x="2342.35234375" y="373.0" />
+      <point x="2140.60234375" y="373.0" />
+      <point x="2140.60234375" y="353.0" />
+      <point x="2493.4203125000004" y="353.0" />
+      <point x="-33.75" y="49.0" />
+    </edge>
+    <edge source="main.java.parser.Parser" target="main.java.home.Floor" relationship="TO_MANY">
+      <point x="0.0" y="258.0" />
+      <point x="1409.85234375" y="942.0" />
+      <point x="1535.35234375" y="942.0" />
+      <point x="0.0" y="-49.0" />
+    </edge>
+    <edge source="main.java.home.Room" target="main.java.home.Floor" relationship="TO_ONE">
+      <point x="0.0" y="-82.0" />
+      <point x="1448.85234375" y="1741.0" />
+      <point x="1535.35234375" y="1741.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="main.java.tasks.FeedChildTask" target="main.java.tasks.Task" relationship="GENERALIZATION">
+      <point x="-35.75" y="-27.0" />
+      <point x="101.25000000000011" y="373.0" />
+      <point x="245.04531250000014" y="373.0" />
+      <point x="245.04531250000014" y="363.0" />
+      <point x="333.29531250000014" y="363.0" />
+      <point x="-31.25" y="49.0" />
+    </edge>
+    <edge source="main.java.tasks.FixStuffTask" target="main.java.tasks.Task" relationship="GENERALIZATION">
+      <point x="-32.0" y="-27.0" />
+      <point x="1159.22734375" y="2226.0" />
+      <point x="405.5000000000001" y="2226.0" />
+      <point x="405.5000000000001" y="373.0" />
+      <point x="245.04531250000014" y="373.0" />
+      <point x="245.04531250000014" y="363.0" />
+      <point x="333.29531250000014" y="363.0" />
+      <point x="-31.25" y="49.0" />
+    </edge>
+    <edge source="main.java.home.stuff.GasHeater" target="main.java.home.stuff.Stuff" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="1049.72734375" y="2236.0" />
+      <point x="1415.375" y="2236.0" />
+      <point x="1415.375" y="2216.0" />
+      <point x="1371.375" y="2216.0" />
+      <point x="-49.25" y="104.0" />
+    </edge>
+    <edge source="main.java.home.sensor.WaterSensor" target="main.java.home.sensor.Sensor" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="2842.625" y="373.0" />
+      <point x="3009.6703125000004" y="373.0" />
+      <point x="3009.6703125000004" y="363.0" />
+      <point x="2560.9203125000004" y="363.0" />
+      <point x="33.75" y="49.0" />
+    </edge>
+    <edge source="main.java.home.Home" target="main.java.humans.Men" relationship="TO_ONE">
+      <point x="0.0" y="-181.0" />
+      <point x="1926.5075520833334" y="1128.0" />
+      <point x="1114.35234375" y="1128.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.home.stuff.Fridge" target="main.java.food.Food" relationship="TO_MANY">
+      <point x="-34.75" y="-38.0" />
+      <point x="1633.85234375" y="2334.0" />
+      <point x="1517.97734375" y="2334.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="main.java.home.stuff.Tap" target="main.java.home.stuff.Stuff" relationship="GENERALIZATION">
+      <point x="0.0" y="-38.0" />
+      <point x="1648.22734375" y="2464.0" />
+      <point x="1411.60234375" y="2464.0" />
+      <point x="1411.60234375" y="2236.0" />
+      <point x="1415.375" y="2236.0" />
+      <point x="1415.375" y="2216.0" />
+      <point x="1371.375" y="2216.0" />
+      <point x="-49.25" y="104.0" />
+    </edge>
+    <edge source="main.java.home.Home" target="main.java.animals.Pet" relationship="TO_MANY">
+      <point x="0.0" y="-181.0" />
+      <point x="1926.5075520833334" y="1138.0" />
+      <point x="1072.85234375" y="1138.0" />
+      <point x="1072.85234375" y="1128.0" />
+      <point x="1026.35234375" y="1128.0" />
+      <point x="29.0" y="49.0" />
+    </edge>
+    <edge source="main.java.home.Home" target="main.java.humans.Woman" relationship="TO_ONE">
+      <point x="0.0" y="-181.0" />
+      <point x="1926.5075520833334" y="1128.0" />
+      <point x="1223.85234375" y="1128.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.tasks.PlayTask" target="main.java.humans.Child" relationship="TO_ONE">
+      <point x="26.5" y="-27.0" />
+      <point x="368.5000000000001" y="1168.0" />
+      <point x="468.5000000000001" y="1168.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="main.java.home.Home" target="main.java.home.sensor.Sensor" relationship="TO_MANY">
+      <point x="0.0" y="-181.0" />
+      <point x="1926.5075520833334" y="1128.0" />
+      <point x="2116.125" y="1128.0" />
+      <point x="2116.125" y="373.0" />
+      <point x="2140.60234375" y="373.0" />
+      <point x="2140.60234375" y="353.0" />
+      <point x="2493.4203125000004" y="353.0" />
+      <point x="-33.75" y="49.0" />
+    </edge>
+    <edge source="main.java.EventInstructionFrame" target="main.java.KeyHandler" relationship="TO_ONE">
+      <point x="0.0" y="-49.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="main.java.home.Home" target="main.java.humans.Child" relationship="TO_MANY">
+      <point x="0.0" y="-181.0" />
+      <point x="1926.5075520833334" y="1148.0" />
+      <point x="468.5000000000001" y="1148.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="main.java.tasks.CloseHeaterTask" target="main.java.tasks.Task" relationship="GENERALIZATION">
+      <point x="-40.75" y="-27.0" />
+      <point x="278.5000000000001" y="373.0" />
+      <point x="245.04531250000014" y="373.0" />
+      <point x="245.04531250000014" y="363.0" />
+      <point x="333.29531250000014" y="363.0" />
+      <point x="-31.25" y="49.0" />
+    </edge>
+    <edge source="main.java.humans.Human" target="main.java.home.Room" relationship="TO_ONE">
+      <point x="47.25" y="104.0" />
+      <point x="933.2953125000001" y="333.0" />
+      <point x="1284.85234375" y="333.0" />
+      <point x="1284.85234375" y="1741.0" />
+      <point x="1448.85234375" y="1741.0" />
+      <point x="0.0" y="-82.0" />
+    </edge>
+    <edge source="test.java.home.stuff.TaskTest" target="main.java.humans.Child" relationship="TO_ONE">
+      <point x="0.0" y="-104.0" />
+      <point x="637.5000000000001" y="2697.0" />
+      <point x="618.9127604166667" y="2697.0" />
+      <point x="618.9127604166667" y="2647.0" />
+      <point x="468.5000000000001" y="2647.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="main.java.events.WaterLeak" target="main.java.events.Event" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="2552.625" y="942.0" />
+      <point x="2342.35234375" y="942.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="main.java.EventInstructionFrame" target="main.java.home.Home" relationship="TO_ONE">
+      <point x="0.0" y="-49.0" />
+      <point x="1744.2575520833334" y="1594.0" />
+      <point x="1926.5075520833334" y="1594.0" />
+      <point x="0.0" y="181.0" />
+    </edge>
+    <edge source="test.java.home.stuff.TaskTest" target="main.java.humans.Adult" relationship="TO_ONE">
+      <point x="0.0" y="-104.0" />
+      <point x="637.5000000000001" y="2697.0" />
+      <point x="618.9127604166667" y="2697.0" />
+      <point x="618.9127604166667" y="2647.0" />
+      <point x="637.5000000000001" y="2647.0" />
+      <point x="637.5000000000001" y="942.0" />
+      <point x="728.2953125000001" y="942.0" />
+      <point x="728.2953125000001" y="932.0" />
+      <point x="894.5453125000001" y="932.0" />
+      <point x="-45.5" y="49.0" />
+    </edge>
+    <edge source="main.java.home.sensor.Sensor" target="main.java.home.sensor.ISensor" relationship="REALIZATION">
+      <point x="0.0" y="-49.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.transport.Car" target="main.java.transport.Transport" relationship="GENERALIZATION">
+      <point x="0.0" y="-38.0" />
+      <point x="1551.35234375" y="79.0" />
+      <point x="1085.0453125000001" y="79.0" />
+      <point x="39.25" y="27.0" />
+    </edge>
+    <edge source="main.java.home.sensor.WindSensor" target="main.java.home.sensor.Sensor" relationship="GENERALIZATION">
+      <point x="44.25" y="-27.0" />
+      <point x="2741.912760416667" y="2697.0" />
+      <point x="3323.6250000000005" y="2697.0" />
+      <point x="3323.6250000000005" y="373.0" />
+      <point x="3009.6703125000004" y="373.0" />
+      <point x="3009.6703125000004" y="363.0" />
+      <point x="2560.9203125000004" y="363.0" />
+      <point x="33.75" y="49.0" />
+    </edge>
+    <edge source="main.java.tasks.CloseTapTask" target="main.java.tasks.Task" relationship="GENERALIZATION">
+      <point x="-34.5" y="-27.0" />
+      <point x="34.5" y="2697.0" />
+      <point x="15.912760416666742" y="2697.0" />
+      <point x="15.912760416666742" y="373.0" />
+      <point x="245.04531250000014" y="373.0" />
+      <point x="245.04531250000014" y="363.0" />
+      <point x="333.29531250000014" y="363.0" />
+      <point x="-31.25" y="49.0" />
+    </edge>
+    <edge source="main.java.tasks.FeedPetTask" target="main.java.tasks.Task" relationship="GENERALIZATION">
+      <point x="-32.75" y="-27.0" />
+      <point x="521.4429687500002" y="1158.0" />
+      <point x="416.0000000000001" y="1158.0" />
+      <point x="416.0000000000001" y="373.0" />
+      <point x="245.04531250000014" y="373.0" />
+      <point x="245.04531250000014" y="363.0" />
+      <point x="333.29531250000014" y="363.0" />
+      <point x="-31.25" y="49.0" />
+    </edge>
+    <edge source="main.java.home.Home" target="main.java.events.ShortCircuit" relationship="TO_ONE">
+      <point x="0.0" y="-181.0" />
+      <point x="1926.5075520833334" y="1128.0" />
+      <point x="2197.625" y="1128.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.sport.Cycle" target="main.java.sport.SportStuff" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="1975.125" y="373.0" />
+      <point x="1999.60234375" y="373.0" />
+      <point x="1999.60234375" y="353.0" />
+      <point x="2008.60234375" y="353.0" />
+      <point x="30.5" y="38.0" />
+    </edge>
+    <edge source="main.java.parser.Parser" target="main.java.home.stuff.Stuff" relationship="TO_MANY">
+      <point x="0.0" y="258.0" />
+      <point x="1409.85234375" y="942.0" />
+      <point x="1352.85234375" y="942.0" />
+      <point x="1352.85234375" y="1959.0" />
+      <point x="1420.625" y="1959.0" />
+      <point x="0.0" y="-104.0" />
+    </edge>
+    <edge source="main.java.tasks.Task" target="main.java.humans.Adult" relationship="TO_ONE">
+      <point x="31.25" y="49.0" />
+      <point x="395.79531250000014" y="363.0" />
+      <point x="894.5453125000001" y="363.0" />
+      <point x="-45.5" y="-49.0" />
+    </edge>
+    <edge source="main.java.home.stuff.Window" target="main.java.home.stuff.Shutter" relationship="TO_ONE">
+      <point x="-34.25" y="-60.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="main.java.humans.Adult" target="main.java.tasks.Task" relationship="TO_MANY">
+      <point x="-45.5" y="-49.0" />
+      <point x="894.5453125000001" y="363.0" />
+      <point x="395.79531250000014" y="363.0" />
+      <point x="31.25" y="49.0" />
+    </edge>
+    <edge source="main.java.home.sensor.Fuse" target="main.java.home.sensor.Sensor" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="2967.625" y="373.0" />
+      <point x="3009.6703125000004" y="373.0" />
+      <point x="3009.6703125000004" y="363.0" />
+      <point x="2560.9203125000004" y="363.0" />
+      <point x="33.75" y="49.0" />
+    </edge>
+    <edge source="main.java.events.ShortCircuit" target="main.java.events.Event" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="2197.625" y="942.0" />
+      <point x="2342.35234375" y="942.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="main.java.home.stuff.Oven" target="main.java.home.stuff.ElectricStuff" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="1537.10234375" y="2344.0" />
+      <point x="1652.97734375" y="2344.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="main.java.home.stuff.Stuff" target="main.java.home.stuff.StuffState" relationship="TO_ONE">
+      <point x="0.0" y="-104.0" />
+      <point x="1420.625" y="1959.0" />
+      <point x="562.1929687500002" y="1959.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="main.java.home.Floor" target="main.java.home.Room" relationship="TO_MANY">
+      <point x="0.0" y="49.0" />
+      <point x="1535.35234375" y="1741.0" />
+      <point x="1448.85234375" y="1741.0" />
+      <point x="0.0" y="-82.0" />
+    </edge>
+    <edge source="main.java.home.Floor" target="main.java.home.Home" relationship="TO_ONE">
+      <point x="0.0" y="-49.0" />
+      <point x="1535.35234375" y="1584.0" />
+      <point x="1926.5075520833334" y="1584.0" />
+      <point x="0.0" y="181.0" />
+    </edge>
+    <edge source="main.java.home.Home" target="main.java.home.Floor" relationship="TO_MANY">
+      <point x="0.0" y="181.0" />
+      <point x="1926.5075520833334" y="1584.0" />
+      <point x="1535.35234375" y="1584.0" />
+      <point x="0.0" y="-49.0" />
+    </edge>
+    <edge source="main.java.home.sensor.Sensor" target="main.java.home.stuff.Stuff" relationship="TO_MANY">
+      <point x="-33.75" y="49.0" />
+      <point x="2493.4203125000004" y="353.0" />
+      <point x="2140.60234375" y="353.0" />
+      <point x="2140.60234375" y="373.0" />
+      <point x="2766.625" y="373.0" />
+      <point x="2766.625" y="1959.0" />
+      <point x="1420.625" y="1959.0" />
+      <point x="0.0" y="-104.0" />
+    </edge>
+    <edge source="main.java.home.stuff.ElectricStuff" target="main.java.home.stuff.Stuff" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="1652.97734375" y="2236.0" />
+      <point x="1415.375" y="2236.0" />
+      <point x="1415.375" y="2216.0" />
+      <point x="1371.375" y="2216.0" />
+      <point x="-49.25" y="104.0" />
+    </edge>
+    <edge source="main.java.animals.Dog" target="main.java.animals.Pet" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="1062.85234375" y="1168.0" />
+      <point x="985.0453125000001" y="1168.0" />
+      <point x="985.0453125000001" y="1138.0" />
+      <point x="968.35234375" y="1138.0" />
+      <point x="-29.0" y="49.0" />
+    </edge>
+    <edge source="main.java.home.HouseBuilder" target="main.java.home.Home" relationship="TO_ONE">
+      <point x="0.0" y="-27.0" />
+      <point x="1928.7575520833334" y="1574.0" />
+      <point x="1926.5075520833334" y="1574.0" />
+      <point x="0.0" y="181.0" />
+    </edge>
+    <edge source="main.java.humans.Human" target="main.java.home.Home" relationship="TO_ONE">
+      <point x="47.25" y="104.0" />
+      <point x="933.2953125000001" y="333.0" />
+      <point x="1284.85234375" y="333.0" />
+      <point x="1284.85234375" y="1128.0" />
+      <point x="1926.5075520833334" y="1128.0" />
+      <point x="0.0" y="-181.0" />
+    </edge>
+    <edge source="main.java.home.Home" target="main.java.sport.SportStuff" relationship="TO_MANY">
+      <point x="0.0" y="-181.0" />
+      <point x="1926.5075520833334" y="1128.0" />
+      <point x="1923.125" y="1128.0" />
+      <point x="1923.125" y="343.0" />
+      <point x="1947.60234375" y="343.0" />
+      <point x="-30.5" y="38.0" />
+    </edge>
+    <edge source="main.java.home.Home" target="main.java.events.WaterLeak" relationship="TO_ONE">
+      <point x="0.0" y="-181.0" />
+      <point x="1926.5075520833334" y="1128.0" />
+      <point x="2552.625" y="1128.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.8086145933783349" showDependencies="true" x="227.08212801425714" y="2978.3036651295915" />
+  <SelectedNodes>
+    <node>main.java.home.Home</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

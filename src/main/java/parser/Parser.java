@@ -286,13 +286,12 @@ public class Parser {
 
 
         jsonArray = (org.json.simple.JSONArray) wholeFile.get("sensor");
-        // JSONArray arr = (JSONArray) wholeFile.get("stuff");
-        //JSONObject jsonObject1;
+
         for (int i = 0; i < jsonArray.size(); i++) {
             jsonObject = (JSONObject) jsonArray.get(i);
             long typeNum = (Long) jsonObject.get("type");
             long y = (Long) jsonObject.get("observe");
-            //jsonObject1 = (JSONObject)arr.get(x);
+
 
             Sensor s;
             switch ((int) typeNum) {
@@ -384,15 +383,4 @@ public class Parser {
         return human;
     }
 
-    public Map<Long, Stuff> getAllstuff() {
-        return allstuff;
-    }
-
-    public Map<Integer, Floor> getFloors() {
-        return floors;
-    }
-
-    public Map<Integer, Room> getRooms() {
-        return rooms;
-    }
 }
