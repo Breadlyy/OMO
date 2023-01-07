@@ -116,6 +116,6 @@ public abstract class Human {
      */
     public String generateReport()
     {
-        return getClass().getSimpleName() + " "+ name + " " + surname + " born in " + getBday() + " passNum "+ getPassNo() + " actually on the " + getRoom().getFloor() + "\n";
+        return getClass().getSimpleName() + " "+ name + " " + surname + " born in " + getBday() + " passNum "+ getPassNo() + " actually on the " + getRoom().getFloor() + " hunger rate "+ hungerRate+"\n";
     }
 }

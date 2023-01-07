@@ -22,7 +22,7 @@ public abstract class Pet {
     public void wantFood()
     {
         System.out.println(name + "wants to eat");
-        home.getFather().enqueueTask(new FeedPetTask(home.getFather(), 2, 2, this));
+        home.getFather().enqueueTask(new FeedPetTask(home.getFather(), 1, 2, this));
     }
 
     public String getName() {

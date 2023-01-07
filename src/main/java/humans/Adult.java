@@ -14,7 +14,7 @@ public abstract class Adult extends Human {
 
 
     protected int busyCount;
-    private Queue<Task> taskQueue;
+    protected Queue<Task> taskQueue;
 
 
     int rand;
@@ -66,6 +66,7 @@ public abstract class Adult extends Human {
                     GasHeater gasHeater = home.getRandomHeater();
                     if (gasHeater == null) return;
                     moveTo(gasHeater.getRoom());
+                    if(gasHeater.isOff()) gasHeater.powerOn();
                     turnHeatingOn(gasHeater);
                     // System.out.println(this.name + " has turned on the gasheater " + gasHeater.getId());
                     close = new CloseHeaterTask(this, 1, 2, gasHeater);
@@ -76,6 +77,7 @@ public abstract class Adult extends Human {
                     Tap tap = home.getRandomTap();
                     if (tap == null) return;
                     moveTo(tap.getRoom());
+                    if(tap.isOff()) tap.powerOn();
                     turnWaterOn(tap);
                     //System.out.println(this.name + " has opened the tap " + tap.getId());
                     close = new CloseTapTask(this, 1, 5, tap);
@@ -97,6 +99,7 @@ public abstract class Adult extends Human {
                     Oven oven = home.getRandomOven();
                     if (oven == null) return;
                     moveTo(oven.getRoom());
+                    if(oven.isOff()) oven.powerOn();
                     oven.turnOn();
                     System.out.println(this.name + " turned on Oven " + oven.getId());
                     close = new CloseOvenTask(this, 1, 2, oven);
@@ -107,14 +110,22 @@ public abstract class Adult extends Human {
                 case 4: {
                     SportStuff sportStuff = home.getRandomSportStuff();
                     if (sportStuff == null) {
-                        System.out.println(name + " wanted to main.java.sport but there is no main.java.sport equipment ");
+                        System.out.println(name + " wanted to sport but there is no main.java.sport equipment ");
                         break;
                     }
                     busyCount = 4;
-                    System.out.println(name + " goes main.java.sport ");
+                    System.out.println(name + " goes sport ");
                     sportStuff.run();
                     break;
-
+                }
+                case 5:
+                {
+                    Microwave m = home.getRandomMicrowave();
+                    if(m==null) return;
+                    if(m.isOff()) m.powerOn();
+                    moveTo(m.getRoom());
+                    m.start();
+                    System.out.println(name + " used miccrowave "+ m.getId());
                 }
                 default:
                     System.out.println(this.name + " is chilling'");
@@ -284,8 +295,8 @@ public abstract class Adult extends Human {
         if (f == null) {
             f = findAnyFridge();
             if (f != null) {
-                enqueueTask(new GoForFoodTask(this, 4, 3, f));
-                enqueueTask(new EatTask(this, 2, 3));
+                enqueueTask(new GoForFoodTask(this, 2, 3, f));
+                enqueueTask(new EatTask(this, 1, 3));
             } else {
                 System.out.println("Why don't we have fridges?");
             }

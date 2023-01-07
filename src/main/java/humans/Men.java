@@ -11,7 +11,7 @@ public class Men extends Adult {
         }
 
         public void hide() {
-                busyCount += 5;
+                busyCount += 2;
                 System.out.println("Father hided");
         }
 

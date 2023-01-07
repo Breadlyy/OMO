@@ -82,7 +82,7 @@ public class Home {
         String rep = "";
         rep+=father.generateReport();
         rep+=mother.generateReport();
-        for(Child c: children) c.generateReport();
+        for(Child c: children) rep+=c.generateReport();
         for(Stuff it = iterator.begin();it!=null ; it = iterator.next())
             rep+=(it.generateReport()+'\n');
         String time = LocalDateTime.now().toString().replace(':', '_').replace('.','_');
@@ -185,6 +185,20 @@ public class Home {
         return null;
     }
 
+    public Microwave getRandomMicrowave() {
+        List<Microwave> w = new ArrayList<>();
+        Stuff microwave = iterator.begin();
+        while (microwave != null) {
+            if (microwave instanceof Microwave && !microwave.active()) {
+
+                w.add ((Microwave) microwave);
+            }
+            microwave = iterator.next();
+        }
+        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
+        return null;
+    }
+    
     public SportStuff getRandomSportStuff()
     {
         for(SportStuff s: sportStuff)

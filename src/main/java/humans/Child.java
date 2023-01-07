@@ -15,18 +15,20 @@ public class Child extends Human {
     }
     public void wantFood()
     {
-        home.getMother().enqueueTask(new FeedChildTask(home.getMother(),2,4, this));
+        home.getMother().enqueueTask(new FeedChildTask(home.getMother(),1,4, this));
         System.out.println("Children "+ name + " wants to eat" );
     }
     public void wantSleep()
     {
         System.out.println("Children "+ name + " wants sleep");
-        home.getFather().hide();
+        int i = (int)(Math.random()*2);
+
+        if(i==2)home.getFather().hide();
     }
     public void run()
     {
         hungerRate--;
-        i = (int)(Math.random() * 6);
+        i = (int)(Math.random() * 15);
         if(hungerRate<20)
         {
             wantFood();
@@ -38,7 +40,7 @@ public class Child extends Human {
             wantPlay();
             home.getMother().enqueueTask(new PlayTask(home.getMother(), 2, 2, this));
         }
-        if(i == 1)
+        if(i == 1 && hungerRate < 100)
         {
 
             wantFood();

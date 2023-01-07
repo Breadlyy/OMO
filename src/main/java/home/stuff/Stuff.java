@@ -88,6 +88,16 @@ public abstract class Stuff {
     }
 
 
+    public boolean isOff()
+    {
+        return state.getState()==StuffState.getOff();
+    }
+
+    public boolean idIdle()
+    {
+        return state.getState()== StuffState.getIdle();
+    }
+
     /**
      * run based on stuff state
      */
