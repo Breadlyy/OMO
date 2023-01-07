@@ -70,4 +70,4 @@ Builder: pattern pro home.
 Iterator: iterujeme seznam stuffu 
 
 ### Poznamka
-diagramclass.uml je podrobnější, ale je otevřitelné jenom pomocí IDEI
+diagram.png je podrobnější, je generovaný pomocí IDEI, proto špatně čitelný. Proto máme class.bmp, udělaný v EA
