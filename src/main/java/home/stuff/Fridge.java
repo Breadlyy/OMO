@@ -1,7 +1,6 @@
 package main.java.home.stuff;
 
 import main.java.food.Food;
-import main.java.home.stuff.state.StuffState;
 
 import java.util.ArrayList;
 import java.util.List;

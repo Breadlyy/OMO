@@ -1,4 +1,4 @@
-package test.java;
+package test.java.home.stuff;
 
 import main.java.animals.Cat;
 import main.java.home.HouseBuilder;
