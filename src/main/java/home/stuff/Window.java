@@ -40,4 +40,8 @@ public class Window extends Stuff{
     public void setShutter(Shutter shutter) {
         this.shutter = shutter;
     }
+
+    public String generateReport() {
+        return  getClass().getSimpleName()+" "+ getId() + " consumed " + consumedEnergy + (opened?" opened":" closed");
+    }
 }

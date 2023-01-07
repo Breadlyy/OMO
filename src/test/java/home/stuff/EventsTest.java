@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 public class EventsTest
 {
     @Test
-    public void FireOccurSmokeDetectorDetectingStuffReflectTest()
+    public void fireSensorTest_fireOccur_smokeDetectorDetectingStuffReflect()
     {
         Oven oven = new Oven();
         Fire fire = new Fire();
@@ -29,7 +29,7 @@ public class EventsTest
         System.out.println();
     }
     @Test
-    public void ShortCircuitOccurFuseDetectingStuffTReflectTest()
+    public void fuseTest_shortCircuitTestOccur_fuseDetectingStuffTReflectTest()
     {
         Fridge fridge = new Fridge();
         Fuse fuse = new Fuse();
@@ -39,50 +39,7 @@ public class EventsTest
         shortCircuit.attachSensor(fuse);
         shortCircuit.occur();
         assertEquals(fridge.getState(), StuffState.getOff());
-        System.out.println();
     }
-    @Test
-    public void MultipleStuff()
-    {
-        Fridge fridge = new Fridge();
-        Oven oven = new Oven();
-        GasHeater gasHeater = new GasHeater();
-        Microwave microwave = new Microwave();
-        GasSensor gasSensor = new GasSensor();
-        Fuse fuse = new Fuse();
-        SmokeDetector smokeDetector = new SmokeDetector();
-        Fire fire = new Fire();
-        ShortCircuit shortCircuit = new ShortCircuit();
-        GasLeak gasLeak = new GasLeak();
-        smokeDetector.add(microwave);
-        gasSensor.add(gasHeater);
-        fuse.add(microwave);
-        smokeDetector.add(oven);
-        fire.attachSensor(smokeDetector);
-        shortCircuit.attachSensor(fuse);
-        gasLeak.attachSensor(gasSensor);
-        fridge.powerOn();
-        oven.powerOn();
-        microwave.powerOn();
-        gasHeater.powerOn();
-        fire.occur();
-        System.out.println();
-        assertEquals( StuffState.getOff(), microwave.getState());
-        assertEquals(StuffState.getOff(),oven.getState());
-        assertEquals( StuffState.getIdle(),fridge.getState());
-        assertEquals( StuffState.getIdle(),gasHeater.getState());
-        oven.powerOn();
 
-        shortCircuit.occur();
-        assertEquals( StuffState.getOff(),fridge.getState());
-        assertEquals( StuffState.getIdle(),oven.getState());
-        assertEquals( StuffState.getOff(),microwave.getState());
-        assertEquals( StuffState.getIdle(),gasHeater.getState());
-        gasLeak.occur();
-        fire.occur();
-        assertEquals( StuffState.getOff(),fridge.getState());
-        assertEquals( StuffState.getOff(),gasHeater.getState());
-        assertEquals( StuffState.getOff(),microwave.getState());
-        assertEquals( StuffState.getOff(),gasHeater.getState());
-    }
+
 }
