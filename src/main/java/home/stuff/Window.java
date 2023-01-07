@@ -1,20 +1,31 @@
 package main.java.home.stuff;
 
+/**
+ * window is no that standart stuff, but it also consumes energy when it opens or closes
+ */
 public class Window extends Stuff{
     private int height;
     private int width;
     private boolean opened;
-    private  Shutter shutter;
+    private Shutter shutter;
 
     public boolean isOpened() {
         return opened;
     }
+
+    /**
+     * opens window
+     */
     public void open()
     {
         this.opened = true;
         consumedEnergy+=7;
         System.out.println("Window "+getId()+ " opened");
     }
+
+    /**
+     * closes window
+     */
     public void close()
     {
         consumedEnergy+=7;

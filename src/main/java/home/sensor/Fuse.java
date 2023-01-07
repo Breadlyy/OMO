@@ -4,12 +4,7 @@ import main.java.home.stuff.ElectricStuff;
 
 public class Fuse extends Sensor
 {
-
-
-    public void add(ElectricStuff microwave)
-    {
-        stuff.add(microwave);
+    public Fuse() {
+        text = "Fuse detected some event";
     }
-
-
 }

@@ -11,16 +11,17 @@ public class Child extends Human {
 
     public void wantPlay()
     {
-        System.out.println("Want to play");
+        System.out.println("Children "+ name + " wants to play" );
     }
     public void wantFood()
     {
         home.getMother().enqueueTask(new FeedChildTask(home.getMother(),2,4, this));
-        System.out.println("Want to eat");
+        System.out.println("Children "+ name + " wants to eat" );
     }
     public void wantSleep()
     {
-        System.out.println("Want to play");
+        System.out.println("Children "+ name + " wants sleep");
+        home.getFather().hide();
     }
     public void run()
     {
@@ -33,18 +34,19 @@ public class Child extends Human {
         }
         if(i == 0)
         {
-            System.out.println("Children "+ passNo + " wants to play" );
+
             wantPlay();
             home.getMother().enqueueTask(new PlayTask(home.getMother(), 2, 2, this));
         }
         if(i == 1)
         {
-            System.out.println("Children "+ name + " wants to main.java.food" );
+
             wantFood();
         }
         if(i == 2)
         {
             wantSleep();
+
         }
     }
 

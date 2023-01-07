@@ -1,7 +1,7 @@
 package main.java.animals;
 
 public class Dog extends Pet{
-    public void say()
+    protected void say()
     {
         System.out.println("bark");
     }

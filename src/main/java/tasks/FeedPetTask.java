@@ -3,6 +3,9 @@ package main.java.tasks;
 import main.java.animals.Pet;
 import main.java.humans.Adult;
 
+/**
+ * Task to feed pet
+ */
 public class FeedPetTask extends Task
 {
     Pet p;

@@ -2,11 +2,14 @@ package main.java.food;
 
 import java.util.Random;
 
+/**
+ * Something  that human eats
+ */
 public class Food {
-    Random random;
+
     public Food()
     {
-        random = new Random();
+        cooked = (int)Math.random()*30+20;
         setCooked(100);
     }
     private int cooked;
@@ -16,6 +19,6 @@ public class Food {
     }
 
     public void setCooked(int cooked) {
-        this.cooked = random.nextInt(cooked);
+        this.cooked = cooked*2;
     }
 }

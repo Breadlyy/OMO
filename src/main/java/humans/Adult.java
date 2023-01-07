@@ -13,7 +13,7 @@ import java.util.*;
 public abstract class Adult extends Human {
 
 
-    private int busyCount;
+    protected int busyCount;
     private Queue<Task> taskQueue;
 
 
@@ -35,12 +35,19 @@ public abstract class Adult extends Human {
         });
     }
 
+    /**
+     * adds task to to-do list. task will be done in the next loops
+     * @param t
+     */
     public void enqueueTask(Task t) {
         taskQueue.add(t);
     }
 
+    /**
+     * main method for simulation. Checks if adult is busy. If not, gets next task from to-do list. If to-do is empty, eats random uses stuff or does sport
+     */
     public void run() {
-
+        hungerRate--;
         if (busyCount != 0) {
             System.out.println(name + " is busy");
             busyCount--;
@@ -52,6 +59,7 @@ public abstract class Adult extends Human {
         } else {
             Task open;
             Task close;
+            if (hungerRate < 20) eat();
             rand = (int) (Math.random() * 8);
             switch (rand) {
                 case 0:
@@ -96,15 +104,13 @@ public abstract class Adult extends Human {
 
                     taskQueue.add(close);
                     break;
-                case 4:
-                {
+                case 4: {
                     SportStuff sportStuff = home.getRandomSportStuff();
-                    if(sportStuff==null)
-                    {
+                    if (sportStuff == null) {
                         System.out.println(name + " wanted to main.java.sport but there is no main.java.sport equipment ");
                         break;
                     }
-                    busyCount=4;
+                    busyCount = 4;
                     System.out.println(name + " goes main.java.sport ");
                     sportStuff.run();
                     break;
@@ -116,18 +122,30 @@ public abstract class Adult extends Human {
         }
     }
 
-
-
-
+    /**
+     * Eats from non-empty frigde
+     * @param fridge
+     */
     public void eat(Fridge fridge) {
         System.out.println(name + " ate " + fridge.getFood().get(0).getClass().getSimpleName() + " from fridge " + fridge.getId());
+        hungerRate+=fridge.getFood().get(0).getCooked();
         fridge.eat(fridge.getFood().get(0));
     }
 
+    /**
+     * Fills fridge
+     * @param f
+     */
     public void goForFood(Fridge f) {
         for (int i = 0; i < 5; i++) f.put(new Food());
     }
 
+    /**
+     * Finds food in fridge and feeds pet.
+     * If there is no food in fridge, goes for food
+     * If there are no fridges, adult is sad
+     * @param p
+     */
     public void feedPet(Pet p) {
         Fridge f = findNonEmptyFridge();
         if (f == null) {
@@ -136,6 +154,9 @@ public abstract class Adult extends Human {
                 System.out.println("Sorry, we have no fridges");
             } else {
                 Task t = new GoForFoodTask(this, 4, 2, f);
+                Task t1 = new FeedPetTask(this, 2, 2, p);
+                enqueueTask(t);
+                enqueueTask(t1);
             }
         } else {
             System.out.println(name + " feed pet " + p.getName());
@@ -144,47 +165,75 @@ public abstract class Adult extends Human {
         }
     }
 
+    /**
+     * opens window
+     * @param window
+     */
     private void openWindow(Window window) {
 
         System.out.println(name + "opened window " + window.getId());
         window.open();
     }
 
+    /**
+     * closes window
+     */
     public void closeWindow(Window window) {
 
         System.out.println(name + "closed window " + window.getId());
         window.close();
     }
 
+
+    /**
+     * rides transport
+     * @param transport
+     */
     public void ride(Transport transport) {
         System.out.println(name + " rides " + transport.getClass().getSimpleName());
     }
 
-
+    /**
+     * turns hesting on
+     * @param heater
+     */
     private void turnHeatingOn(GasHeater heater) {
         System.out.println(name + " turned on gasHeater " + heater.getId());
         heater.turnOn();
     }
 
-
+    /**
+     * turns heating off
+     * @param heater
+     */
     public void turnHeatingOff(GasHeater heater) {
         System.out.println(name + " turned off gasHeater " + heater.getId());
         heater.turnOff();
     }
 
-
+    /**
+     * turns water on
+     * @param tap
+     */
     private void turnWaterOn(Tap tap) {
         System.out.println(name + " opened tap " + tap.getId());
         tap.turnOn();
 
     }
 
-
+    /**
+     * turns water off
+     * @param tap
+     */
     public void turnWaterOff(Tap tap) {
         System.out.println(name + " closed tap " + tap.getId());
         tap.turnOff();
     }
 
+    /**
+     * finds non empty fridge. It there are no, returns null
+     * @return
+     */
     private Fridge findNonEmptyFridge() {
         for (Stuff s = home.iterator.begin(); s != null; s = home.iterator.next()) {
             if (s instanceof Fridge) {
@@ -197,6 +246,10 @@ public abstract class Adult extends Human {
         return null;
     }
 
+    /**
+     * finds any fridge in the house. If there are no returns null
+     * @return
+     */
     private Fridge findAnyFridge() {
         for (Stuff s = home.iterator.begin(); s != null; s = home.iterator.next()) {
             if (s instanceof Fridge) {
@@ -215,11 +268,17 @@ public abstract class Adult extends Human {
                 '}';
     }
 
+    /**
+     * Feeds child
+     */
     public void feedChild(Child c) {
         System.out.println(name + " feed child " + c.name);
         c.eat();
     }
 
+    /**
+     * Tries to find food and eats
+     */
     public void eat() {
         Fridge f = findNonEmptyFridge();
         if (f == null) {
@@ -237,18 +296,28 @@ public abstract class Adult extends Human {
 
     }
 
-   
+
+    /**
+     * Plays with child
+     */
     public void playWith(Child c) {
         System.out.println(name + " played with " + c.name);
     }
 
+    /**
+     * Repairs something
+     * @param s
+     */
     public void repair(Stuff s) {
         System.out.println("Dad repaired " + s.getName() + " with id " + s.getId());
         s.repairThis();
     }
 
-    public Task getTask()
-    {
+    /**
+     * MEthod used only in tests
+     * @return
+     */
+    public Task getTask() {
         Task t = taskQueue.peek();
         return t;
     }

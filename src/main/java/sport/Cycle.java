@@ -1,5 +1,8 @@
 package main.java.sport;
 
+/**
+ * Cycle can ride
+ */
 public class Cycle extends SportStuff{
 
     public void run()

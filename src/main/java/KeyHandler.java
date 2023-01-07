@@ -3,6 +3,9 @@ package main.java;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * Listens to keys
+ */
 public class KeyHandler implements KeyListener {
 
     public boolean wind;

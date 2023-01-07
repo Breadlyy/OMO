@@ -3,6 +3,9 @@ package main.java.tasks;
 import main.java.home.stuff.Oven;
 import main.java.humans.Adult;
 
+/**
+ * task to turn off the oven
+ */
 public class CloseOvenTask extends Task
 {
     Oven oven;

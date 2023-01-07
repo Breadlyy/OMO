@@ -3,6 +3,9 @@ package main.java.tasks;
 import main.java.home.stuff.Stuff;
 import main.java.humans.Adult;
 
+/**
+ * Task to fix stuff
+ */
 public class FixStuffTask extends Task
 {
     Stuff s;

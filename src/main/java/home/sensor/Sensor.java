@@ -8,7 +8,8 @@ import java.util.List;
 public class Sensor implements ISensor {
     protected List<Stuff> stuff = new ArrayList<>();
     private long id;
-    private long observe;
+    protected String text = "";
+
 
     public Sensor() {
         this.stuff = new ArrayList<>();
@@ -16,45 +17,16 @@ public class Sensor implements ISensor {
 
     public void notifySensor()
     {
+        System.out.println(text);
         for(Stuff s: stuff)
         {
             s.notifyStuff();
         }
     }
 
-    public Sensor findSensor(String name, List<Sensor> sensors)
+    public void add(Stuff s)
     {
-        switch (name)
-        {
-            case "SmokeDetector":
-                for (int i = 0; i < sensors.size(); i++)
-                {
-                    if(sensors.get(i) instanceof SmokeDetector) return sensors.get(i);
-                }
-                break;
-            case "WaterSensor":
-
-                break;
-            case "WindSensor":
-                for (int i = 0; i < sensors.size(); i++)
-                {
-                    if(sensors.get(i) instanceof WindSensor) return sensors.get(i);
-                }
-                break;
-            case "GasSensor":
-                for (int i = 0; i < sensors.size(); i++)
-                {
-                    if(sensors.get(i) instanceof GasSensor) return sensors.get(i);
-                }
-                break;
-            case "Fuse":
-                for (int i = 0; i < sensors.size(); i++)
-                {
-                    if(sensors.get(i) instanceof Fuse) return sensors.get(i);
-                }
-                break;
-        }
-        return null;
+        stuff.add(s);
     }
 
     public long getId() {
@@ -65,51 +37,4 @@ public class Sensor implements ISensor {
         this.id = id;
     }
 
-    public long getObserve() {
-        return observe;
-    }
-
-    public void setObserve(long observe) {
-        this.observe = observe;
-    }
-
-
-
-    /*public Sensor()
-    {
-       this.waterSensor = new WaterSensor();
-       this.fuse = new Fuse();
-       this.windSensor = new WindSensor();
-       this.gasSensor = new GasSensor();
-       this.smoke_dec = new SmokeDetector();
-        eventOccur();
-    }
-        private IEvent event;
-        Random random = new Random();
-        int num;
-        private ISensor waterSensor;
-        private ISensor windSensor;
-        private ISensor gasSensor;
-        private ISensor fuse;
-        private ISensor smoke_dec;
-        public void setEvent(IEvent event) {
-                this.event = event;
-        }
-        public void eventOccur()
-        {
-            num = this.random.nextInt(1);
-            if(num == 2) setEvent(new WaterLeak());
-            if(num == 3) setEvent(new GasLeak());
-            if(num == 2) setEvent(new ShortCircuit());
-            if(num == 0) setEvent(new WindBlow());
-            if(num == 4) setEvent(new Fire());
-            triggerSomeSensor();
-        }
-        public void triggerSomeSensor() {
-            if(event instanceof WaterLeak) waterSensor.triggered();
-            else if(event instanceof GasLeak) gasSensor.triggered();
-            else if(event instanceof WindBlow) windSensor.triggered();
-            else if(event instanceof ShortCircuit) fuse.triggered();
-            else if(event instanceof SmokeDetector) smoke_dec.triggered();
-        }*/
 }

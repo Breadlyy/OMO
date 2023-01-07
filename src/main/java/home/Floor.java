@@ -3,6 +3,9 @@ package main.java.home;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * single floor in house
+ */
 public class Floor
 {
     private final long number;

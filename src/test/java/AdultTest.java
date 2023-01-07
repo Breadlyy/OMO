@@ -1,7 +1,7 @@
 package test.java;
 
 import main.java.animals.Cat;
-import main.java.builder.HouseBuilder;
+import main.java.home.HouseBuilder;
 import main.java.food.Food;
 import main.java.home.Floor;
 import main.java.home.Home;
@@ -130,7 +130,7 @@ public class AdultTest
         Room r = new Room(1,2,3,f);
         r.addStuff(new Fridge());
         f.addRoom(r);
-        h.addFloor(f);
+        builder.addFloor(f);
         sut.setHome(h);
 
         sut.eat();
@@ -148,7 +148,7 @@ public class AdultTest
         fr.put(new Food());
         r.addStuff(fr);
         f.addRoom(r);
-        h.addFloor(f);
+        builder.addFloor(f);
         sut.setHome(h);
 
         sut.eat();
