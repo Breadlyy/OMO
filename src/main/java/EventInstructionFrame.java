@@ -9,6 +9,9 @@ import main.java.parser.Parser;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * window that will listen to keys to perform events
+ */
 public class EventInstructionFrame extends JPanel implements Runnable {
     KeyHandler keyh = new KeyHandler();
     Home home;
@@ -22,6 +25,9 @@ public class EventInstructionFrame extends JPanel implements Runnable {
         this.setFocusable(true);
     }
 
+    /**
+     * start simultaion
+     */
     public void start() {
         synchronized (this) {
             Parser p = new Parser();
@@ -31,6 +37,9 @@ public class EventInstructionFrame extends JPanel implements Runnable {
         runThread.start();
     }
 
+    /**
+     * main loop
+     */
     @Override
     public void run() {
 
@@ -74,9 +83,7 @@ public class EventInstructionFrame extends JPanel implements Runnable {
             }
             System.out.println("--------------------");
             if(reportcount==5) {
-                System.out.println("REPORT");
-                System.out.println(home.generateReport());
-                System.out.println("--------------------");
+                home.generateReport();
                 reportcount=0;
             }
         }

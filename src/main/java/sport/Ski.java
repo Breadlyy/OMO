@@ -1,5 +1,8 @@
 package main.java.sport;
 
+/**
+ * ski
+ */
 public class Ski extends SportStuff{
     public void run()
     {

@@ -7,11 +7,16 @@ import main.java.home.stuff.*;
 import main.java.humans.*;
 import main.java.sport.SportStuff;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Home {
-    private static Home home;
+    private static Home home; //singleton
     private Men father;
     private Woman mother;
     private List<Child> children = new ArrayList<>();
@@ -58,31 +63,59 @@ public class Home {
         iterator = new StuffIterator(this);
     }
 
+    /**
+     * returns example of home.
+     * @return
+     */
     public static Home getExample() {
         if (home == null) {
             home = new Home();
         }
         return home;
     }
-    public String generateReport()
+
+    /**
+     * generates report fot home at the current time. Saves it to file named with localdatetime.now()
+     */
+    public void generateReport()
     {
         String rep = "";
+        rep+=father.generateReport();
+        rep+=mother.generateReport();
+        for(Child c: children) c.generateReport();
         for(Stuff it = iterator.begin();it!=null ; it = iterator.next())
             rep+=(it.generateReport()+'\n');
-        return rep;
+        String time = LocalDateTime.now().toString().replace(':', '_').replace('.','_');
+
+        String filename = "reports/"+ time;
+        try
+        {
+            FileWriter f = new FileWriter(filename);
+            f.write(rep);
+            f.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+
+        }
     }
 
-    public void addFloor(Floor floor)
+    /**
+     * adds floor to the house
+     * @param floor
+     */
+    protected void addFloor(Floor floor)
     {
         floors.add(floor);
     }
 
-    public void addChild(Child person)
+    protected void addChild(Child person)
     {
         this.children.add(person);
     }
 
-    public void addPet(Pet pet)
+    protected void addPet(Pet pet)
     {
         this.pets.add(pet);
     }
@@ -97,11 +130,11 @@ public class Home {
         sensors.clear();
     }
 
-    public void setFather(Men father) {
+    protected void setFather(Men father) {
         this.father = father;
     }
 
-    public void setMother(Woman mother) {
+    protected void setMother(Woman mother) {
         this.mother = mother;
     }
 
@@ -211,4 +244,6 @@ public class Home {
     public void setSportStuff(List<SportStuff> sportStuff) {
         this.sportStuff = sportStuff;
     }
+
+
 }

@@ -3,6 +3,9 @@ package main.java.tasks;
 import main.java.humans.Adult;
 import main.java.humans.Child;
 
+/**
+ * Task to play with children
+ */
 public class PlayTask extends Task
 {
     Child c;

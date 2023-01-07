@@ -5,6 +5,11 @@ import main.java.home.sensor.Sensor;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * general class for  all events
+ * contains text that is written when event occured and list of sensors to notify
+ *
+ */
 public abstract class Event{
      String text = "";
      protected List<Sensor> sensors = new ArrayList<>();

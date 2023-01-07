@@ -6,27 +6,28 @@ import main.java.home.stuff.state.StuffState;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fridge extends ElectricStuff{
+public class Fridge extends ElectricStuff {
     private static long capacity = 5000;
     private List<Food> food = new ArrayList<>();
-    public void eat(Food f)
-    {
+
+    public void eat(Food f) {
         this.food.remove(f);
     }
-    public void put(Food meal)
-    {
+
+    public void put(Food meal) {
         this.food.add(meal);
     }
 
     public List<Food> getFood() {
         return food;
     }
-    public boolean empty()
-    {
+
+    public boolean empty() {
         return food.isEmpty();
     }
+
     public Fridge() {
         state = new StuffState();
         state.turnOn();
     }
-    }
+}

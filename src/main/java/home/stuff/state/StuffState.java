@@ -2,6 +2,9 @@ package main.java.home.stuff.state;
 
 import main.java.home.stuff.Stuff;
 
+/**
+ * controls  stuff behaviour
+ */
 public class StuffState {
     private enum State
     {
@@ -10,16 +13,24 @@ public class StuffState {
         OFF,
         BROKE
     }
+    private State state;
 
+    /**
+     * initially stuff is in IDLE state
+     */
     public StuffState() {
        state = State.IDLE;
     }
 
-    private State state;
 
+    /**
+     * run based on IDLE
+     * @param stuff
+     */
     public void handle(Stuff stuff)
     {
         if(state==State.WORK) stuff.runEnabled();
+        else if (state==State.IDLE) stuff.runIDLE();
     }
 
     public void turnOn()
@@ -50,6 +61,11 @@ public class StuffState {
     public boolean active()
     {
         return state==State.WORK;
+    }
+
+    public boolean broken()
+    {
+        return state==State.BROKE;
     }
 
 

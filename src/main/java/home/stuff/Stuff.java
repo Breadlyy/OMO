@@ -17,8 +17,12 @@ public abstract class Stuff {
     private long id;
     private String name;
 
+    /**
+     * Reports on it's state
+     * @return
+     */
     public String generateReport() {
-        return  getClass().getSimpleName()+" "+ id + " consumed " + consumedEnergy;
+        return  getClass().getSimpleName()+" "+ id + " consumed " + consumedEnergy + " isactive " + state.active() + " broken " + state.broken();
     }
 
     public double getEnergyConsumption() {
@@ -50,17 +54,27 @@ public abstract class Stuff {
         state.powerOff();
     }
 
+    /**
+     * Changes state to broken and asks daddy to fix it
+     */
     private void breakThis() {
         state.breakThing();
         Adult dad = room.getFloor().getHome().getFather();
         dad.enqueueTask(new FixStuffTask(dad, 2, 1, this));
     }
 
+    /**
+     *  Changes stuff state to idle
+     *  adds durability
+     */
     public void repairThis() {
         durability = 100;
         state.repair();
     }
 
+    /**
+     * To be notified by sensor about event. Turns off when notified
+     */
     public void notifyStuff() {
         System.out.println("Stuff " + getName() + " is off");
         powerOff();
@@ -74,12 +88,19 @@ public abstract class Stuff {
         this.id = id;
     }
 
+
+    /**
+     * run based on stuff state
+     */
     public void run()
     {
         state.handle(this);
     }
 
 
+    /**
+     * run when enabled (called from state class)
+     */
     public void runEnabled() {
 
         consumedEnergy += energyConsumption;
@@ -93,6 +114,11 @@ public abstract class Stuff {
         }
     }
 
+
+    /**
+     * Returns if stuff is broken
+     * @return
+     */
     public boolean checkDurability() {
         return this.durability > 0;
     }
@@ -102,10 +128,18 @@ public abstract class Stuff {
         return s;
     }
 
+    /**
+     * Returns stuff location
+     * @return
+     */
     public Room getRoom() {
         return room;
     }
 
+    /**
+     * sets stuff location
+     * @param room
+     */
     public void setRoom(Room room) {
         this.room = room;
     }
@@ -118,27 +152,20 @@ public abstract class Stuff {
         this.name = name;
     }
 
+    /**
+     * rrturns if actual state is active
+     * @return
+     */
     public boolean active()
     {
         return state.active();
     }
-    //    public void turnOff()
-//    {
-//        if(this.state != StuffState.disabled)
-//        {
-//            this.state = StuffState.idle;
-//        }
-//    }
-//    public void turnOn()
-//    {
-//        if(this.state != StuffState.disabled)
-//        {
-//            this.state = StuffState.active;
-//        }
-//    }
-//    public void collapsed()
-//    {
-//        this.state = StuffState.disabled;
-//    }
+
+    /**
+     * Consumes energu when IDLE state
+     */
+    public void runIDLE() {
+        consumedEnergy+=energyConsumption/2;
+    }
 
 }
