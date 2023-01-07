@@ -68,3 +68,6 @@ event. Takže když nastane event tak tento event oznamuje o tom
 senzory
 Builder: pattern pro home.
 Iterator: iterujeme seznam stuffu 
+
+### Poznamka
+diagramclass.uml je podrobnější, ale je otevřitelné jenom pomocí IDEI
