@@ -56,3 +56,15 @@ Při spouštění programů otevře se JFrame. On bude poslouchat na tlačitka a
 ## Start
 
 Program je načitan pomoci třidy Parser z json filu
+
+## Patterns
+
+Singleton: můžeme vytvářet pouze 1 home.
+Factory: StuffFactory je factory pro vytváření Stuff.
+State: určuje stav stuffu když nastane event nebo človek bude 
+interaktovat se stuffem
+2 Observeru: Senzory vypíná/zapíná stuff pokud nastané nějaký 
+event. Takže když nastane event tak tento event oznamuje o tom 
+senzory
+Builder: pattern pro home.
+Iterator: iterujeme seznam stuffu 
