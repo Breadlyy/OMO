@@ -1,4 +1,4 @@
-package main.java.home.stuff.state;
+package main.java.home.stuff;
 
 import main.java.home.stuff.Stuff;
 
@@ -6,12 +6,21 @@ import main.java.home.stuff.Stuff;
  * controls  stuff behaviour
  */
 public class StuffState {
-    private enum State
+    protected enum State
     {
         WORK,
         IDLE,
         OFF,
         BROKE
+    }
+
+    public static State getOff()
+    {
+        return State.OFF;
+    }
+    public static State getIdle()
+    {
+        return State.IDLE;
     }
     private State state;
 
@@ -43,7 +52,7 @@ public class StuffState {
     }
 
     public void powerOn() {
-        if(state==State.IDLE) state = State.IDLE;
+        if(state==State.OFF) state = State.IDLE;
     }
 
     public void powerOff() {
@@ -67,6 +76,9 @@ public class StuffState {
     {
         return state==State.BROKE;
     }
-
+    public State getState()
+    {
+        return  state;
+    }
 
 }

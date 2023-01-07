@@ -1,7 +1,5 @@
 package main.java.home.stuff;
 
-import main.java.home.stuff.state.StuffState;
-
 public class Tap extends Stuff {
     private int water_consumed; //tap does not consume energy, but consumes water
     public Tap(int water_consumption) {

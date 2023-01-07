@@ -1,7 +1,6 @@
 package main.java.home.stuff;
 
 import main.java.home.Room;
-import main.java.home.stuff.state.StuffState;
 import main.java.humans.Adult;
 import main.java.tasks.FixStuffTask;
 
@@ -168,4 +167,7 @@ public abstract class Stuff {
         consumedEnergy+=energyConsumption/2;
     }
 
+    public StuffState.State getState() {
+        return state.getState();
+    }
 }
