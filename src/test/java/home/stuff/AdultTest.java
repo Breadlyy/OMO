@@ -16,6 +16,7 @@ import main.java.tasks.Task;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.platform.commons.annotation.Testable;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
