@@ -12,7 +12,7 @@ F2.	Jednotlivá zařízení v domu mají API na ovládání. Zařízení mají s
 
 F3.	Spotřebiče mají svojí spotřebu v aktivním stavu, idle stavu, vypnutém stavu
 
-F4.	Jednotlivá zařízení mají API na sběr dat o tomto zařízení. O zařízeních sbíráme data jako spotřeba elektřiny, plynu, vody a funkčnost (klesá lineárně s časem)
+F4.	Jednotlivá zařízení mají API na sběr dat o tomto zařízení. O zařízeních sbíráme data jako spotřeba elektřiny, plynu, vody a funkčnost (klesá s časem)
 
 F5.	Jednotlivé osoby a zvířata mohou provádět aktivity(akce), které mají nějaký efekt na zařízení nebo jinou osobu (tata může otevřít okno)
 
@@ -68,3 +68,6 @@ event. Takže když nastane event tak tento event oznamuje o tom
 senzory
 Builder: pattern pro home.
 Iterator: iterujeme seznam stuffu 
+
+### Poznamka
+diagram.png je podrobnější, je generovaný pomocí IDEI, proto špatně čitelný. Proto máme class.bmp, udělaný v EA
