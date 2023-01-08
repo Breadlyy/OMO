@@ -23,7 +23,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.*;
 
-
+@Testable
 public class AdultTest
 {
     Adult sut;

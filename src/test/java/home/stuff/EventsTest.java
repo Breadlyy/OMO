@@ -8,11 +8,12 @@ import main.java.home.sensor.GasSensor;
 import main.java.home.sensor.SmokeDetector;
 import main.java.home.stuff.*;
 import org.junit.Test;
+import org.junit.platform.commons.annotation.Testable;
 
 import java.awt.*;
 
 import static org.junit.Assert.assertEquals;
-
+@Testable
 public class EventsTest
 {
     @Test
