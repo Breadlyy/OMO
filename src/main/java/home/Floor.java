@@ -6,15 +6,14 @@ import java.util.List;
 /**
  * single floor in house
  */
-public class Floor
-{
+public class Floor {
     private final long number;
     private final Home home;
     private List<Room> rooms = new ArrayList<>();
 
-    public Floor(Home home, long number)
-    {
-        this.home = home; this.number = number;
+    public Floor(Home home, long number) {
+        this.home = home;
+        this.number = number;
     }
 
     public long getNumber() {
@@ -33,13 +32,11 @@ public class Floor
         this.rooms = rooms;
     }
 
-    public void addRoom(Room room)
-    {
+    public void addRoom(Room room) {
         rooms.add(room);
     }
 
-    public void removeRoom(Room room)
-    {
+    public void removeRoom(Room room) {
         rooms.remove(room);
     }
 

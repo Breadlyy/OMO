@@ -6,16 +6,15 @@ import main.java.humans.Adult;
 /**
  * Task to fix stuff
  */
-public class FixStuffTask extends Task
-{
-    Stuff s;
+public class FixStuffTask extends Task {
+    private Stuff s;
+
     public FixStuffTask(Adult human, int complexity, int priority, Stuff s) {
         super(human, complexity, priority);
         this.s = s;
     }
 
-    public void run()
-    {
+    public void run() {
         human.repair(s);
     }
 

@@ -13,9 +13,9 @@ import java.awt.*;
  * window that will listen to keys to perform events
  */
 public class EventInstructionFrame extends JPanel implements Runnable {
-    KeyHandler keyh = new KeyHandler();
-    Home home;
-    int reportcount = 0;
+    private KeyHandler keyh = new KeyHandler();
+    private Home home;
+    private int reportcount = 0;
 
     public EventInstructionFrame() {
         this.setPreferredSize(new Dimension(200, 200));

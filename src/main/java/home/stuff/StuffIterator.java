@@ -8,9 +8,8 @@ import java.util.logging.Logger;
 /**
  * Iterator for all stuff
  */
-public class StuffIterator
-{
-    private int floornum=0, roomnum=0, stuffnum=0;
+public class StuffIterator {
+    private int floornum = 0, roomnum = 0, stuffnum = 0;
     private final Home home;
     private static final Logger log = Logger.getLogger(Parser.class.getName());
 
@@ -20,15 +19,16 @@ public class StuffIterator
 
     /**
      * If there is next stuff
+     *
      * @return
      */
     public boolean hasNext() {
-        if(home.getFloors().get(floornum).getRooms().get(roomnum).getStuff().size()>stuffnum+1) return true; //there is otherr stuff in this room
-        for(int tfloornum=floornum; tfloornum < home.getFloors().size(); tfloornum++)
-        {
-            for(int troomnum=floornum==tfloornum?(roomnum+1):0; troomnum < home.getFloors().get(tfloornum).getRooms().size(); troomnum++)
-            {
-                if(home.getFloors().get(tfloornum).getRooms().get(troomnum).getStuff().size()>0) return true; // there are next rooms with stuff
+        if (home.getFloors().get(floornum).getRooms().get(roomnum).getStuff().size() > stuffnum + 1)
+            return true; //there is otherr stuff in this room
+        for (int tfloornum = floornum; tfloornum < home.getFloors().size(); tfloornum++) {
+            for (int troomnum = floornum == tfloornum ? (roomnum + 1) : 0; troomnum < home.getFloors().get(tfloornum).getRooms().size(); troomnum++) {
+                if (home.getFloors().get(tfloornum).getRooms().get(troomnum).getStuff().size() > 0)
+                    return true; // there are next rooms with stuff
             }
         }
         return false;
@@ -36,6 +36,7 @@ public class StuffIterator
 
     /**
      * finds first stuff at home
+     *
      * @return
      */
     public Stuff begin() {
@@ -55,27 +56,24 @@ public class StuffIterator
 
     /**
      * gets next stuff in home
+     *
      * @return
      */
     public Stuff next() {
-        if(home.getFloors().get(floornum).getRooms().get(roomnum).getStuff().size()>stuffnum+1)
-        {
+        if (home.getFloors().get(floornum).getRooms().get(roomnum).getStuff().size() > stuffnum + 1) {
             //if there is next stuff on this floor get it
             stuffnum++;
             return home.getFloors().get(floornum).getRooms().get(roomnum).getStuff().get(stuffnum);
         }
         //else find other rooms with stuff
-        for(int tfloornum=floornum; tfloornum < home.getFloors().size(); tfloornum++)
-        {
-            if(tfloornum!=floornum) roomnum=0;
-            for(int troomnum=roomnum; troomnum < home.getFloors().get(tfloornum).getRooms().size(); troomnum++)
-            {
-                if(troomnum!=roomnum || tfloornum!=floornum) stuffnum=-1;
-                for(int tstuffnum=stuffnum+1; tstuffnum < home.getFloors().get(tfloornum).getRooms().get(troomnum).getStuff().size(); tstuffnum++)
-                {
-                    floornum=tfloornum;
-                    roomnum=troomnum;
-                    stuffnum=tstuffnum;
+        for (int tfloornum = floornum; tfloornum < home.getFloors().size(); tfloornum++) {
+            if (tfloornum != floornum) roomnum = 0;
+            for (int troomnum = roomnum; troomnum < home.getFloors().get(tfloornum).getRooms().size(); troomnum++) {
+                if (troomnum != roomnum || tfloornum != floornum) stuffnum = -1;
+                for (int tstuffnum = stuffnum + 1; tstuffnum < home.getFloors().get(tfloornum).getRooms().get(troomnum).getStuff().size(); tstuffnum++) {
+                    floornum = tfloornum;
+                    roomnum = troomnum;
+                    stuffnum = tstuffnum;
                     return home.getFloors().get(floornum).getRooms().get(roomnum).getStuff().get(stuffnum);
                 }
             }

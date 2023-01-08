@@ -4,49 +4,45 @@ import main.java.tasks.FeedChildTask;
 import main.java.tasks.PlayTask;
 
 public class Child extends Human {
-    int i;
+    private int i;
+
     public Child(String name, String surname, long passNo) {
         super(name, surname, passNo);
     }
 
-    public void wantPlay()
-    {
-        System.out.println("Children "+ name + " wants to play" );
+    public void wantPlay() {
+        System.out.println("Children " + name + " wants to play");
     }
-    public void wantFood()
-    {
-        home.getMother().enqueueTask(new FeedChildTask(home.getMother(),1,4, this));
-        System.out.println("Children "+ name + " wants to eat" );
-    }
-    public void wantSleep()
-    {
-        System.out.println("Children "+ name + " wants sleep");
-        int i = (int)(Math.random()*2);
 
-        if(i==2)home.getFather().hide();
+    public void wantFood() {
+        home.getMother().enqueueTask(new FeedChildTask(home.getMother(), 1, 4, this));
+        System.out.println("Children " + name + " wants to eat");
     }
-    public void run()
-    {
+
+    public void wantSleep() {
+        System.out.println("Children " + name + " wants sleep");
+        int i = (int) (Math.random() * 2);
+
+        if (i == 2) home.getFather().hide();
+    }
+
+    public void run() {
         hungerRate--;
-        i = (int)(Math.random() * 15);
-        if(hungerRate<20)
-        {
+        i = (int) (Math.random() * 15);
+        if (hungerRate < 20) {
             wantFood();
             return;
         }
-        if(i == 0)
-        {
+        if (i == 0) {
 
             wantPlay();
             home.getMother().enqueueTask(new PlayTask(home.getMother(), 2, 2, this));
         }
-        if(i == 1 && hungerRate < 100)
-        {
+        if (i == 1 && hungerRate < 100) {
 
             wantFood();
         }
-        if(i == 2)
-        {
+        if (i == 2) {
             wantSleep();
 
         }
@@ -57,9 +53,8 @@ public class Child extends Human {
      * There is always main.java.food for our baby
      * Noone has hunger rate, so just does nothing
      */
-    public void eat()
-    {
-        hungerRate+=20;
+    public void eat() {
+        hungerRate += 20;
     }
 
 }

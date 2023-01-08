@@ -12,8 +12,7 @@ public abstract class Transport {
         this.owner = new ArrayList<>();
     }
 
-    public void addOwner(Human h)
-    {
+    public void addOwner(Human h) {
         owner.add(h);
     }
 }

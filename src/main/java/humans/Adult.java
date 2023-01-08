@@ -15,13 +15,7 @@ public abstract class Adult extends Human {
 
     protected int busyCount;
     protected Queue<Task> taskQueue;
-
-
-    int rand;
-
-
-    //passNo = id
-
+    private int rand;
 
     public Adult(String name, String surname, long pass) {
         super(name, surname, pass);
@@ -37,6 +31,7 @@ public abstract class Adult extends Human {
 
     /**
      * adds task to to-do list. task will be done in the next loops
+     *
      * @param t
      */
     public void enqueueTask(Task t) {
@@ -66,7 +61,7 @@ public abstract class Adult extends Human {
                     GasHeater gasHeater = home.getRandomHeater();
                     if (gasHeater == null) return;
                     moveTo(gasHeater.getRoom());
-                    if(gasHeater.isOff()) gasHeater.powerOn();
+                    if (gasHeater.isOff()) gasHeater.powerOn();
                     turnHeatingOn(gasHeater);
                     // System.out.println(this.name + " has turned on the gasheater " + gasHeater.getId());
                     close = new CloseHeaterTask(this, 1, 2, gasHeater);
@@ -77,7 +72,7 @@ public abstract class Adult extends Human {
                     Tap tap = home.getRandomTap();
                     if (tap == null) return;
                     moveTo(tap.getRoom());
-                    if(tap.isOff()) tap.powerOn();
+                    if (tap.isOff()) tap.powerOn();
                     turnWaterOn(tap);
                     //System.out.println(this.name + " has opened the tap " + tap.getId());
                     close = new CloseTapTask(this, 1, 5, tap);
@@ -99,7 +94,7 @@ public abstract class Adult extends Human {
                     Oven oven = home.getRandomOven();
                     if (oven == null) return;
                     moveTo(oven.getRoom());
-                    if(oven.isOff()) oven.powerOn();
+                    if (oven.isOff()) oven.powerOn();
                     oven.turnOn();
                     System.out.println(this.name + " turned on Oven " + oven.getId());
                     close = new CloseOvenTask(this, 1, 2, oven);
@@ -118,14 +113,13 @@ public abstract class Adult extends Human {
                     sportStuff.run();
                     break;
                 }
-                case 5:
-                {
+                case 5: {
                     Microwave m = home.getRandomMicrowave();
-                    if(m==null) return;
-                    if(m.isOff()) m.powerOn();
+                    if (m == null) return;
+                    if (m.isOff()) m.powerOn();
                     moveTo(m.getRoom());
                     m.start();
-                    System.out.println(name + " used miccrowave "+ m.getId());
+                    System.out.println(name + " used miccrowave " + m.getId());
                 }
                 default:
                     System.out.println(this.name + " is chilling'");
@@ -135,16 +129,18 @@ public abstract class Adult extends Human {
 
     /**
      * Eats from non-empty frigde
+     *
      * @param fridge
      */
     public void eat(Fridge fridge) {
         System.out.println(name + " ate " + fridge.getFood().get(0).getClass().getSimpleName() + " from fridge " + fridge.getId());
-        hungerRate+=fridge.getFood().get(0).getCooked();
+        hungerRate += fridge.getFood().get(0).getCooked();
         fridge.eat(fridge.getFood().get(0));
     }
 
     /**
      * Fills fridge
+     *
      * @param f
      */
     public void goForFood(Fridge f) {
@@ -155,6 +151,7 @@ public abstract class Adult extends Human {
      * Finds food in fridge and feeds pet.
      * If there is no food in fridge, goes for food
      * If there are no fridges, adult is sad
+     *
      * @param p
      */
     public void feedPet(Pet p) {
@@ -178,6 +175,7 @@ public abstract class Adult extends Human {
 
     /**
      * opens window
+     *
      * @param window
      */
     private void openWindow(Window window) {
@@ -198,6 +196,7 @@ public abstract class Adult extends Human {
 
     /**
      * rides transport
+     *
      * @param transport
      */
     public void ride(Transport transport) {
@@ -206,6 +205,7 @@ public abstract class Adult extends Human {
 
     /**
      * turns hesting on
+     *
      * @param heater
      */
     private void turnHeatingOn(GasHeater heater) {
@@ -215,6 +215,7 @@ public abstract class Adult extends Human {
 
     /**
      * turns heating off
+     *
      * @param heater
      */
     public void turnHeatingOff(GasHeater heater) {
@@ -224,6 +225,7 @@ public abstract class Adult extends Human {
 
     /**
      * turns water on
+     *
      * @param tap
      */
     private void turnWaterOn(Tap tap) {
@@ -234,6 +236,7 @@ public abstract class Adult extends Human {
 
     /**
      * turns water off
+     *
      * @param tap
      */
     public void turnWaterOff(Tap tap) {
@@ -243,6 +246,7 @@ public abstract class Adult extends Human {
 
     /**
      * finds non empty fridge. It there are no, returns null
+     *
      * @return
      */
     private Fridge findNonEmptyFridge() {
@@ -259,6 +263,7 @@ public abstract class Adult extends Human {
 
     /**
      * finds any fridge in the house. If there are no returns null
+     *
      * @return
      */
     private Fridge findAnyFridge() {
@@ -317,6 +322,7 @@ public abstract class Adult extends Human {
 
     /**
      * Repairs something
+     *
      * @param s
      */
     public void repair(Stuff s) {
@@ -326,6 +332,7 @@ public abstract class Adult extends Human {
 
     /**
      * MEthod used only in tests
+     *
      * @return
      */
     public Task getTask() {

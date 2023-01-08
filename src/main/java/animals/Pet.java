@@ -10,8 +10,8 @@ public abstract class Pet {
     private String name;
     int i;
     private Home home;
-    protected void say()
-    {
+
+    protected void say() {
         System.out.println("base");
     }
 
@@ -19,8 +19,7 @@ public abstract class Pet {
      * Add task to father to feed it.
      * If father is busy, waits
      */
-    public void wantFood()
-    {
+    public void wantFood() {
         System.out.println(name + "wants to eat");
         home.getFather().enqueueTask(new FeedPetTask(home.getFather(), 1, 2, this));
     }
@@ -36,14 +35,11 @@ public abstract class Pet {
     /**
      * Randomly wants to eat
      */
-    public void run()
-    {
-        i = (int)(Math.random() * 8);
-        if(i == 0)
-        {
+    public void run() {
+        i = (int) (Math.random() * 8);
+        if (i == 0) {
             wantFood();
-        }
-        else if (i==2) say();
+        } else if (i == 2) say();
 
     }
 }

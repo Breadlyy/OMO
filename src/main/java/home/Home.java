@@ -23,7 +23,7 @@ public class Home {
     private List<Pet> pets = new ArrayList<>();
     private List<Floor> floors = new ArrayList<>();
     private List<Sensor> sensors = new ArrayList<>();
-    private List<SportStuff>sportStuff = new ArrayList<>();
+    private List<SportStuff> sportStuff = new ArrayList<>();
     protected Fire fire;
     protected GasLeak gasLeak;
     protected ShortCircuit shortCircuit;
@@ -65,6 +65,7 @@ public class Home {
 
     /**
      * returns example of home.
+     *
      * @return
      */
     public static Home getExample() {
@@ -77,25 +78,21 @@ public class Home {
     /**
      * generates report fot home at the current time. Saves it to file named with localdatetime.now()
      */
-    public void generateReport()
-    {
+    public void generateReport() {
         String rep = "";
-        rep+=father.generateReport();
-        rep+=mother.generateReport();
-        for(Child c: children) rep+=c.generateReport();
-        for(Stuff it = iterator.begin();it!=null ; it = iterator.next())
-            rep+=(it.generateReport()+'\n');
-        String time = LocalDateTime.now().toString().replace(':', '_').replace('.','_');
+        rep += father.generateReport();
+        rep += mother.generateReport();
+        for (Child c : children) rep += c.generateReport();
+        for (Stuff it = iterator.begin(); it != null; it = iterator.next())
+            rep += (it.generateReport() + '\n');
+        String time = LocalDateTime.now().toString().replace(':', '_').replace('.', '_');
 
-        String filename = "reports/"+ time;
-        try
-        {
+        String filename = "reports/" + time;
+        try {
             FileWriter f = new FileWriter(filename);
             f.write(rep);
             f.close();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
 
         }
@@ -103,27 +100,24 @@ public class Home {
 
     /**
      * adds floor to the house
+     *
      * @param floor
      */
-    protected void addFloor(Floor floor)
-    {
+    protected void addFloor(Floor floor) {
         floors.add(floor);
     }
 
-    protected void addChild(Child person)
-    {
+    protected void addChild(Child person) {
         this.children.add(person);
     }
 
-    protected void addPet(Pet pet)
-    {
+    protected void addPet(Pet pet) {
         this.pets.add(pet);
     }
 
-    public void clear()
-    {
-        father=null ;
-        mother=null;
+    public void clear() {
+        father = null;
+        mother = null;
         pets.clear();
         children.clear();
         floors.clear();
@@ -165,10 +159,10 @@ public class Home {
     public List<Pet> getPets() {
         return pets;
     }
-    public Adult getRandomPerson()
-    {
-        rand = (int)(Math.random() * 2);
-        if(rand == 0) return getFather();
+
+    public Adult getRandomPerson() {
+        rand = (int) (Math.random() * 2);
+        if (rand == 0) return getFather();
         return getMother();
     }
 
@@ -177,11 +171,11 @@ public class Home {
         Stuff tap = iterator.begin();
         while (tap != null) {
             if (tap instanceof Tap && !tap.active()) {
-                w.add ((Tap) tap);
+                w.add((Tap) tap);
             }
             tap = iterator.next();
         }
-        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
+        if (!w.isEmpty()) return w.get((int) (Math.random() * (w.size() - 1)));
         return null;
     }
 
@@ -191,36 +185,33 @@ public class Home {
         while (microwave != null) {
             if (microwave instanceof Microwave && !microwave.active()) {
 
-                w.add ((Microwave) microwave);
+                w.add((Microwave) microwave);
             }
             microwave = iterator.next();
         }
-        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
+        if (!w.isEmpty()) return w.get((int) (Math.random() * (w.size() - 1)));
         return null;
     }
-    
-    public SportStuff getRandomSportStuff()
-    {
-        for(SportStuff s: sportStuff)
-        {
-            if(!s.isBusy())
-            {
+
+    public SportStuff getRandomSportStuff() {
+        for (SportStuff s : sportStuff) {
+            if (!s.isBusy()) {
                 return s;
             }
         }
         return null;
     }
 
-   public GasHeater getRandomHeater() {
+    public GasHeater getRandomHeater() {
         List<GasHeater> w = new ArrayList<>();
         Stuff gasHeater = iterator.begin();
         while (gasHeater != null) {
             if (gasHeater instanceof GasHeater && !gasHeater.active()) {
-                w.add ((GasHeater) gasHeater);
+                w.add((GasHeater) gasHeater);
             }
             gasHeater = iterator.next();
         }
-        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
+        if (!w.isEmpty()) return w.get((int) (Math.random() * (w.size() - 1)));
         return null;
     }
 
@@ -230,11 +221,11 @@ public class Home {
         Stuff window = iterator.begin();
         while (window != null) {
             if (window instanceof Window && !window.active()) {
-                w.add ((Window) window);
+                w.add((Window) window);
             }
             window = iterator.next();
         }
-        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
+        if (!w.isEmpty()) return w.get((int) (Math.random() * (w.size() - 1)));
         return null;
     }
 
@@ -243,11 +234,11 @@ public class Home {
         Stuff oven = iterator.begin();
         while (oven != null) {
             if (oven instanceof Oven) {
-                w.add ((Oven) oven);
+                w.add((Oven) oven);
             }
             oven = iterator.next();
         }
-        if(!w.isEmpty()) return w.get((int)(Math.random()*(w.size()-1)));
+        if (!w.isEmpty()) return w.get((int) (Math.random() * (w.size() - 1)));
         return null;
     }
 

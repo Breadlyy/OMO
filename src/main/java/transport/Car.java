@@ -1,6 +1,6 @@
 package main.java.transport;
 
-public class Car extends Transport{
+public class Car extends Transport {
     private long speed;
     private String brand;
 

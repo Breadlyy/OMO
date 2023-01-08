@@ -34,19 +34,20 @@ public class Parser {
     private static final Logger log = Logger.getLogger(Parser.class.getName());
 
 
-    JSONObject jsonObject;
-    JSONArray jsonArray;
+    private JSONObject jsonObject;
+    private JSONArray jsonArray;
 
-    Map<Long, Human> human = new HashMap<>();
-    Map<Long, Stuff> allstuff = new HashMap<>();
-    Map<Long, SportStuff> sportstuff = new HashMap<>();
-    Map<Integer, Floor> floors = new HashMap<>();
-    Map<Integer, Room> rooms = new HashMap<>();
-    Map<Long, Sensor> sensors = new HashMap<>();
-    StuffFactory factory = new StuffFactory();
+    private Map<Long, Human> human = new HashMap<>();
+    private Map<Long, Stuff> allstuff = new HashMap<>();
+    private Map<Long, SportStuff> sportstuff = new HashMap<>();
+    private Map<Integer, Floor> floors = new HashMap<>();
+    private Map<Integer, Room> rooms = new HashMap<>();
+    private Map<Long, Sensor> sensors = new HashMap<>();
+    private StuffFactory factory = new StuffFactory();
 
     /**
      * Main method, returns house that is ready to simulation
+     *
      * @return
      */
     public Home getHome() {
@@ -63,8 +64,7 @@ public class Parser {
             getStuff(wholeFile);
             getSensors(wholeFile, builder);
             getSportStuff(wholeFile, builder);
-            for (Human h : human.values())
-            {
+            for (Human h : human.values()) {
                 h.setRoom(rooms.get(0));
             }
             return builder.getHome();
@@ -80,6 +80,7 @@ public class Parser {
 
     /**
      * adds people to the house
+     *
      * @param wholeFile
      * @param builder
      */
@@ -115,6 +116,7 @@ public class Parser {
 
     /**
      * adds cars to the house
+     *
      * @param wholeFile
      */
     public void getCars(JSONObject wholeFile) {
@@ -345,6 +347,7 @@ public class Parser {
 
     /**
      * adds sport stuff to the house
+     *
      * @param wholeFile
      * @param builder
      */

@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WindSensor extends Sensor {
-    List<Window> windows = new ArrayList<>();
-    public void add(Window window)
-    {
+    protected List<Window> windows = new ArrayList<>();
+
+    public void add(Window window) {
         windows.add(window);
     }
 

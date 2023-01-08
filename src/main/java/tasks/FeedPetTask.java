@@ -6,9 +6,8 @@ import main.java.humans.Adult;
 /**
  * Task to feed pet
  */
-public class FeedPetTask extends Task
-{
-    Pet p;
+public class FeedPetTask extends Task {
+    private Pet p;
 
     public FeedPetTask(Adult human, int complexity, int priority, Pet p) {
         super(human, complexity, priority);
@@ -16,8 +15,7 @@ public class FeedPetTask extends Task
     }
 
     @Override
-    public void run()
-    {
+    public void run() {
         human.feedPet(p);
     }
 }

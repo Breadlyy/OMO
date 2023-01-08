@@ -18,6 +18,7 @@ public abstract class Human {
     protected Home home;
     protected long passNo;
     protected List<Transport> transports = new ArrayList<>();
+
     public Human(String name, String surname, long pass) {
         this.name = name;
         this.surname = surname;
@@ -26,26 +27,27 @@ public abstract class Human {
 
     /**
      * addds transport owned
+     *
      * @param t
      */
-    public  void  addTransport(Transport t)
-    {
+    public void addTransport(Transport t) {
         transports.add(t);
         t.addOwner(this);
     }
 
     /**
      * moves to other room
+     *
      * @param room
      */
-    public void moveTo(Room room)
-    {
+    public void moveTo(Room room) {
         System.out.println(name + " moved to floor " + room.getFloor().getNumber());
         this.room = room;
     }
 
     /**
      * returns actual floor where human is
+     *
      * @return
      */
     public Room getRoom() {
@@ -54,6 +56,7 @@ public abstract class Human {
 
     /**
      * Used in builder. Sets people's room, but without writing to console
+     *
      * @param room
      */
     public void setRoom(Room room) {
@@ -62,10 +65,10 @@ public abstract class Human {
 
     /**
      * assigns people to home
+     *
      * @param home
      */
-    public void setHome(Home home)
-    {
+    public void setHome(Home home) {
         this.home = home;
     }
 
@@ -105,17 +108,16 @@ public abstract class Human {
     /**
      * Overrided
      */
-    public void eat()
-    {
+    public void eat() {
         return;
     }
 
     /**
      * returns actual information about person.
+     *
      * @return
      */
-    public String generateReport()
-    {
-        return getClass().getSimpleName() + " "+ name + " " + surname + " born in " + getBday() + " passNum "+ getPassNo() + " actually on the " + getRoom().getFloor() + " hunger rate "+ hungerRate+"\n";
+    public String generateReport() {
+        return getClass().getSimpleName() + " " + name + " " + surname + " born in " + getBday() + " passNum " + getPassNo() + " actually on the " + getRoom().getFloor() + " hunger rate " + hungerRate + "\n";
     }
 }

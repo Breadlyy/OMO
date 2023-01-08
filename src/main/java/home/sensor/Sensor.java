@@ -15,17 +15,14 @@ public class Sensor implements ISensor {
         this.stuff = new ArrayList<>();
     }
 
-    public void notifySensor()
-    {
+    public void notifySensor() {
         System.out.println(text);
-        for(Stuff s: stuff)
-        {
+        for (Stuff s : stuff) {
             s.notifyStuff();
         }
     }
 
-    public void add(Stuff s)
-    {
+    public void add(Stuff s) {
         stuff.add(s);
     }
 

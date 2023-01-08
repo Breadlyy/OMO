@@ -3,7 +3,7 @@ package main.java.home.stuff;
 /**
  * window is no that standart stuff, but it also consumes energy when it opens or closes
  */
-public class Window extends Stuff{
+public class Window extends Stuff {
     private int height;
     private int width;
     private boolean opened;
@@ -16,21 +16,19 @@ public class Window extends Stuff{
     /**
      * opens window
      */
-    public void open()
-    {
+    public void open() {
         this.opened = true;
-        consumedEnergy+=7;
-        System.out.println("Window "+getId()+ " opened");
+        consumedEnergy += 7;
+        System.out.println("Window " + getId() + " opened");
     }
 
     /**
      * closes window
      */
-    public void close()
-    {
-        consumedEnergy+=7;
+    public void close() {
+        consumedEnergy += 7;
         this.opened = false;
-        System.out.println("Window "+getId()+ " closed");
+        System.out.println("Window " + getId() + " closed");
     }
 
     public Shutter getShutter() {
@@ -42,6 +40,6 @@ public class Window extends Stuff{
     }
 
     public String generateReport() {
-        return  getClass().getSimpleName()+" "+ getId() + " consumed " + consumedEnergy + (opened?" opened":" closed");
+        return getClass().getSimpleName() + " " + getId() + " consumed " + consumedEnergy + (opened ? " opened" : " closed");
     }
 }

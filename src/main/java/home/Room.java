@@ -15,6 +15,7 @@ public class Room {
 
     /**
      * Constructor with final parameters
+     *
      * @param height
      * @param width
      * @param length
@@ -55,24 +56,22 @@ public class Room {
 
     /**
      * adds stuff to room. Setf stuff room to this
+     *
      * @param stuff
      */
-    public void addStuff(Stuff stuff)
-    {
+    public void addStuff(Stuff stuff) {
         this.stuff.add(stuff);
         stuff.setRoom(this);
     }
 
     /**
      * removes stuff from rhis room
+     *
      * @param stuff
      */
-    public void removeStuff(Stuff stuff)
-    {
+    public void removeStuff(Stuff stuff) {
         this.stuff.remove(stuff);
     }
-
-
 
 
 }

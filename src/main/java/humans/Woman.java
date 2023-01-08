@@ -10,11 +10,9 @@ public class Woman extends Adult {
 
     public void enqueueTask(Task t) {
 
-        if(taskQueue.size()>1 && home.getFather().taskQueue.isEmpty())
-        {
+        if (taskQueue.size() > 1 && home.getFather().taskQueue.isEmpty()) {
             home.getFather().enqueueTask(t);
             System.out.println("Mother asked dad to take her task");
-        }
-        else taskQueue.add(t);
+        } else taskQueue.add(t);
     }
 }

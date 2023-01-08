@@ -18,10 +18,11 @@ public abstract class Stuff {
 
     /**
      * Reports on it's state
+     *
      * @return
      */
     public String generateReport() {
-        return  getClass().getSimpleName()+" "+ id + " consumed " + consumedEnergy + " isactive " + state.active() + " broken " + state.broken();
+        return getClass().getSimpleName() + " " + id + " consumed " + consumedEnergy + " isactive " + state.active() + " broken " + state.broken();
     }
 
     public double getEnergyConsumption() {
@@ -63,8 +64,8 @@ public abstract class Stuff {
     }
 
     /**
-     *  Changes stuff state to idle
-     *  adds durability
+     * Changes stuff state to idle
+     * adds durability
      */
     public void repairThis() {
         durability = 100;
@@ -88,21 +89,18 @@ public abstract class Stuff {
     }
 
 
-    public boolean isOff()
-    {
-        return state.getState()==StuffState.getOff();
+    public boolean isOff() {
+        return state.getState() == StuffState.getOff();
     }
 
-    public boolean idIdle()
-    {
-        return state.getState()== StuffState.getIdle();
+    public boolean idIdle() {
+        return state.getState() == StuffState.getIdle();
     }
 
     /**
      * run based on stuff state
      */
-    public void run()
-    {
+    public void run() {
         state.handle(this);
     }
 
@@ -126,6 +124,7 @@ public abstract class Stuff {
 
     /**
      * Returns if stuff is broken
+     *
      * @return
      */
     public boolean checkDurability() {
@@ -139,6 +138,7 @@ public abstract class Stuff {
 
     /**
      * Returns stuff location
+     *
      * @return
      */
     public Room getRoom() {
@@ -147,6 +147,7 @@ public abstract class Stuff {
 
     /**
      * sets stuff location
+     *
      * @param room
      */
     public void setRoom(Room room) {
@@ -163,10 +164,10 @@ public abstract class Stuff {
 
     /**
      * rrturns if actual state is active
+     *
      * @return
      */
-    public boolean active()
-    {
+    public boolean active() {
         return state.active();
     }
 
@@ -174,7 +175,7 @@ public abstract class Stuff {
      * Consumes energu when IDLE state
      */
     public void runIDLE() {
-        consumedEnergy+=energyConsumption/2;
+        consumedEnergy += energyConsumption / 2;
     }
 
     public StuffState.State getState() {

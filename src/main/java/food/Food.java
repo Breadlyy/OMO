@@ -7,11 +7,11 @@ import java.util.Random;
  */
 public class Food {
 
-    public Food()
-    {
-        cooked = (int)Math.random()*30+20;
+    public Food() {
+        cooked = (int) Math.random() * 30 + 20;
         setCooked(100);
     }
+
     private int cooked;
 
     public int getCooked() {
@@ -19,6 +19,6 @@ public class Food {
     }
 
     public void setCooked(int cooked) {
-        this.cooked = cooked*2;
+        this.cooked = cooked * 2;
     }
 }

@@ -6,14 +6,15 @@ import main.java.humans.Adult;
 /**
  * Task to close heater
  */
-public class CloseHeaterTask extends Task{
-    GasHeater gasHeater;
+public class CloseHeaterTask extends Task {
+    private GasHeater gasHeater;
+
     public CloseHeaterTask(Adult human, int complexity, int priority, GasHeater gasHeater) {
         super(human, complexity, priority);
         this.gasHeater = gasHeater;
     }
-    public void run()
-    {
+
+    public void run() {
         human.turnHeatingOff(gasHeater);
     }
 }

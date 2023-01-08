@@ -6,57 +6,55 @@ import main.java.home.stuff.Stuff;
  * controls  stuff behaviour
  */
 public class StuffState {
-    protected enum State
-    {
+    protected enum State {
         WORK,
         IDLE,
         OFF,
         BROKE
     }
 
-    public static State getOff()
-    {
+    public static State getOff() {
         return State.OFF;
     }
-    public static State getIdle()
-    {
+
+    public static State getIdle() {
         return State.IDLE;
     }
+
     private State state;
 
     /**
      * initially stuff is in IDLE state
      */
     public StuffState() {
-       state = State.IDLE;
+        state = State.IDLE;
     }
 
 
     /**
      * run based on IDLE
+     *
      * @param stuff
      */
-    public void handle(Stuff stuff)
-    {
-        if(state==State.WORK) stuff.runEnabled();
-        else if (state==State.IDLE) stuff.runIDLE();
+    public void handle(Stuff stuff) {
+        if (state == State.WORK) stuff.runEnabled();
+        else if (state == State.IDLE) stuff.runIDLE();
     }
 
-    public void turnOn()
-    {
-        if(state==State.IDLE) state = State.WORK;
+    public void turnOn() {
+        if (state == State.IDLE) state = State.WORK;
     }
 
     public void turnOff() {
-        if(state==State.WORK) state = State.IDLE;
+        if (state == State.WORK) state = State.IDLE;
     }
 
     public void powerOn() {
-        if(state==State.OFF) state = State.IDLE;
+        if (state == State.OFF) state = State.IDLE;
     }
 
     public void powerOff() {
-        if(state==State.IDLE || state==State.WORK) state = State.OFF;
+        if (state == State.IDLE || state == State.WORK) state = State.OFF;
     }
 
     public void breakThing() {
@@ -64,21 +62,19 @@ public class StuffState {
     }
 
     public void repair() {
-        if(state==State.BROKE) state = State.OFF;
+        if (state == State.BROKE) state = State.OFF;
     }
 
-    public boolean active()
-    {
-        return state==State.WORK;
+    public boolean active() {
+        return state == State.WORK;
     }
 
-    public boolean broken()
-    {
-        return state==State.BROKE;
+    public boolean broken() {
+        return state == State.BROKE;
     }
-    public State getState()
-    {
-        return  state;
+
+    public State getState() {
+        return state;
     }
 
 }

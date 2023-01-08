@@ -4,5 +4,4 @@ public class WindBlow extends Event {
     public WindBlow() {
         text = "Wind blew!";
     }
-
 }
